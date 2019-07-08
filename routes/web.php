@@ -12,5 +12,25 @@
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('index');
 });
+Route::get('/tables', function () {
+    return view('tables');
+});
+/*Route::get('/login', function () {
+    return view('login');
+});
+
+Route::get('/blank', function () {
+    return view('blank');
+});
+Route::get('/charts', function () {
+    return view('charts');
+});
+Route::get('/forgot', function () {
+    return view('forgot-password');
+});
+Route::get('/register', function () {
+    return view('register');
+});
+*/
