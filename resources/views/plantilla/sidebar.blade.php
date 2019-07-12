@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 <nav class="side-navbar box-scroll sidebar-scroll">
                         <!-- Begin Main Navigation -->
                         <ul class="list-unstyled">
@@ -161,4 +160,3 @@
       </li>
       
     </ul>
->>>>>>> d31da2bff71867c3d940696fb940546a2e4f8940
