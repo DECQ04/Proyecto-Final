@@ -10,7 +10,7 @@ Author: SAEROX
     <head>
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <title>Elisyam - Profile</title>
+        <title>Elisyam - Components Modals</title>
         <meta name="description" content="Elisyam is a Web App and Admin Dashboard Template built with Bootstrap 4">
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
         <!-- Google Fonts -->
@@ -30,8 +30,6 @@ Author: SAEROX
         <!-- Stylesheet -->
         <link rel="stylesheet" href="assets/vendors/css/base/bootstrap.min.css">
         <link rel="stylesheet" href="assets/vendors/css/base/elisyam-1.5.min.css">
-        <link rel="stylesheet" href="assets/css/owl-carousel/owl.carousel.min.css">
-        <link rel="stylesheet" href="assets/css/owl-carousel/owl.theme.min.css">
         <!-- Tweaks for older IEs--><!--[if lt IE 9]>
         <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
         <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script><![endif]-->
@@ -223,11 +221,11 @@ Author: SAEROX
                         </ul>
                         <span class="heading">Components</span>
                         <ul class="list-unstyled">
-                            <li><a href="#dropdown-ui" aria-expanded="false" data-toggle="collapse"><i class="la la-share-alt"></i><span>UI Elements</span></a>
-                                <ul id="dropdown-ui" class="collapse list-unstyled pt-0">
+                            <li class="active"><a href="#dropdown-ui" aria-expanded="true" data-toggle="collapse"><i class="la la-share-alt"></i><span>UI Elements</span></a>
+                                <ul id="dropdown-ui" class="collapse list-unstyled show pt-0">
                                     <li><a href="components-buttons.html">Buttons</a></li>
                                     <li><a href="components-alerts.html">Alerts</a></li>
-                                    <li><a href="components-modal.html">Modal</a></li>
+                                    <li><a class="active" href="components-modal.html">Modal</a></li>
                                     <li><a href="components-notifications.html">Noty</a></li>
                                     <li><a href="components-timeline.html">Timeline</a></li>
                                     <li><a href="components-progress.html">Progress</a></li>
@@ -276,10 +274,10 @@ Author: SAEROX
                                     <li><a href="pages-mail-confirm.html">Mail Confirmation</a></li>
                                 </ul>
                             </li>
-                            <li class="active"><a href="#dropdown-generic" aria-expanded="true" data-toggle="collapse"><i class="la la-file-text"></i><span>Generic</span></a>
-                                <ul id="dropdown-generic" class="collapse list-unstyled show pt-0">
+                            <li><a href="#dropdown-generic" aria-expanded="false" data-toggle="collapse"><i class="la la-file-text"></i><span>Generic</span></a>
+                                <ul id="dropdown-generic" class="collapse list-unstyled pt-0">
                                     <li><a href="pages-coming-soon.html">Coming Soon</a></li>
-                                    <li><a class="active" href="pages-profile.html">Profile</a></li>
+                                    <li><a href="pages-profile.html">Profile</a></li>
                                     <li><a href="pages-invoice.html">Invoice</a></li>
                                     <li><a href="pages-search.html">Search</a></li>
                                     <li><a href="pages-faq.html">FAQ</a></li>
@@ -320,149 +318,92 @@ Author: SAEROX
                     <!-- End Side Navbar -->
                 </div>
                 <!-- End Left Sidebar -->
-                <!-- Begin Content -->
-                <div class="content-inner profile">
+                <div class="content-inner">
                     <div class="container-fluid">
                         <!-- Begin Page Header-->
                         <div class="row">
                             <div class="page-header">
-                                <div class="d-flex align-items-center">
-                                    <h2 class="page-header-title">Profile</h2>
-                                    <div>
-                                        <ul class="breadcrumb">
-                                            <li class="breadcrumb-item"><a href="db-default.html"><i class="ti ti-home"></i></a></li>
-                                            <li class="breadcrumb-item"><a href="#">Pages</a></li>
-                                            <li class="breadcrumb-item active">Profile</li>
-                                        </ul>
-                                    </div>
-                                </div>
+	                            <div class="d-flex align-items-center">
+	                                <h2 class="page-header-title">Modals</h2>
+	                                <div>
+			                            <ul class="breadcrumb">
+			                                <li class="breadcrumb-item"><a href="db-default.html"><i class="ti ti-home"></i></a></li>
+			                                <li class="breadcrumb-item"><a href="#">Components</a></li>
+			                                <li class="breadcrumb-item active">Modals</li>
+			                            </ul>
+	                                </div>
+	                            </div>
                             </div>
                         </div>
                         <!-- End Page Header -->
                         <div class="row flex-row">
-                            <div class="col-xl-3">
-                                <!-- Begin Widget -->
-                                <div class="widget has-shadow">
-                                    <div class="widget-body">
-                                        <div class="mt-5">
-                                            <img src="assets/img/avatar/avatar-01.jpg" alt="..." style="width: 120px;" class="avatar rounded-circle d-block mx-auto">
-                                        </div>
-                                        <h3 class="text-center mt-3 mb-1">David Green</h3>
-                                        <p class="text-center">dgreen@example.com</p>
-                                        <div class="em-separator separator-dashed"></div>
-                                        <ul class="nav flex-column">
-                                            <li class="nav-item">
-                                                <a class="nav-link" href="javascript:void(0)"><i class="la la-bell la-2x align-middle pr-2"></i>Notifications</a>
-                                            </li>
-                                            <li class="nav-item">
-                                                <a class="nav-link" href="javascript:void(0)"><i class="la la-bolt la-2x align-middle pr-2"></i>Activity</a>
-                                            </li>
-                                            <li class="nav-item">
-                                                <a class="nav-link" href="javascript:void(0)"><i class="la la-comments la-2x align-middle pr-2"></i>Messages</a>
-                                            </li>
-                                            <li class="nav-item">
-                                                <a class="nav-link" href="javascript:void(0)"><i class="la la-bar-chart la-2x align-middle pr-2"></i>Statistics</a>
-                                            </li>
-                                            <li class="nav-item">
-                                                <a class="nav-link" href="javascript:void(0)"><i class="la la-clipboard la-2x align-middle pr-2"></i>Tasks</a>
-                                            </li>
-                                            <li class="nav-item">
-                                                <a class="nav-link" href="javascript:void(0)"><i class="la la-gears la-2x align-middle pr-2"></i>Settings</a>
-                                            </li>
-                                            <li class="nav-item">
-                                                <a class="nav-link" href="javascript:void(0)"><i class="la la-question-circle la-2x align-middle pr-2"></i>FAQ</a>
-                                            </li>
-                                        </ul>
-                                    </div>
-                                </div>
-                                <!-- End Widget -->
-                            </div>
-                            <div class="col-xl-9">
+                            <div class="col-12">
+                                <!-- Modal -->
                                 <div class="widget has-shadow">
                                     <div class="widget-header bordered no-actions d-flex align-items-center">
-                                        <h4>Update Profile</h4>
+                                        <h4>Modals Example</h4>
                                     </div>
                                     <div class="widget-body">
-                                        <div class="col-10 ml-auto">
-                                            <div class="section-title mt-3 mb-3">
-                                                <h4>01. Personnal Informations</h4>
+                                        <!-- Begin Basic Modal -->
+                                        <div class="row">
+                                            <div class="col-xl-4 d-flex align-items-center mb-3">
+                                                <p class="text-dark mb-0">Basic Modal</p>
+                                            </div>
+                                            <div class="col-xl-8 d-flex align-items-center mb-3">
+                                                <button type="button" class="btn btn-shadow" data-toggle="modal" data-target="#basic-modal">Launch Modal</button>
                                             </div>
                                         </div>
-                                        <form class="form-horizontal">
-                                            <div class="form-group row d-flex align-items-center mb-5">
-                                                <label class="col-lg-2 form-control-label d-flex justify-content-lg-end">Full Name</label>
-                                                <div class="col-lg-6">
-                                                    <input type="text" class="form-control" placeholder="David Green">
-                                                </div>
+                                        <!-- End Basic Modal -->
+                                        <!-- Begin Scrolling Modal -->
+                                        
+                                        <!-- End Scrolling Modal -->
+                                        <!-- Begin Centered Modal -->
+                                      
+                                        <!-- End Centered Modal -->
+                                        <!-- Begin Small Modal -->
+                                       
+                                        <!-- End Small Modal -->
+                                        <!-- Begin Large Modal -->
+                                        <div class="row">
+                                            <div class="col-xl-4 d-flex align-items-center mb-3">
+                                                <p class="text-dark mb-0">Large Modal</p>
                                             </div>
-                                            <div class="form-group row d-flex align-items-center mb-5">
-                                                <label class="col-lg-2 form-control-label d-flex justify-content-lg-end">Email</label>
-                                                <div class="col-lg-6">
-                                                    <input type="text" class="form-control" placeholder="dgreen@mail.com">
-                                                </div>
-                                            </div>
-                                            <div class="form-group row d-flex align-items-center mb-5">
-                                                <label class="col-lg-2 form-control-label d-flex justify-content-lg-end">Phone</label>
-                                                <div class="col-lg-6">
-                                                    <input type="text" class="form-control" placeholder="+00 987 654 32">
-                                                </div>
-                                            </div>
-                                            <div class="form-group row d-flex align-items-center mb-5">
-                                                <label class="col-lg-2 form-control-label d-flex justify-content-lg-end">Website</label>
-                                                <div class="col-lg-6">
-                                                    <input type="text" class="form-control" placeholder="www.website.com">
-                                                </div>
-                                            </div>
-                                        </form>
-                                        <div class="col-10 ml-auto">
-                                            <div class="section-title mt-3 mb-3">
-                                                <h4>02. Address Informations</h4>
+                                            <div class="col-xl-8 d-flex align-items-center mb-3">
+                                                <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#modal-large">Launch Modal</button>
                                             </div>
                                         </div>
-                                        <form class="form-horizontal">
-                                            <div class="form-group row d-flex align-items-center mb-5">
-                                                <label class="col-lg-2 form-control-label d-flex justify-content-lg-end">Address</label>
-                                                <div class="col-lg-6">
-                                                    <input type="text" class="form-control" placeholder="123 Century Blvd">
-                                                </div>
+                                        <!-- End Large Modal -->
+                                        <!-- Begin Success Modal -->
+                                        <div class="row">
+                                            <div class="col-xl-4 d-flex align-items-center mb-3">
+                                                <p class="text-dark mb-0">Modal Validation Form</p>
                                             </div>
-                                            <div class="form-group row d-flex align-items-center mb-5">
-                                                <label class="col-lg-2 form-control-label d-flex justify-content-lg-end">City</label>
-                                                <div class="col-lg-6">
-                                                    <input type="text" class="form-control" placeholder="Los Angeles">
-                                                </div>
+                                            <div class="col-xl-8 d-flex align-items-center mb-3">
+                                                <button type="button" class="btn btn-success" data-toggle="modal" data-target="#success-modal">Launch Modal</button>
                                             </div>
-                                            <div class="form-group row d-flex align-items-center mb-5">
-                                                <label class="col-lg-2 form-control-label d-flex justify-content-lg-end">State</label>
-                                                <div class="col-lg-6">
-                                                    <input type="text" class="form-control" placeholder="California">
-                                                </div>
-                                            </div>
-                                            <div class="form-group row d-flex align-items-center mb-5">
-                                                <label class="col-lg-2 form-control-label d-flex justify-content-lg-end">Zip</label>
-                                                <div class="col-lg-6">
-                                                    <input type="text" class="form-control" placeholder="90045">
-                                                </div>
-                                            </div>
-                                        </form>
-                                        <div class="em-separator separator-dashed"></div>
-                                        <div class="text-right">
-                                            <button class="btn btn-gradient-01" type="submit">Save Changes</button>
-                                            <button class="btn btn-shadow" type="reset">Cancel</button>
                                         </div>
+                                        <!-- End Success Modal -->
+                                        <!-- Begin Auto Close Modal -->
+                                        <div class="row">
+                                            <div class="col-xl-4 d-flex align-items-center mb-3">
+                                                <p class="text-dark mb-0">Modal Auto Close</p>
+                                            </div>
+                                            <div class="col-xl-8 d-flex align-items-center mb-3">
+                                                <button type="button" class="btn btn-gradient-01" data-toggle="modal" data-target="#delay-modal">Launch Modal</button>
+                                            </div>
+                                        </div>
+                                        <!-- End Auto Close Modal -->
                                     </div>
                                 </div>
+                                <!-- End Modal -->
                             </div>
                         </div>
                         <!-- End Row -->
                     </div>
                     <!-- End Container -->
                     <!-- Begin Page Footer-->
-                    <footer class="main-footer">
+                    <footer class="main-footer fixed-footer">
                         <div class="row">
-                            <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 d-flex align-items-center justify-content-xl-start justify-content-lg-start justify-content-md-start justify-content-center">
-                                <p class="text-gradient-02">Design By Saerox</p>
-                            </div>
                             <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 d-flex align-items-center justify-content-xl-end justify-content-lg-end justify-content-md-end justify-content-center">
                                 <ul class="nav">
                                     <li class="nav-item">
@@ -746,21 +687,106 @@ Author: SAEROX
                     </div>
                     <!-- End Offcanvas Sidebar -->
                 </div>
-                <!-- End Content -->
             </div>
             <!-- End Page Content -->
         </div>
+        <!-- Begin Basic Modal -->
+        <div id="basic-modal" class="modal modal-top fade">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h4 class="modal-title">Modal Title</h4>
+                        <button type="button" class="close" data-dismiss="modal">
+                            <span aria-hidden="true">×</span>
+                            <span class="sr-only">close</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <p>
+                            Donec non lectus nec est porta eleifend. Morbi ut dictum augue, feugiat condimentum est. Pellentesque tincidunt justo nec aliquet tincidunt. Integer dapibus tellus non neque pulvinar mollis. Maecenas dictum laoreet diam, non convallis lorem sagittis nec. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Nunc venenatis lacus arcu, nec ultricies dui vehicula vitae.
+                        </p>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-shadow" data-dismiss="modal">Close</button>
+                        <button type="button" class="btn btn-primary">Save</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- End Basic Modal -->
+      
+        <!-- Begin Large Modal -->
+        <div id="modal-large" class="modal fade">
+            <div class="modal-dialog modal-lg">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h4 class="modal-title">Modal Title</h4>
+                        <button type="button" class="close" data-dismiss="modal">
+                            <span aria-hidden="true">×</span>
+                            <span class="sr-only">close</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <p>
+                            Donec non lectus nec est porta eleifend. Morbi ut dictum augue, feugiat condimentum est. Pellentesque tincidunt justo nec aliquet tincidunt. Integer dapibus tellus non neque pulvinar mollis. Maecenas dictum laoreet diam, non convallis lorem sagittis nec. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Nunc venenatis lacus arcu, nec ultricies dui vehicula vitae.
+                        </p>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-shadow" data-dismiss="modal">Close</button>
+                        <button type="button" class="btn btn-primary">Save</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- End Large Modal -->
+        <!-- Begin Success Modal -->
+        <div id="success-modal" class="modal fade">
+            <div class="modal-dialog modal-dialog-centered">
+                <div class="modal-content">
+                    <div class="modal-body text-center">
+                        <div class="sa-icon sa-success animate" style="display: block;">
+                            <span class="sa-line sa-tip animateSuccessTip"></span>
+                            <span class="sa-line sa-long animateSuccessLong"></span>
+                            <div class="sa-placeholder"></div>
+                            <div class="sa-fix"></div>
+                        </div>
+                        <div class="section-title mt-5 mb-2">
+                            <h2 class="text-gradient-02">Thank you!</h2>
+                        </div>
+                        <p class="mb-5">The form was submitted successfully</p>
+                        <button type="button" class="btn btn-shadow mb-3" data-dismiss="modal">Ok</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- End Success Modal -->
+        <!-- Begin Auto Close Modal -->
+        <div id="delay-modal" class="modal fade">
+            <div class="modal-dialog modal-dialog-centered">
+                <div class="modal-content">
+                    <div class="modal-body text-center">
+                        <div class="sa-icon sa-success animate" style="display: block;">
+                            <span class="sa-line sa-tip animateSuccessTip"></span>
+                            <span class="sa-line sa-long animateSuccessLong"></span>
+                            <div class="sa-placeholder"></div>
+                            <div class="sa-fix"></div>
+                        </div>
+                        <div class="section-title mt-5 mb-2">
+                            <h2 class="text-gradient-01">Hello!</h2>
+                        </div>
+                        <p class="mb-5">And GoodBye :)</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- End Auto Close Modal -->
         <!-- Begin Vendor Js -->
         <script src="assets/vendors/js/base/jquery.min.js"></script>
         <script src="assets/vendors/js/base/core.min.js"></script>
         <!-- End Vendor Js -->
         <!-- Begin Page Vendor Js -->
         <script src="assets/vendors/js/nicescroll/nicescroll.min.js"></script>
-        <script src="assets/vendors/js/owl-carousel/owl.carousel.min.js"></script>
         <script src="assets/vendors/js/app/app.min.js"></script>
         <!-- End Page Vendor Js -->
-        <!-- Begin Page Snippets -->
-        <script src="assets/js/app/contact/contact.min.js"></script>
-        <!-- End Page Snippets -->
     </body>
 </html>

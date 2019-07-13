@@ -10,7 +10,7 @@ Author: SAEROX
     <head>
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <title>Elisyam - Profile</title>
+        <title>Elisyam - Invoice</title>
         <meta name="description" content="Elisyam is a Web App and Admin Dashboard Template built with Bootstrap 4">
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
         <!-- Google Fonts -->
@@ -30,8 +30,6 @@ Author: SAEROX
         <!-- Stylesheet -->
         <link rel="stylesheet" href="assets/vendors/css/base/bootstrap.min.css">
         <link rel="stylesheet" href="assets/vendors/css/base/elisyam-1.5.min.css">
-        <link rel="stylesheet" href="assets/css/owl-carousel/owl.carousel.min.css">
-        <link rel="stylesheet" href="assets/css/owl-carousel/owl.theme.min.css">
         <!-- Tweaks for older IEs--><!--[if lt IE 9]>
         <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
         <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script><![endif]-->
@@ -279,8 +277,8 @@ Author: SAEROX
                             <li class="active"><a href="#dropdown-generic" aria-expanded="true" data-toggle="collapse"><i class="la la-file-text"></i><span>Generic</span></a>
                                 <ul id="dropdown-generic" class="collapse list-unstyled show pt-0">
                                     <li><a href="pages-coming-soon.html">Coming Soon</a></li>
-                                    <li><a class="active" href="pages-profile.html">Profile</a></li>
-                                    <li><a href="pages-invoice.html">Invoice</a></li>
+                                    <li><a href="pages-profile.html">Profile</a></li>
+                                    <li><a class="active" href="pages-invoice.html">Invoice</a></li>
                                     <li><a href="pages-search.html">Search</a></li>
                                     <li><a href="pages-faq.html">FAQ</a></li>
                                     <li><a href="pages-blank.html">Blank</a></li>
@@ -320,138 +318,195 @@ Author: SAEROX
                     <!-- End Side Navbar -->
                 </div>
                 <!-- End Left Sidebar -->
-                <!-- Begin Content -->
-                <div class="content-inner profile">
+                <div class="content-inner">
                     <div class="container-fluid">
                         <!-- Begin Page Header-->
                         <div class="row">
                             <div class="page-header">
-                                <div class="d-flex align-items-center">
-                                    <h2 class="page-header-title">Profile</h2>
-                                    <div>
-                                        <ul class="breadcrumb">
-                                            <li class="breadcrumb-item"><a href="db-default.html"><i class="ti ti-home"></i></a></li>
-                                            <li class="breadcrumb-item"><a href="#">Pages</a></li>
-                                            <li class="breadcrumb-item active">Profile</li>
-                                        </ul>
-                                    </div>
-                                </div>
+	                            <div class="d-flex align-items-center">
+	                                <h2 class="page-header-title">Invoice</h2>
+	                                <div>
+			                            <ul class="breadcrumb">
+			                                <li class="breadcrumb-item"><a href="db-default.html"><i class="ti ti-home"></i></a></li>
+			                                <li class="breadcrumb-item"><a href="#">Pages</a></li>
+			                                <li class="breadcrumb-item active">Invoice</li>
+			                            </ul>
+	                                </div>
+	                            </div>
                             </div>
                         </div>
                         <!-- End Page Header -->
-                        <div class="row flex-row">
-                            <div class="col-xl-3">
-                                <!-- Begin Widget -->
-                                <div class="widget has-shadow">
-                                    <div class="widget-body">
-                                        <div class="mt-5">
-                                            <img src="assets/img/avatar/avatar-01.jpg" alt="..." style="width: 120px;" class="avatar rounded-circle d-block mx-auto">
+                        <div class="row">
+                            <div class="col-xl-12">
+                                <!-- Begin Invoice -->
+                                <div class="invoice has-shadow">
+                                    <!-- Begin Invoice COntainer -->
+                                    <div class="invoice-container">
+                                        <!-- Begin Invoice Top -->
+	                                    <div class="invoice-top">
+                                            <div class="row d-flex align-items-center">
+                                                <div class="col-xl-6 col-md-6 col-sm-6 col-6">
+        	                                        <h1>Invoice</h1>
+        	                                        <span>NO. EM0954</span>
+                                                </div>
+                                                <div class="col-xl-6 col-md-6 col-sm-6 col-6 d-flex justify-content-end">
+                                                    <div class="actions dark">
+                                                        <div class="dropdown">
+                                                            <button type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="dropdown-toggle">
+                                                                <i class="la la-ellipsis-h"></i>
+                                                            </button>
+                                                            <div class="dropdown-menu">
+                                                                <a href="#" class="dropdown-item"> 
+                                                                    <i class="la la-print"></i>Print
+                                                                </a>
+                                                                <a href="#" class="dropdown-item"> 
+                                                                    <i class="la la-download"></i>Download
+                                                                </a>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+	                                    </div>
+                                        <!-- End Invoice Top -->
+                                        <!-- Begin Invoice Header -->
+                                        <div class="invoice-header">
+                                        	<div class="row d-flex align-items-center">
+	                                        	<div class="col-xl-2 col-md-2 col-sm-12 d-flex justify-content-xl-start justify-content-md-center justify-content-center mb-2">
+		                                        	<div class="invoice-logo">
+		                                                <img src="assets/img/logo.png" alt="logo">
+		                                            </div>
+		                                        </div>
+		                                        <div class="col-xl-5 col-md-5 col-sm-6 d-flex justify-content-xl-start justify-content-md-center justify-content-center mb-2">
+		                                            <div class="details">
+		                                            	<ul>
+		                                                    <li class="company-name">Elisyam inc.</li>
+		                                                    <li>954 Awesome Street Name</li>
+		                                                    <li>San Francisco, CA 94103</li>
+		                                                    <li>Email: hello@example.com</li>
+		                                                    <li>www.be-elisyam.com</li>
+		                                                </ul>
+		                                            </div>
+	                                            </div>
+	                                            <div class="col-xl-5 col-md-5 col-sm-6 d-flex justify-content-xl-end justify-content-md-end justify-content-center mb-2">
+	                                                <div class="client-details">
+	                                                    <ul>
+	                                                    	<li class="title">To.</li>
+		                                                    <li>Philip Jensen</li>
+		                                                    <li>123 Century Blvd</li>
+		                                                    <li>Los Angeles, CA 90045</li>
+		                                                    <li>Phone: +00 987 654 32</li>
+		                                                    <li>Email: philip@xample.com</li>
+	                                                    </ul>
+	                                                </div>
+	                                            </div>
+                                            </div>
                                         </div>
-                                        <h3 class="text-center mt-3 mb-1">David Green</h3>
-                                        <p class="text-center">dgreen@example.com</p>
-                                        <div class="em-separator separator-dashed"></div>
-                                        <ul class="nav flex-column">
-                                            <li class="nav-item">
-                                                <a class="nav-link" href="javascript:void(0)"><i class="la la-bell la-2x align-middle pr-2"></i>Notifications</a>
-                                            </li>
-                                            <li class="nav-item">
-                                                <a class="nav-link" href="javascript:void(0)"><i class="la la-bolt la-2x align-middle pr-2"></i>Activity</a>
-                                            </li>
-                                            <li class="nav-item">
-                                                <a class="nav-link" href="javascript:void(0)"><i class="la la-comments la-2x align-middle pr-2"></i>Messages</a>
-                                            </li>
-                                            <li class="nav-item">
-                                                <a class="nav-link" href="javascript:void(0)"><i class="la la-bar-chart la-2x align-middle pr-2"></i>Statistics</a>
-                                            </li>
-                                            <li class="nav-item">
-                                                <a class="nav-link" href="javascript:void(0)"><i class="la la-clipboard la-2x align-middle pr-2"></i>Tasks</a>
-                                            </li>
-                                            <li class="nav-item">
-                                                <a class="nav-link" href="javascript:void(0)"><i class="la la-gears la-2x align-middle pr-2"></i>Settings</a>
-                                            </li>
-                                            <li class="nav-item">
-                                                <a class="nav-link" href="javascript:void(0)"><i class="la la-question-circle la-2x align-middle pr-2"></i>FAQ</a>
-                                            </li>
-                                        </ul>
+                                        <!-- End Invoice Header -->
+                                        <div class="invoice-date d-flex justify-content-xl-end justify-content-center">
+                                            <span>Febuary 22, 2018</span>
+                                        </div>
+                                        <!-- Begin Table -->
+                                        <div class="col-xl-12 desc-tables">
+	                                        <div class="table-responsive">
+		                                        <table class="table">
+		                                            <thead>
+		                                                <tr>
+		                                                    <th class="text-left">Item Description</th>
+		                                                    <th class="text-center">Hours</th>
+		                                                    <th class="text-center">Price</th>
+		                                                    <th class="text-center">Total</th>
+		                                                </tr>
+		                                            </thead>
+		                                            <tbody>
+		                                                <tr>
+		                                                    <td class="text-left">
+		                                                        UX/UI Design
+		                                                        <br>
+		                                                        <div class="description">
+		                                                        	Lorem ipsum dolor sit amet, consectetur adipiscing elit nulla dictum magna vel ex fermentum interdum.
+		                                                        </div>
+		                                                    </td>
+		                                                    <td class="text-center">62</td>
+		                                                    <td class="text-center">$30.45</td>
+		                                                    <td class="text-center">$1887.09</td>
+		                                                </tr>
+		                                                <tr>
+		                                                    <td class="text-left">
+		                                                        Logo Design
+		                                                        <br>
+		                                                        <div class="description">
+		                                                        	Duis sollicitudin a elit vitae porttitor. Aenean lacinia maximus risus, eget placerat neque ullamcorper.
+		                                                        </div>
+		                                                    </td>
+		                                                    <td class="text-center">30</td>
+		                                                    <td class="text-center">$50.40</td>
+		                                                    <td class="text-center">$1512.00</td>
+		                                                </tr>
+		                                                <tr>
+		                                                    <td class="text-left">
+		                                                        Web Design Services
+		                                                        <br>
+		                                                        <div class="description">
+		                                                        	Nam id erat purus. Sed sed ultricies leo. Suspendisse rhoncus metus ultrices, pulvinar lorem lacinia.
+		                                                        </div>
+		                                                    </td>
+		                                                    <td class="text-center">130</td>
+		                                                    <td class="text-center">$18.50</td>
+		                                                    <td class="text-center">$2405.00</td>
+		                                                </tr>
+                                                        <tr>
+                                                            <td class="text-left">
+                                                                Coffee And Smiles
+                                                                <br>
+                                                                <div class="description">
+                                                                    Nam id erat purus. Sed sed ultricies leo. Suspendisse rhoncus metus ultrices, pulvinar lorem lacinia.
+                                                                </div>
+                                                            </td>
+                                                            <td class="text-center">Many</td>
+                                                            <td class="text-center">$00.00</td>
+                                                            <td class="text-center">$00.00</td>
+                                                        </tr>
+		                                            </tbody>
+		                                        </table>
+	                                        </div>
+                                        </div>
+                                        <!-- End Table -->
                                     </div>
+                                    <!-- End Invoice Container -->
+                                    <!-- Begin Invoice Footer -->
+                                    <div class="invoice-footer">
+                                        <!-- Begin Invoice Container -->
+                                        <div class="invoice-container">
+                                            <div class="row d-flex align-items-center">
+                                                <div class="col-xl-6 col-md-6 col-sm-6 d-flex justify-content-xl-start justify-content-md-start justify-content-center mb-2">
+                                                    <div class="bank">
+                                                        <div class="title">Bank Info</div>
+                                                        <div class="text">Bank Name: Bank Of America</div>
+                                                        <div class="text">Account Number: 123 456 789</div>
+                                                        <div class="text">Code: ELM0236US</div>
+                                                    </div>
+                                                </div>
+                                                <div class="col-xl-6 col-md-6 col-sm-6 d-flex justify-content-xl-end justify-content-md-end justify-content-center">
+                                                    <div class="total">
+                                                        <div class="title">Total</div>
+                                                        <div class="number">$5804.09</div>
+                                                        <div class="taxe">Taxes Included</div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="footer-bottom">
+                                                <div class="thx">
+                                                    <i class="la la-heart"></i><span>Thank You!</span>
+                                                </div>
+                                                <div class="website">www.be-elisyam.com</div>
+                                            </div>
+                                        </div>
+                                        <!-- End Invoice Container -->
+                                    </div>
+                                    <!-- End Invoice Footer -->
                                 </div>
-                                <!-- End Widget -->
-                            </div>
-                            <div class="col-xl-9">
-                                <div class="widget has-shadow">
-                                    <div class="widget-header bordered no-actions d-flex align-items-center">
-                                        <h4>Update Profile</h4>
-                                    </div>
-                                    <div class="widget-body">
-                                        <div class="col-10 ml-auto">
-                                            <div class="section-title mt-3 mb-3">
-                                                <h4>01. Personnal Informations</h4>
-                                            </div>
-                                        </div>
-                                        <form class="form-horizontal">
-                                            <div class="form-group row d-flex align-items-center mb-5">
-                                                <label class="col-lg-2 form-control-label d-flex justify-content-lg-end">Full Name</label>
-                                                <div class="col-lg-6">
-                                                    <input type="text" class="form-control" placeholder="David Green">
-                                                </div>
-                                            </div>
-                                            <div class="form-group row d-flex align-items-center mb-5">
-                                                <label class="col-lg-2 form-control-label d-flex justify-content-lg-end">Email</label>
-                                                <div class="col-lg-6">
-                                                    <input type="text" class="form-control" placeholder="dgreen@mail.com">
-                                                </div>
-                                            </div>
-                                            <div class="form-group row d-flex align-items-center mb-5">
-                                                <label class="col-lg-2 form-control-label d-flex justify-content-lg-end">Phone</label>
-                                                <div class="col-lg-6">
-                                                    <input type="text" class="form-control" placeholder="+00 987 654 32">
-                                                </div>
-                                            </div>
-                                            <div class="form-group row d-flex align-items-center mb-5">
-                                                <label class="col-lg-2 form-control-label d-flex justify-content-lg-end">Website</label>
-                                                <div class="col-lg-6">
-                                                    <input type="text" class="form-control" placeholder="www.website.com">
-                                                </div>
-                                            </div>
-                                        </form>
-                                        <div class="col-10 ml-auto">
-                                            <div class="section-title mt-3 mb-3">
-                                                <h4>02. Address Informations</h4>
-                                            </div>
-                                        </div>
-                                        <form class="form-horizontal">
-                                            <div class="form-group row d-flex align-items-center mb-5">
-                                                <label class="col-lg-2 form-control-label d-flex justify-content-lg-end">Address</label>
-                                                <div class="col-lg-6">
-                                                    <input type="text" class="form-control" placeholder="123 Century Blvd">
-                                                </div>
-                                            </div>
-                                            <div class="form-group row d-flex align-items-center mb-5">
-                                                <label class="col-lg-2 form-control-label d-flex justify-content-lg-end">City</label>
-                                                <div class="col-lg-6">
-                                                    <input type="text" class="form-control" placeholder="Los Angeles">
-                                                </div>
-                                            </div>
-                                            <div class="form-group row d-flex align-items-center mb-5">
-                                                <label class="col-lg-2 form-control-label d-flex justify-content-lg-end">State</label>
-                                                <div class="col-lg-6">
-                                                    <input type="text" class="form-control" placeholder="California">
-                                                </div>
-                                            </div>
-                                            <div class="form-group row d-flex align-items-center mb-5">
-                                                <label class="col-lg-2 form-control-label d-flex justify-content-lg-end">Zip</label>
-                                                <div class="col-lg-6">
-                                                    <input type="text" class="form-control" placeholder="90045">
-                                                </div>
-                                            </div>
-                                        </form>
-                                        <div class="em-separator separator-dashed"></div>
-                                        <div class="text-right">
-                                            <button class="btn btn-gradient-01" type="submit">Save Changes</button>
-                                            <button class="btn btn-shadow" type="reset">Cancel</button>
-                                        </div>
-                                    </div>
-                                </div>
+                                <!-- End Invoice -->
                             </div>
                         </div>
                         <!-- End Row -->
@@ -746,7 +801,6 @@ Author: SAEROX
                     </div>
                     <!-- End Offcanvas Sidebar -->
                 </div>
-                <!-- End Content -->
             </div>
             <!-- End Page Content -->
         </div>
@@ -756,11 +810,7 @@ Author: SAEROX
         <!-- End Vendor Js -->
         <!-- Begin Page Vendor Js -->
         <script src="assets/vendors/js/nicescroll/nicescroll.min.js"></script>
-        <script src="assets/vendors/js/owl-carousel/owl.carousel.min.js"></script>
         <script src="assets/vendors/js/app/app.min.js"></script>
         <!-- End Page Vendor Js -->
-        <!-- Begin Page Snippets -->
-        <script src="assets/js/app/contact/contact.min.js"></script>
-        <!-- End Page Snippets -->
     </body>
 </html>

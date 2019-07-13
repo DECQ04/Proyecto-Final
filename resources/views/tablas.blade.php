@@ -10,7 +10,7 @@ Author: SAEROX
     <head>
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <title>Elisyam - Profile</title>
+        <title>Elisyam - Datatables</title>
         <meta name="description" content="Elisyam is a Web App and Admin Dashboard Template built with Bootstrap 4">
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
         <!-- Google Fonts -->
@@ -30,8 +30,7 @@ Author: SAEROX
         <!-- Stylesheet -->
         <link rel="stylesheet" href="assets/vendors/css/base/bootstrap.min.css">
         <link rel="stylesheet" href="assets/vendors/css/base/elisyam-1.5.min.css">
-        <link rel="stylesheet" href="assets/css/owl-carousel/owl.carousel.min.css">
-        <link rel="stylesheet" href="assets/css/owl-carousel/owl.theme.min.css">
+        <link rel="stylesheet" href="assets/css/datatables/datatables.min.css">
         <!-- Tweaks for older IEs--><!--[if lt IE 9]>
         <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
         <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script><![endif]-->
@@ -48,7 +47,7 @@ Author: SAEROX
         <div class="page">
             <!-- Begin Header -->
             <header class="header">
-                <nav class="navbar fixed-top">        
+                <nav class="navbar fixed-top">         
                     <!-- Begin Search Box-->
                     <div class="search-box">
                         <button class="dismiss"><i class="ion-close-round"></i></button>
@@ -255,10 +254,10 @@ Author: SAEROX
                                     <li><a href="forms-select.html">Bootstrap Select</a></li>
                                 </ul>
                             </li>
-                            <li><a href="#dropdown-tables" aria-expanded="false" data-toggle="collapse"><i class="la la-th-large"></i><span>Tables</span></a>
-                                <ul id="dropdown-tables" class="collapse list-unstyled pt-0">
+                            <li class="active"><a href="#dropdown-tables" aria-expanded="true" data-toggle="collapse"><i class="la la-th-large"></i><span>Tables</span></a>
+                                <ul id="dropdown-tables" class="collapse list-unstyled show pt-0">
                                     <li><a href="tables-basic.html">Basic</a></li>
-                                    <li><a href="tables-datatables.html">Datatables</a></li>
+                                    <li><a class="active" href="tables-datatables.html">Datatables</a></li>
                                     <li><a href="tables-tabledit.html">Tabledit</a></li>
                                 </ul>
                             </li>
@@ -276,10 +275,10 @@ Author: SAEROX
                                     <li><a href="pages-mail-confirm.html">Mail Confirmation</a></li>
                                 </ul>
                             </li>
-                            <li class="active"><a href="#dropdown-generic" aria-expanded="true" data-toggle="collapse"><i class="la la-file-text"></i><span>Generic</span></a>
-                                <ul id="dropdown-generic" class="collapse list-unstyled show pt-0">
+                            <li><a href="#dropdown-generic" aria-expanded="false" data-toggle="collapse"><i class="la la-file-text"></i><span>Generic</span></a>
+                                <ul id="dropdown-generic" class="collapse list-unstyled pt-0">
                                     <li><a href="pages-coming-soon.html">Coming Soon</a></li>
-                                    <li><a class="active" href="pages-profile.html">Profile</a></li>
+                                    <li><a href="pages-profile.html">Profile</a></li>
                                     <li><a href="pages-invoice.html">Invoice</a></li>
                                     <li><a href="pages-search.html">Search</a></li>
                                     <li><a href="pages-faq.html">FAQ</a></li>
@@ -320,138 +319,304 @@ Author: SAEROX
                     <!-- End Side Navbar -->
                 </div>
                 <!-- End Left Sidebar -->
-                <!-- Begin Content -->
-                <div class="content-inner profile">
+                <div class="content-inner">
                     <div class="container-fluid">
                         <!-- Begin Page Header-->
                         <div class="row">
                             <div class="page-header">
-                                <div class="d-flex align-items-center">
-                                    <h2 class="page-header-title">Profile</h2>
-                                    <div>
-                                        <ul class="breadcrumb">
-                                            <li class="breadcrumb-item"><a href="db-default.html"><i class="ti ti-home"></i></a></li>
-                                            <li class="breadcrumb-item"><a href="#">Pages</a></li>
-                                            <li class="breadcrumb-item active">Profile</li>
-                                        </ul>
-                                    </div>
-                                </div>
+	                            <div class="d-flex align-items-center">
+	                                <h2 class="page-header-title">Datatables</h2>
+	                                <div>
+			                            <ul class="breadcrumb">
+			                                <li class="breadcrumb-item"><a href="db-default.html"><i class="ti ti-home"></i></a></li>
+			                                <li class="breadcrumb-item active">Datatables</li>
+			                            </ul>
+	                                </div>
+	                            </div>
                             </div>
                         </div>
                         <!-- End Page Header -->
-                        <div class="row flex-row">
-                            <div class="col-xl-3">
-                                <!-- Begin Widget -->
-                                <div class="widget has-shadow">
-                                    <div class="widget-body">
-                                        <div class="mt-5">
-                                            <img src="assets/img/avatar/avatar-01.jpg" alt="..." style="width: 120px;" class="avatar rounded-circle d-block mx-auto">
-                                        </div>
-                                        <h3 class="text-center mt-3 mb-1">David Green</h3>
-                                        <p class="text-center">dgreen@example.com</p>
-                                        <div class="em-separator separator-dashed"></div>
-                                        <ul class="nav flex-column">
-                                            <li class="nav-item">
-                                                <a class="nav-link" href="javascript:void(0)"><i class="la la-bell la-2x align-middle pr-2"></i>Notifications</a>
-                                            </li>
-                                            <li class="nav-item">
-                                                <a class="nav-link" href="javascript:void(0)"><i class="la la-bolt la-2x align-middle pr-2"></i>Activity</a>
-                                            </li>
-                                            <li class="nav-item">
-                                                <a class="nav-link" href="javascript:void(0)"><i class="la la-comments la-2x align-middle pr-2"></i>Messages</a>
-                                            </li>
-                                            <li class="nav-item">
-                                                <a class="nav-link" href="javascript:void(0)"><i class="la la-bar-chart la-2x align-middle pr-2"></i>Statistics</a>
-                                            </li>
-                                            <li class="nav-item">
-                                                <a class="nav-link" href="javascript:void(0)"><i class="la la-clipboard la-2x align-middle pr-2"></i>Tasks</a>
-                                            </li>
-                                            <li class="nav-item">
-                                                <a class="nav-link" href="javascript:void(0)"><i class="la la-gears la-2x align-middle pr-2"></i>Settings</a>
-                                            </li>
-                                            <li class="nav-item">
-                                                <a class="nav-link" href="javascript:void(0)"><i class="la la-question-circle la-2x align-middle pr-2"></i>FAQ</a>
-                                            </li>
-                                        </ul>
-                                    </div>
-                                </div>
-                                <!-- End Widget -->
-                            </div>
-                            <div class="col-xl-9">
+                        <div class="row">
+                            <div class="col-xl-12">
+                                <!-- Sorting -->
+                                
+                                <!-- End Sorting -->
+                                <!-- Export -->
                                 <div class="widget has-shadow">
                                     <div class="widget-header bordered no-actions d-flex align-items-center">
-                                        <h4>Update Profile</h4>
+                                        <h4>Export</h4>
                                     </div>
                                     <div class="widget-body">
-                                        <div class="col-10 ml-auto">
-                                            <div class="section-title mt-3 mb-3">
-                                                <h4>01. Personnal Informations</h4>
+                                        <!-- Begin Large Modal -->
+                                        <div class="row">
+                                            <div class="bordered no-actions d-flex align-items-center">
+                                            <p>Nuevo Registro</p>
+                                            </div>
+                                            <div class="col-xl-4 d-flex align-items-center mb-3">
+                                                <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#modal-large">Crear</button>
                                             </div>
                                         </div>
-                                        <form class="form-horizontal">
-                                            <div class="form-group row d-flex align-items-center mb-5">
-                                                <label class="col-lg-2 form-control-label d-flex justify-content-lg-end">Full Name</label>
-                                                <div class="col-lg-6">
-                                                    <input type="text" class="form-control" placeholder="David Green">
-                                                </div>
-                                            </div>
-                                            <div class="form-group row d-flex align-items-center mb-5">
-                                                <label class="col-lg-2 form-control-label d-flex justify-content-lg-end">Email</label>
-                                                <div class="col-lg-6">
-                                                    <input type="text" class="form-control" placeholder="dgreen@mail.com">
-                                                </div>
-                                            </div>
-                                            <div class="form-group row d-flex align-items-center mb-5">
-                                                <label class="col-lg-2 form-control-label d-flex justify-content-lg-end">Phone</label>
-                                                <div class="col-lg-6">
-                                                    <input type="text" class="form-control" placeholder="+00 987 654 32">
-                                                </div>
-                                            </div>
-                                            <div class="form-group row d-flex align-items-center mb-5">
-                                                <label class="col-lg-2 form-control-label d-flex justify-content-lg-end">Website</label>
-                                                <div class="col-lg-6">
-                                                    <input type="text" class="form-control" placeholder="www.website.com">
-                                                </div>
-                                            </div>
-                                        </form>
-                                        <div class="col-10 ml-auto">
-                                            <div class="section-title mt-3 mb-3">
-                                                <h4>02. Address Informations</h4>
-                                            </div>
-                                        </div>
-                                        <form class="form-horizontal">
-                                            <div class="form-group row d-flex align-items-center mb-5">
-                                                <label class="col-lg-2 form-control-label d-flex justify-content-lg-end">Address</label>
-                                                <div class="col-lg-6">
-                                                    <input type="text" class="form-control" placeholder="123 Century Blvd">
-                                                </div>
-                                            </div>
-                                            <div class="form-group row d-flex align-items-center mb-5">
-                                                <label class="col-lg-2 form-control-label d-flex justify-content-lg-end">City</label>
-                                                <div class="col-lg-6">
-                                                    <input type="text" class="form-control" placeholder="Los Angeles">
-                                                </div>
-                                            </div>
-                                            <div class="form-group row d-flex align-items-center mb-5">
-                                                <label class="col-lg-2 form-control-label d-flex justify-content-lg-end">State</label>
-                                                <div class="col-lg-6">
-                                                    <input type="text" class="form-control" placeholder="California">
-                                                </div>
-                                            </div>
-                                            <div class="form-group row d-flex align-items-center mb-5">
-                                                <label class="col-lg-2 form-control-label d-flex justify-content-lg-end">Zip</label>
-                                                <div class="col-lg-6">
-                                                    <input type="text" class="form-control" placeholder="90045">
-                                                </div>
-                                            </div>
-                                        </form>
-                                        <div class="em-separator separator-dashed"></div>
-                                        <div class="text-right">
-                                            <button class="btn btn-gradient-01" type="submit">Save Changes</button>
-                                            <button class="btn btn-shadow" type="reset">Cancel</button>
+                                        <!-- End Large Modal -->
+                                        <div class="table-responsive">
+                                            <table id="export-table" class="table mb-0">
+                                                <thead>
+                                                    <tr>
+                                                        <th>Order ID</th>
+                                                        <th>Customer Name</th>
+                                                        <th>Country</th>
+                                                        <th>Ship Date</th>
+                                                        <th><span style="width:100px;">Status</span></th>
+                                                        <th>Order Total</th>
+                                                        <th>Actions</th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+                                                    <tr>
+                                                        <td><span class="text-primary">054-01-FR</span></td>
+                                                        <td>Lori Baker</td>
+                                                        <td>US</td>
+                                                        <td>10/21/2017</td>
+                                                        <td><span style="width:100px;"><span class="badge-text badge-text-small info">Paid</span></span></td>
+                                                        <td>$139.45</td>
+                                                        <td class="td-actions">
+                                                            <a href="#"><i class="la la-edit edit"></i></a>
+                                                            <a href="#"><i class="la la-close delete"></i></a>
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td><span class="text-primary">021-12-US</span></td>
+                                                        <td>Lawrence Crawford</td>
+                                                        <td>FR</td>
+                                                        <td>10/21/2017</td>
+                                                        <td><span style="width:100px;"><span class="badge-text badge-text-small info">Paid</span></span></td>
+                                                        <td>$189.00</td>
+                                                        <td class="td-actions">
+                                                            <a href="#"><i class="la la-edit edit"></i></a>
+                                                            <a href="#"><i class="la la-close delete"></i></a>
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td><span class="text-primary">189-01-RU</span></td>
+                                                        <td>Samuel Walker</td>
+                                                        <td>AU</td>
+                                                        <td>08/21/2017</td>
+                                                        <td><span style="width:100px;"><span class="badge-text badge-text-small danger">Failed</span></span></td>
+                                                        <td>$107.55</td>
+                                                        <td class="td-actions">
+                                                            <a href="#"><i class="la la-edit edit"></i></a>
+                                                            <a href="#"><i class="la la-close delete"></i></a>
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td><span class="text-primary">092-06-FR</span></td>
+                                                        <td>Angela Walters</td>
+                                                        <td>US</td>
+                                                        <td>08/21/2017</td>
+                                                        <td><span style="width:100px;"><span class="badge-text badge-text-small success">Delivered</span></span></td>
+                                                        <td>$129.85</td>
+                                                        <td class="td-actions">
+                                                            <a href="#"><i class="la la-edit edit"></i></a>
+                                                            <a href="#"><i class="la la-close delete"></i></a>
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td><span class="text-primary">021-09-US</span></td>
+                                                        <td>Ryan Hanson</td>
+                                                        <td>ES</td>
+                                                        <td>07/21/2017</td>
+                                                        <td><span style="width:100px;"><span class="badge-text badge-text-small info">Paid</span></span></td>
+                                                        <td>$199.95</td>
+                                                        <td class="td-actions">
+                                                            <a href="#"><i class="la la-edit edit"></i></a>
+                                                            <a href="#"><i class="la la-close delete"></i></a>
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td><span class="text-primary">054-01-FR</span></td>
+                                                        <td>Evelyn Black</td>
+                                                        <td>FR</td>
+                                                        <td>10/21/2017</td>
+                                                        <td><span style="width:100px;"><span class="badge-text badge-text-small info">Paid</span></span></td>
+                                                        <td>$139.45</td>
+                                                        <td class="td-actions">
+                                                            <a href="#"><i class="la la-edit edit"></i></a>
+                                                            <a href="#"><i class="la la-close delete"></i></a>
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td><span class="text-primary">021-12-US</span></td>
+                                                        <td>James Morris</td>
+                                                        <td>EN</td>
+                                                        <td>10/21/2017</td>
+                                                        <td><span style="width:100px;"><span class="badge-text badge-text-small info">Paid</span></span></td>
+                                                        <td>$189.00</td>
+                                                        <td class="td-actions">
+                                                            <a href="#"><i class="la la-edit edit"></i></a>
+                                                            <a href="#"><i class="la la-close delete"></i></a>
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td><span class="text-primary">189-01-RU</span></td>
+                                                        <td>Valentin H.</td>
+                                                        <td>AU</td>
+                                                        <td>08/21/2017</td>
+                                                        <td><span style="width:100px;"><span class="badge-text badge-text-small danger">Failed</span></span></td>
+                                                        <td>$107.55</td>
+                                                        <td class="td-actions">
+                                                            <a href="#"><i class="la la-edit edit"></i></a>
+                                                            <a href="#"><i class="la la-close delete"></i></a>
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td><span class="text-primary">092-06-FR</span></td>
+                                                        <td>Beverly Matthews</td>
+                                                        <td>RU</td>
+                                                        <td>08/21/2017</td>
+                                                        <td><span style="width:100px;"><span class="badge-text badge-text-small info">Paid</span></span></td>
+                                                        <td>$129.85</td>
+                                                        <td class="td-actions">
+                                                            <a href="#"><i class="la la-edit edit"></i></a>
+                                                            <a href="#"><i class="la la-close delete"></i></a>
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td><span class="text-primary">021-09-US</span></td>
+                                                        <td>Jeffrey Arnold</td>
+                                                        <td>US</td>
+                                                        <td>07/21/2017</td>
+                                                        <td><span style="width:100px;"><span class="badge-text badge-text-small info">Paid</span></span></td>
+                                                        <td>$199.95</td>
+                                                        <td class="td-actions">
+                                                            <a href="#"><i class="la la-edit edit"></i></a>
+                                                            <a href="#"><i class="la la-close delete"></i></a>
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td><span class="text-primary">054-01-FR</span></td>
+                                                        <td>Lori Baker</td>
+                                                        <td>US</td>
+                                                        <td>10/21/2017</td>
+                                                        <td><span style="width:100px;"><span class="badge-text badge-text-small info">Paid</span></span></td>
+                                                        <td>$139.45</td>
+                                                        <td class="td-actions">
+                                                            <a href="#"><i class="la la-edit edit"></i></a>
+                                                            <a href="#"><i class="la la-close delete"></i></a>
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td><span class="text-primary">021-12-US</span></td>
+                                                        <td>Lawrence Crawford</td>
+                                                        <td>FR</td>
+                                                        <td>10/21/2017</td>
+                                                        <td><span style="width:100px;"><span class="badge-text badge-text-small info">Paid</span></span></td>
+                                                        <td>$189.00</td>
+                                                        <td class="td-actions">
+                                                            <a href="#"><i class="la la-edit edit"></i></a>
+                                                            <a href="#"><i class="la la-close delete"></i></a>
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td><span class="text-primary">189-01-RU</span></td>
+                                                        <td>Samuel Walker</td>
+                                                        <td>AU</td>
+                                                        <td>08/21/2017</td>
+                                                        <td><span style="width:100px;"><span class="badge-text badge-text-small danger">Failed</span></span></td>
+                                                        <td>$107.55</td>
+                                                        <td class="td-actions">
+                                                            <a href="#"><i class="la la-edit edit"></i></a>
+                                                            <a href="#"><i class="la la-close delete"></i></a>
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td><span class="text-primary">092-06-FR</span></td>
+                                                        <td>Angela Walters</td>
+                                                        <td>US</td>
+                                                        <td>08/21/2017</td>
+                                                        <td><span style="width:100px;"><span class="badge-text badge-text-small success">Delivered</span></span></td>
+                                                        <td>$129.85</td>
+                                                        <td class="td-actions">
+                                                            <a href="#"><i class="la la-edit edit"></i></a>
+                                                            <a href="#"><i class="la la-close delete"></i></a>
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td><span class="text-primary">021-09-US</span></td>
+                                                        <td>Ryan Hanson</td>
+                                                        <td>ES</td>
+                                                        <td>07/21/2017</td>
+                                                        <td><span style="width:100px;"><span class="badge-text badge-text-small info">Paid</span></span></td>
+                                                        <td>$199.95</td>
+                                                        <td class="td-actions">
+                                                            <a href="#"><i class="la la-edit edit"></i></a>
+                                                            <a href="#"><i class="la la-close delete"></i></a>
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td><span class="text-primary">054-01-FR</span></td>
+                                                        <td>Evelyn Black</td>
+                                                        <td>FR</td>
+                                                        <td>10/21/2017</td>
+                                                        <td><span style="width:100px;"><span class="badge-text badge-text-small info">Paid</span></span></td>
+                                                        <td>$139.45</td>
+                                                        <td class="td-actions">
+                                                            <a href="#"><i class="la la-edit edit"></i></a>
+                                                            <a href="#"><i class="la la-close delete"></i></a>
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td><span class="text-primary">021-12-US</span></td>
+                                                        <td>James Morris</td>
+                                                        <td>EN</td>
+                                                        <td>10/21/2017</td>
+                                                        <td><span style="width:100px;"><span class="badge-text badge-text-small info">Paid</span></span></td>
+                                                        <td>$189.00</td>
+                                                        <td class="td-actions">
+                                                            <a href="#"><i class="la la-edit edit"></i></a>
+                                                            <a href="#"><i class="la la-close delete"></i></a>
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td><span class="text-primary">189-01-RU</span></td>
+                                                        <td>Valentin H.</td>
+                                                        <td>AU</td>
+                                                        <td>08/21/2017</td>
+                                                        <td><span style="width:100px;"><span class="badge-text badge-text-small danger">Failed</span></span></td>
+                                                        <td>$107.55</td>
+                                                        <td class="td-actions">
+                                                            <a href="#"><i class="la la-edit edit"></i></a>
+                                                            <a href="#"><i class="la la-close delete"></i></a>
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td><span class="text-primary">092-06-FR</span></td>
+                                                        <td>Beverly Matthews</td>
+                                                        <td>RU</td>
+                                                        <td>08/21/2017</td>
+                                                        <td><span style="width:100px;"><span class="badge-text badge-text-small info">Paid</span></span></td>
+                                                        <td>$129.85</td>
+                                                        <td class="td-actions">
+                                                            <a href="#"><i class="la la-edit edit"></i></a>
+                                                            <a href="#"><i class="la la-close delete"></i></a>
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td><span class="text-primary">021-09-US</span></td>
+                                                        <td>Jeffrey Arnold</td>
+                                                        <td>US</td>
+                                                        <td>07/21/2017</td>
+                                                        <td><span style="width:100px;"><span class="badge-text badge-text-small info">Paid</span></span></td>
+                                                        <td>$199.95</td>
+                                                        <td class="td-actions">
+                                                            <a href="#"><i class="la la-edit edit"></i></a>
+                                                            <a href="#"><i class="la la-close delete"></i></a>
+                                                        </td>
+                                                    </tr>
+                                                </tbody>
+                                            </table>
                                         </div>
                                     </div>
                                 </div>
+                                <!-- End Export -->
                             </div>
                         </div>
                         <!-- End Row -->
@@ -746,21 +911,120 @@ Author: SAEROX
                     </div>
                     <!-- End Offcanvas Sidebar -->
                 </div>
-                <!-- End Content -->
             </div>
             <!-- End Page Content -->
+
+         <!-- Begin Large Modal -->
+         <div id="modal-large" class="modal fade">
+            <div class="modal-dialog modal-lg">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h4 class="modal-title">Modal Title</h4>
+                        <button type="button" class="close" data-dismiss="modal">
+                            <span aria-hidden="true">×</span>
+                            <span class="sr-only">close</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <div class?="widget-body">
+                                         <form class="form-horizontal">
+                                            <div class="form-group row d-flex align-items-center mb-5">
+                                                <label class="col-lg-3 form-control-label">Id. Proyecto</label>
+                                                <div class="col-lg-9">
+                                                    <input type="text" class="form-control" placeholder="Id. Proyecto">
+                                                </div>
+                                            </div>
+                                            
+                                            <div class="form-group row d-flex align-items-center mb-5">
+                                                <label class="col-lg-3 form-control-label">Id. Desarrollador</label>
+                                                <div class="col-lg-9">
+                                                    <input type="text" placeholder="Desarrollador" class="form-control">
+                                                </div>
+                                            </div>
+
+                                            <div class="form-group row d-flex align-items-center mb-5">
+                                                <label class="col-lg-3 form-control-label">Titulo</label>
+                                                <div class="col-lg-9">
+                                                    <input type="text" placeholder="Titulo" class="form-control">
+                                                </div>
+                                            </div>
+
+                                            <div class="form-group row d-flex align-items-center mb-5">
+                                                <label class="col-lg-3 form-control-label">Descripción</label>
+                                                <div class="col-lg-9">
+                                                    <input type="text" placeholder="Descripción" class="form-control">
+                                                </div>
+                                            </div>
+
+                                            <div class="form-group row d-flex align-items-center mb-5">
+                                                <label class="col-lg-3 form-control-label">Id. Pago</label>
+                                                <div class="col-lg-9">
+                                                    <input type="text" placeholder="Id. Pago" class="form-control">
+                                                </div>
+                                            </div>
+
+                                            <div class="form-group row d-flex align-items-center mb-5">
+                                                <label class="col-lg-3 form-control-label">Estado</label>
+                                                <div class="col-lg-9">
+                                                    <input type="text" placeholder="Estado" class="form-control">
+                                                </div>
+                                            </div>
+
+                                            <div class="form-group row d-flex align-items-center mb-5">
+                                                <label class="col-lg-3 form-control-label">Placeholder</label>
+                                                <div class="col-lg-9">
+                                                    <input type="text" placeholder="placeholder" class="form-control">
+                                                </div>
+                                            </div>
+                                            
+                                           
+                                         
+
+                                            <div class="form-group row d-flex align-items-center mb-5">
+                                                <label class="col-lg-3 form-control-label">Button addons</label>
+                                                <div class="col-lg-9">
+                                                    <div class="form-group">
+                                                        <div class="input-group">
+                                                            <span class="input-group-btn">
+                                                                <button type="button" class="btn btn-primary ripple">
+                                                                    Button
+                                                                </button>
+                                                            </span>
+                                                            
+                                                        </div>
+                                                    </div>
+                                                   
+                                                </div>
+                                            </div>
+                                        </form>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-shadow" data-dismiss="modal">Close</button>
+                        <button type="button" class="btn btn-primary">Save</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- End Large Modal -->
         </div>
         <!-- Begin Vendor Js -->
         <script src="assets/vendors/js/base/jquery.min.js"></script>
         <script src="assets/vendors/js/base/core.min.js"></script>
         <!-- End Vendor Js -->
         <!-- Begin Page Vendor Js -->
+        <script src="assets/vendors/js/datatables/datatables.min.js"></script>
+        <script src="assets/vendors/js/datatables/dataTables.buttons.min.js"></script>
+        <script src="assets/vendors/js/datatables/jszip.min.js"></script>
+        <script src="assets/vendors/js/datatables/buttons.html5.min.js"></script>
+        <script src="assets/vendors/js/datatables/pdfmake.min.js"></script>
+        <script src="assets/vendors/js/datatables/vfs_fonts.js"></script>
+        <script src="assets/vendors/js/datatables/buttons.print.min.js"></script>
         <script src="assets/vendors/js/nicescroll/nicescroll.min.js"></script>
-        <script src="assets/vendors/js/owl-carousel/owl.carousel.min.js"></script>
         <script src="assets/vendors/js/app/app.min.js"></script>
         <!-- End Page Vendor Js -->
         <!-- Begin Page Snippets -->
-        <script src="assets/js/app/contact/contact.min.js"></script>
+        <script src="assets/js/components/tables/tables.js"></script>
         <!-- End Page Snippets -->
     </body>
 </html>
