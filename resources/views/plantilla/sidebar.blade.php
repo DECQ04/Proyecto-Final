@@ -5,8 +5,8 @@
                             <li><a href="#dropdown-db" aria-expanded="false" data-toggle="collapse"><i class="la la-puzzle-piece"></i><span>Proyectos</span></a>
                                 <ul id="dropdown-db" class="collapse list-unstyled pt-0">
                                     
-                                    <li  ><a href="prueba">Proyectos</a></li>
-                                    <li ><a href="#">Tareas</a></li>
+                                    <li  ><a href="proyecto">Proyectos</a></li>
+                                    <li ><a href="tareas">Tareas</a></li>
                                     <li @click="menu=1"><a href="#">Tickets</a></li>
                                 </ul>
                             </li>

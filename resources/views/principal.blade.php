@@ -3,7 +3,6 @@
 Item Name: Elisyam - Web App & Admin Dashboard Template
 Version: 1.5
 Author: SAEROX
-
 ** A license must be purchased in order to legally use this template for your project **
 -->
 <html lang="en">
