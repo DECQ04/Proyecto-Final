@@ -22,4 +22,13 @@ Route::post('/tareas','ControllerTarea@store');
 
 Route::get('/gastos','ControllerGasto@inicio');
 Route::post('/gastos','ControllerGasto@store');
+
+Route::get('/pagos','ControllerPago@inicio');
+Route::post('/pagos','ControllerPago@store');
+         
+Route::get('/colaboradores','ControllerColaborador@inicio');
+Route::post('/colaboradores','ControllerColaborador@store');
+
+Route::get('/clientes','ControllerCliente@inicio');
+Route::post('/clientes','ControllerCliente@store');
          
