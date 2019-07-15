@@ -1,4 +1,3 @@
-    
 <!DOCTYPE html>
 <!--
 Item Name: Elisyam - Web App & Admin Dashboard Template
@@ -134,11 +133,11 @@ Author: SAEROX
                         <div class="row">
                             <div class="page-header">
 	                            <div class="d-flex align-items-center">
-	                                <h2 class="page-header-title">Proyectos</h2>
+	                                <h2 class="page-header-title">Gastos</h2>
 	                                <div>
 			                            <ul class="breadcrumb">
 			                                <li class="breadcrumb-item"><a href="/"><i class="ti ti-home"></i></a></li>
-			                                <li class="breadcrumb-item active">Proyectos</li>
+			                                <li class="breadcrumb-item active">Gastos</li>
 			                            </ul>
 	                                </div>
 	                            </div>
@@ -153,7 +152,7 @@ Author: SAEROX
                                 <!-- Export -->
                                 <div class="widget has-shadow">
                                     <div class="widget-header bordered no-actions d-flex align-items-center">
-                                        <h4>Proyectos</h4>
+                                        <h4>Gastos</h4>
                                     </div>
                                     <div class="widget-body">
                                         <!-- Begin Large Modal -->
@@ -170,19 +169,16 @@ Author: SAEROX
                                                 <thead>
                                                     <tr>
                                                         <th>Opciones</th>
-                                                        <th>Manager</th>
-                                                        <th>Cliente</th>
+                                                        <th>Id Manager</th>
                                                         <th>Titulo</th>
-                                                        <th>Fecha de Inicio</th>
-                                                        <th>Fecha de Vencimiento</th>
-                                                        <th>pago_total</th>
-                                                        <th>id_pago</th>
-                                                        <th>estado</th>
+                                                        <th>Descripción</th>
+                                                        <th>Fecha hora</th>
+                                                        <th>cantidad</th>
                                                        
                                                     </tr>
                                                 </thead>
                                                 <tbody>
-                                                @foreach ($proyectos as $proyectos)
+                                                @foreach ($gastos as $gastos)
                                                 <tr>
                                                 <td class="td-actions"> 
                                                 <a href="#"   title="Editar informacion" data-toggle="modal" data-target="#modal-large" >
@@ -191,19 +187,13 @@ Author: SAEROX
                                                 <a href="#"  ><i class="la la-close delete"></i></a>
                                                   
                                                 </td>
-                                                 <td> {{$proyectos->id_manager}} </td>
-                                                 <td> {{$proyectos->id_cliente}} </td>
-                                                 <td> {{$proyectos->titulo}} </td>
-                                                 <td> {{$proyectos->fecha_incio}} </td>
-                                                 <td> {{$proyectos->fecha_vencimiento}} </td>
-                                                 <td> {{$proyectos->pago_total}} </td>
-                                                 <td> {{$proyectos->id_pago}} </td>
-                                                 @if($proyectos->estado=='1')
-                                                 <td> <span style="width:100px;"><span class="badge-text badge-text-small info"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Activo</font></font></span></span> </td>
-                                                 @endif
-                                                 @if($proyectos->estado=='0')
-                                                <td> <span style="width:100px;"><span class="badge-text badge-text-small success"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Finalizado</font></font></span></span></td>
-                                                @endif
+                                                 <td> {{$gastos->id_manager}} </td>
+                                                 
+                                                 <td> {{$gastos->titulo}} </td>
+                                                 <td> {{$gastos->descripcion}} </td>
+                                                 <td> {{$gastos->fecha_hora}} </td>
+                                                 <td> {{$gastos->cantidad}} </td>
+                                                
                                                 </tr>
                                                 @endforeach  
                                                 </tbody>
@@ -248,7 +238,7 @@ Author: SAEROX
             <div class="modal-dialog modal-lg">
                 <div class="modal-content">
                     <div class="modal-header">
-                        <h4 class="modal-title">Nuevo Proyecto</h4>
+                        <h4 class="modal-title">Nuevo Gasto</h4>
                         <button type="button" class="close" data-dismiss="modal">
                             <span aria-hidden="true">×</span>
                             <span class="sr-only">close</span>
@@ -256,7 +246,7 @@ Author: SAEROX
                     </div>
                     <div class="modal-body">
                         <div class?="widget-body">
-                                         <form method="POST" action="/proyectos" class="form-horizontal">
+                                         <form method="POST" action="/gastos" class="form-horizontal">
                                          {{ csrf_field() }}
                                             <div class="form-group row d-flex align-items-center mb-5">
                                                 <label class="col-lg-3 form-control-label">Id. Manager</label>
@@ -265,12 +255,7 @@ Author: SAEROX
                                                 </div>
                                             </div>
                                             
-                                            <div class="form-group row d-flex align-items-center mb-5">
-                                                <label class="col-lg-3 form-control-label">Id. Cliente</label>
-                                                <div class="col-lg-9">
-                                                    <input type="text" name="id_cliente" placeholder="id_cliente" class="form-control" required>
-                                                </div>
-                                            </div>
+                                           
                                             <div class="form-group row d-flex align-items-center mb-5">
                                                 <label class="col-lg-3 form-control-label">Titulo</label>
                                                 <div class="col-lg-9">
@@ -278,35 +263,25 @@ Author: SAEROX
                                                 </div>
                                             </div>
                                             <div class="form-group row d-flex align-items-center mb-5">
-                                                <label class="col-lg-3 form-control-label">Fecha Inicio</label>
+                                                <label class="col-lg-3 form-control-label">Descripción</label>
                                                 <div class="col-lg-9">
-                                                    <input type="date" name="fecha_inicio" placeholder="fecha_inicio" class="form-control" required>
+                                                    <input type="text" name="descripcion" placeholder="descripcion" class="form-control" required>
                                                 </div>
                                             </div>
                                             <div class="form-group row d-flex align-items-center mb-5">
-                                                <label class="col-lg-3 form-control-label">Fecha Vencimiento</label>
+                                                <label class="col-lg-3 form-control-label">Fecha hora</label>
                                                 <div class="col-lg-9">
-                                                    <input type="date" name="fecha_vencimiento" placeholder="fecha_vencimiento" class="form-control" required>
+                                                    <input type="datetime-local" name="fecha_hora" placeholder="fecha hora" class="form-control" required>
                                                 </div>
                                             </div>
                                             <div class="form-group row d-flex align-items-center mb-5">
-                                                <label class="col-lg-3 form-control-label">Pago Total</label>
+                                                <label class="col-lg-3 form-control-label">Cantidad</label>
                                                 <div class="col-lg-9">
-                                                    <input type="text" name="pago_total" placeholder="pago_total" class="form-control" required>
+                                                    <input type="text" name="cantidad" placeholder="cantidad" class="form-control" required>
                                                 </div>
                                             </div>
-                                            <div class="form-group row d-flex align-items-center mb-5">
-                                                <label class="col-lg-3 form-control-label">Id. Pago</label>
-                                                <div class="col-lg-9">
-                                                    <input type="text" name="id_pago" placeholder="id_pago" class="form-control" required>
-                                                </div>
-                                            </div>
-                                            <div class="form-group row d-flex align-items-center mb-5">
-                                                <label class="col-lg-3 form-control-label">Estado</label>
-                                                <div class="col-lg-9">
-                                                    <input type="text" name="estado" placeholder="estado" class="form-control" required>
-                                                </div>
-                                            </div>
+                                            
+                                           
                                             <div class="modal-footer">
                         <button type="button" class="btn btn-shadow" data-dismiss="modal">Close</button>
                         <button type="submit" class="btn btn-primary">Save</button>

@@ -14,9 +14,12 @@ Route::get('/', function () {
     return view('principal');
 });
 
-Route::get('/proyecto','ControllerProyecto@inicio');
-Route::post('/proyecto','ControllerProyecto@store');
+Route::get('/proyectos','ControllerProyecto@inicio');
+Route::post('/proyectos','ControllerProyecto@store');
 
 Route::get('/tareas','ControllerTarea@inicio');
 Route::post('/tareas','ControllerTarea@store');
+
+Route::get('/gastos','ControllerGasto@inicio');
+Route::post('/gastos','ControllerGasto@store');
          

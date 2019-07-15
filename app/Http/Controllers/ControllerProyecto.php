@@ -23,7 +23,7 @@ class ControllerProyecto extends Controller
         $proyectos->id_pago=request('id_pago');
         $proyectos->estado= '1';
         $proyectos->save();
-        return redirect('/proyecto');
+        return redirect('/proyectos');
         //return request()->all();//trae todo del form categoria/create
         //return request('nombre'); este el nombre
         //return request('descripcion'); y asi 

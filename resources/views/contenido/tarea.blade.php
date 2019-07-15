@@ -168,6 +168,7 @@ Author: SAEROX
                                             <table id="export-table" class="table mb-0">
                                                 <thead>
                                                     <tr>
+                                                        <th>Opciones</th>
                                                         <th>Proyecto</th>
                                                         <th>Desarrollador</th>
                                                         <th>Titulo</th>
@@ -180,6 +181,13 @@ Author: SAEROX
                                                 <tbody>
                                                 @foreach ($tareas as $tareas)
                                                 <tr>
+                                                <td class="td-actions"> 
+                                                <a href="#"   title="Editar informacion" data-toggle="modal" data-target="#modal-large" >
+                                                <i class="la la-edit edit" ></i></a>
+                                               
+                                                
+                                                <a href="#"  ><i class="la la-close delete"></i></a>
+                                                </td>
                                                  <td> {{$tareas->id_proyecto}} </td>
                                                  <td> {{$tareas->id_desarrollador}} </td>
                                                  <td> {{$tareas->titulo}} </td>
@@ -249,38 +257,38 @@ Author: SAEROX
                                             <div class="form-group row d-flex align-items-center mb-5">
                                                 <label class="col-lg-3 form-control-label">Id. Proyecto</label>
                                                 <div class="col-lg-9">
-                                                    <input type="text" name="id_proyecto" class="form-control" placeholder="Id. Proyecto">
+                                                    <input type="text" name="id_proyecto" class="form-control" placeholder="Id. Proyecto" required>
                                                 </div>
                                             </div>
                                             
                                             <div class="form-group row d-flex align-items-center mb-5">
                                                 <label class="col-lg-3 form-control-label">Id. Desarrollador</label>
                                                 <div class="col-lg-9">
-                                                    <input type="text" name="id_desarrollador" placeholder="id_desarrollador" class="form-control">
+                                                    <input type="text" name="id_desarrollador" placeholder="id_desarrollador" class="form-control" required>
                                                 </div>
                                             </div>
                                             <div class="form-group row d-flex align-items-center mb-5">
                                                 <label class="col-lg-3 form-control-label">Titulo</label>
                                                 <div class="col-lg-9">
-                                                    <input type="text" name="titulo" placeholder="titulo" class="form-control">
+                                                    <input type="text" name="titulo" placeholder="titulo" class="form-control" required>
                                                 </div>
                                             </div>
                                             <div class="form-group row d-flex align-items-center mb-5">
                                                 <label class="col-lg-3 form-control-label">Descripción</label>
                                                 <div class="col-lg-9">
-                                                    <input type="text" name="descripcion" placeholder="descripcion" class="form-control">
+                                                    <input type="text" name="descripcion" placeholder="descripcion" class="form-control" required>
                                                 </div>
                                             </div>
                                             <div class="form-group row d-flex align-items-center mb-5">
                                                 <label class="col-lg-3 form-control-label">Id. Pago</label>
                                                 <div class="col-lg-9">
-                                                    <input type="text" name="id_pago" placeholder="id_pago" class="form-control">
+                                                    <input type="text" name="id_pago" placeholder="id_pago" class="form-control" required>
                                                 </div>
                                             </div>
                                             <div class="form-group row d-flex align-items-center mb-5">
                                                 <label class="col-lg-3 form-control-label">Estado</label>
                                                 <div class="col-lg-9">
-                                                    <input type="text" name="estado" placeholder="estado" class="form-control">
+                                                    <input type="text" name="estado" placeholder="estado" class="form-control" required>
                                                 </div>
                                             </div>
                                             

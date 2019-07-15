@@ -5,7 +5,7 @@
                             <li><a href="#dropdown-db" aria-expanded="false" data-toggle="collapse"><i class="la la-puzzle-piece"></i><span>Proyectos</span></a>
                                 <ul id="dropdown-db" class="collapse list-unstyled pt-0">
                                     
-                                    <li  ><a href="proyecto">Proyectos</a></li>
+                                    <li  ><a href="proyectos">Proyectos</a></li>
                                     <li ><a href="tareas">Tareas</a></li>
                                     <li @click="menu=1"><a href="#">Tickets</a></li>
                                 </ul>
@@ -14,7 +14,7 @@
                         <ul class="list-unstyled">
                             <li><a href="#dropdown-ui" aria-expanded="false" data-toggle="collapse"><i class="la la-share-alt"></i><span>Gestiones</span></a>
                                 <ul id="dropdown-ui" class="collapse list-unstyled pt-0">
-                                    <li><a href="components-buttons.html">Gastos</a></li>
+                                    <li><a href="gastos">Gastos</a></li>
                                     <li><a href="components-alerts.html">Pagos</a></li>
                                 </ul>
                             </li>
