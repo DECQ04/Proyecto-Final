@@ -6,7 +6,7 @@ use Illuminate\Http\Request;
 use App\Tarea;
 class ControllerTarea extends Controller
 {
-    public function inicio(){
+    public function index(){
         
         $tareas = Tarea::all();
     
@@ -27,5 +27,10 @@ class ControllerTarea extends Controller
         return redirect('/tareas');
   
     
+    }
+
+    public function edit(){
+
+        
     }
 }

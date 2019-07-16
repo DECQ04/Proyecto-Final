@@ -7,7 +7,7 @@ use App\Cliente;
 
 class ControllerCliente extends Controller
 {
-    public function inicio(){
+    public function index(){
         
         $colaboradores = Cliente::all();
     
@@ -32,4 +32,9 @@ class ControllerCliente extends Controller
   
     
     }
+
+    public function show(){}
+    public function update(){}
+    public function edit(){}
+    public function destroy(){}
 }

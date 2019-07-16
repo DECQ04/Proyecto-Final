@@ -7,7 +7,7 @@ use App\Colaborador;
 
 class ControllerColaborador extends Controller
 {
-    public function inicio(){
+    public function index(){
         
         $colaboradores = Colaborador::all();
     

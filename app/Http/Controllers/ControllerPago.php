@@ -7,7 +7,7 @@ use App\Pago;
 
 class ControllerPago extends Controller
 {
-    public function inicio(){
+    public function index(){
         
         $pagos = Pago::all();
     

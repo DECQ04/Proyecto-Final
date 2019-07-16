@@ -7,7 +7,7 @@ use App\Gasto;
 
 class ControllerGasto extends Controller
 {
-    public function inicio(){
+    public function index(){
         
         $gastos = Gasto::all();
     

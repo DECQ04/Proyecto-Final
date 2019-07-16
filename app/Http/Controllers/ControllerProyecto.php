@@ -4,7 +4,7 @@ use Illuminate\Http\Request;
 use App\Proyecto;
 class ControllerProyecto extends Controller
 {
-    public function inicio(){
+    public function index(){
         
         $proyectos = Proyecto::all();
             //renombre la vista y por lo tanto renombre el return de contenido/proyecto a -> contenido/proyecto
