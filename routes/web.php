@@ -14,9 +14,6 @@ Route::get('/', function () {
     return view('principal');
 });
 
-Route::get('/', function () {
-    return view('principal');
-});
 
 Route::get('/proyectos','ControllerProyecto@inicio');
 Route::post('/proyectos','ControllerProyecto@store');
