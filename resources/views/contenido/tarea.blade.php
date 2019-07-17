@@ -174,7 +174,7 @@ Author: SAEROX
                                                         <th>Titulo</th>
                                                         <th>Descripción</th>
                                                         <th>id_pago</th>
-                                                        <th>estado</th>
+                                                        <th>Estado de la Tarea</th>
                                                        
                                                     </tr>
                                                 </thead>
@@ -185,8 +185,14 @@ Author: SAEROX
                                                 <a href="#"   title="Editar informacion" data-toggle="modal" data-target="#modal-large" >
                                                 <i class="la la-edit edit" ></i></a>
                                                
+                                                @if ($tareas->condicion=='0')
+                                                <a href="/{{$tareas->id}}/tareasact" ><i class="ion-checkmark-circled"></i></a>
+                                                @endif
+                                                @if ($tareas->condicion=='1')
+                                                <a href="/{{$tareas->id}}/tareas"   ><i class="la la-close delete"></i></a>
+                                                @endif
                                                 
-                                                <a href="#"  ><i class="la la-close delete"></i></a>
+                                                 
                                                 </td>
                                                  <td> {{$tareas->id_proyecto}} </td>
                                                  <td> {{$tareas->id_desarrollador}} </td>
@@ -254,17 +260,29 @@ Author: SAEROX
                         <div class?="widget-body">
                                          <form method="POST" action="/tareas" class="form-horizontal">
                                          {{ csrf_field() }}
-                                            <div class="form-group row d-flex align-items-center mb-5">
-                                                <label class="col-lg-3 form-control-label">Id. Proyecto</label>
-                                                <div class="col-lg-9">
-                                                    <input type="text" name="id_proyecto" class="form-control" placeholder="Id. Proyecto" required>
+                                            
+                                            <div class="form-group row mb-5">
+                                                <label class="col-lg-3 form-control-label"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Proyecto</font></font></label>
+                                                <div class="col-lg-9 select mb-3">
+                                                    <select  name="id_proyecto" class="custom-select form-control">
+                                                    <option ><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Seleccionar... </font></font></option>
+                                                    @foreach ($proyectos as $proyectos)
+                                                        <option value="{{$proyectos->id}}"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;"> {{$proyectos->titulo}} </font></font></option>
+                                                    @endforeach 
+                                                    </select>
                                                 </div>
                                             </div>
                                             
-                                            <div class="form-group row d-flex align-items-center mb-5">
-                                                <label class="col-lg-3 form-control-label">Id. Desarrollador</label>
-                                                <div class="col-lg-9">
-                                                    <input type="text" name="id_desarrollador" placeholder="id_desarrollador" class="form-control" required>
+                                            <div class="form-group row mb-5">
+                                                <label class="col-lg-3 form-control-label"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Desarrollador</font></font></label>
+                                                <div class="col-lg-9 select mb-3">
+                                                    <select  name="id_desarrollador" class="custom-select form-control">
+                                                    <option ><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Seleccionar... </font></font></option>
+                                                   
+                                                    @foreach ($colaboradores as $colaboradores)
+                                                        <option value="{{$colaboradores->id}}"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;"> {{$colaboradores->nombre}} {{$colaboradores->apellido}}</font></font></option>
+                                                    @endforeach 
+                                                    </select>
                                                 </div>
                                             </div>
                                             <div class="form-group row d-flex align-items-center mb-5">
@@ -279,18 +297,21 @@ Author: SAEROX
                                                     <input type="text" name="descripcion" placeholder="descripcion" class="form-control" required>
                                                 </div>
                                             </div>
-                                            <div class="form-group row d-flex align-items-center mb-5">
-                                                <label class="col-lg-3 form-control-label">Id. Pago</label>
-                                                <div class="col-lg-9">
-                                                    <input type="text" name="id_pago" placeholder="id_pago" class="form-control" required>
+                                           
+                                            <div class="form-group row mb-5">
+                                                <label class="col-lg-3 form-control-label"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Pago</font></font></label>
+                                                <div class="col-lg-9 select mb-3">
+                                                    <select  name="id_pago" class="custom-select form-control">
+                                                    <option ><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Seleccionar... </font></font></option>
+                                                    @foreach ($pagos as $pagos)
+                                                        <option value="{{$pagos->id}}"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;"> {{$pagos->descripcion}} </font></font></option>
+                                                    @endforeach 
+                                                    </select>
                                                 </div>
                                             </div>
-                                            <div class="form-group row d-flex align-items-center mb-5">
-                                                <label class="col-lg-3 form-control-label">Estado</label>
-                                                <div class="col-lg-9">
-                                                    <input type="text" name="estado" placeholder="estado" class="form-control" required>
-                                                </div>
-                                            </div>
+
+
+                                             
                                             
                                            
                                             <div class="modal-footer">

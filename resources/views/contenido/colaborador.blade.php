@@ -183,7 +183,12 @@ Author: SAEROX
                                                 <a href="#"   title="Editar informacion" data-toggle="modal" data-target="#modal-large" >
                                                 <i class="la la-edit edit" ></i></a>
                                                
-                                                <a href="#"  ><i class="la la-close delete"></i></a>
+                                                @if ($colaboradores->condicion=='0')
+                                                <a href="/{{$colaboradores->id}}/colaboradoresact" ><i class="ion-checkmark-circled"></i></a>
+                                                @endif
+                                                @if ($colaboradores->condicion=='1')
+                                                <a href="/{{$colaboradores->id}}/colaboradores"   ><i class="la la-close delete"></i></a>
+                                                @endif
                                                   
                                                 </td>
                                                  <td> {{$colaboradores->nombre}} </td>

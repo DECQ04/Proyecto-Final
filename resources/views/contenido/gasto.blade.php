@@ -184,7 +184,12 @@ Author: SAEROX
                                                 <a href="#"   title="Editar informacion" data-toggle="modal" data-target="#modal-large" >
                                                 <i class="la la-edit edit" ></i></a>
                                                
-                                                <a href="#"  ><i class="la la-close delete"></i></a>
+                                                @if ($gastos->condicion=='0')
+                                                <a href="/{{$gastos->id}}/gastosact" ><i class="ion-checkmark-circled"></i></a>
+                                                @endif
+                                                @if ($gastos->condicion=='1')
+                                                <a href="/{{$gastos->id}}/gastos"   ><i class="la la-close delete"></i></a>
+                                                @endif
                                                   
                                                 </td>
                                                  <td> {{$gastos->id_manager}} </td>
@@ -249,7 +254,7 @@ Author: SAEROX
                                          <form method="POST" action="/gastos" class="form-horizontal">
                                          {{ csrf_field() }}
                                             <div class="form-group row d-flex align-items-center mb-5">
-                                                <label class="col-lg-3 form-control-label">Id. Manager</label>
+                                                <label class="col-lg-3 form-control-label">Manager</label>
                                                 <div class="col-lg-9">
                                                     <input type="text" name="id_manager" class="form-control" placeholder="Id. Proyecto" required>
                                                 </div>
@@ -274,6 +279,7 @@ Author: SAEROX
                                                     <input type="datetime-local" name="fecha_hora" placeholder="fecha hora" class="form-control" required>
                                                 </div>
                                             </div>
+                                            
                                             <div class="form-group row d-flex align-items-center mb-5">
                                                 <label class="col-lg-3 form-control-label">Cantidad</label>
                                                 <div class="col-lg-9">

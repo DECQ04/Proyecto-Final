@@ -133,11 +133,11 @@ Author: SAEROX
                         <div class="row">
                             <div class="page-header">
 	                            <div class="d-flex align-items-center">
-	                                <h2 class="page-header-title">Pagos</h2>
+	                                <h2 class="page-header-title">Manager Project</h2>
 	                                <div>
 			                            <ul class="breadcrumb">
 			                                <li class="breadcrumb-item"><a href="/"><i class="ti ti-home"></i></a></li>
-			                                <li class="breadcrumb-item active">Pagos</li>
+			                                <li class="breadcrumb-item active">Manager Project</li>
 			                            </ul>
 	                                </div>
 	                            </div>
@@ -152,7 +152,7 @@ Author: SAEROX
                                 <!-- Export -->
                                 <div class="widget has-shadow">
                                     <div class="widget-header bordered no-actions d-flex align-items-center">
-                                        <h4>Pagos</h4>
+                                        <h4>Manager Project</h4>
                                     </div>
                                     <div class="widget-body">
                                         <!-- Begin Large Modal -->
@@ -169,33 +169,33 @@ Author: SAEROX
                                                 <thead>
                                                     <tr>
                                                         <th>Opciones</th>
-                                                        <th>Id Manager</th>
-                                                        <th>cantidad</th>
-                                                        <th>Fecha hora</th>
-                                                        <th>Estado</th>
-                                                        <th>Descripción</th>
+                                                        <th>Nombres</th>
+                                                        <th>Apellidos</th><!-- Falta Tipo -->
+                                                        <th>Correo Electronico</th>
+                                                        <th>Contraseña</th>
+                                                        <th>Telefono</th>
                                                     </tr>
                                                 </thead>
                                                 <tbody>
-                                                @foreach ($pagos as $pagos)
+                                                @foreach ($managers as $managers)
                                                 <tr>
                                                 <td class="td-actions"> 
                                                 <a href="#"   title="Editar informacion" data-toggle="modal" data-target="#modal-large" >
                                                 <i class="la la-edit edit" ></i></a>
                                                
-                                                @if ($pagos->condicion=='0')
-                                                <a href="/{{$pagos->id}}/pagosact" ><i class="ion-checkmark-circled"></i></a>
+                                                @if ($managers->condicion=='0')
+                                                <a href="/{{$managers->id}}/manageract" ><i class="ion-checkmark-circled"></i></a>
                                                 @endif
-                                                @if ($pagos->condicion=='1')
-                                                <a href="/{{$pagos->id}}/pagos"   ><i class="la la-close delete"></i></a>
+                                                @if ($managers->condicion=='1')
+                                                <a href="/{{$managers->id}}/manager"   ><i class="la la-close delete"></i></a>
                                                 @endif
                                                   
                                                 </td>
-                                                 <td> {{$pagos->id_persona}} </td>
-                                                 <td> {{$pagos->cantidad}} </td> 
-                                                 <td> {{$pagos->fecha_hora}} </td>
-                                                 <td> {{$pagos->estado}} </td>
-                                                 <td> {{$pagos->descripcion}} </td>
+                                                 <td> {{$managers->nombre}} </td>
+                                                 <td> {{$managers->apellido}} </td> 
+                                                 <td> {{$managers->correo_electronico}} </td>
+                                                 <td> {{$managers->contraseña}} </td>
+                                                 <td> {{$managers->telefono}} </td>
                                                 
                                                  
                                                 
@@ -243,7 +243,7 @@ Author: SAEROX
             <div class="modal-dialog modal-lg">
                 <div class="modal-content">
                     <div class="modal-header">
-                        <h4 class="modal-title">Nuevo Pago</h4>
+                        <h4 class="modal-title">Nuevo Manager Project</h4>
                         <button type="button" class="close" data-dismiss="modal">
                             <span aria-hidden="true">×</span>
                             <span class="sr-only">close</span>
@@ -251,39 +251,39 @@ Author: SAEROX
                     </div>
                     <div class="modal-body">
                         <div class?="widget-body">
-                                         <form method="POST" action="/pagos" class="form-horizontal">
+                                         <form method="POST" action="/manager" class="form-horizontal">
                                          {{ csrf_field() }}
                                             <div class="form-group row d-flex align-items-center mb-5">
-                                                <label class="col-lg-3 form-control-label">Manager</label>
+                                                <label class="col-lg-3 form-control-label">Nombres</label>
                                                 <div class="col-lg-9">
-                                                    <input type="text" name="id_persona" class="form-control" placeholder="Id. Persona" required>
+                                                    <input type="text" name="nombre" class="form-control" placeholder="nombre" required>
                                                 </div>
                                             </div>
                                             <div class="form-group row d-flex align-items-center mb-5">
-                                                <label class="col-lg-3 form-control-label">Cantidad</label>
+                                                <label class="col-lg-3 form-control-label">Apellidos</label>
                                                 <div class="col-lg-9">
-                                                    <input type="text" name="cantidad" placeholder="cantidad" class="form-control" required>
+                                                    <input type="text" name="apellido" placeholder="apellido" class="form-control" required>
                                                 </div>
                                             </div>
                                            
                                             
                                             <div class="form-group row d-flex align-items-center mb-5">
-                                                <label class="col-lg-3 form-control-label">Fecha hora</label>
+                                                <label class="col-lg-3 form-control-label">Correo Electronico</label>
                                                 <div class="col-lg-9">
-                                                    <input type="datetime-local" name="fecha_hora" placeholder="fecha hora" class="form-control" required>
+                                                    <input type="email" name="correo_electronico" placeholder="correo electronico" class="form-control" required>
                                                 </div>
                                             </div>
                                             
                                             <div class="form-group row d-flex align-items-center mb-5">
-                                                <label class="col-lg-3 form-control-label">Estado</label>
+                                                <label class="col-lg-3 form-control-label">Contraseña</label>
                                                 <div class="col-lg-9">
-                                                    <input type="text" name="estado" placeholder="estado" class="form-control" required>
+                                                    <input type="text" name="contraseña" placeholder="contraseña" class="form-control" required>
                                                 </div>
                                             </div>
                                             <div class="form-group row d-flex align-items-center mb-5">
-                                                <label class="col-lg-3 form-control-label">Descripción</label>
+                                                <label class="col-lg-3 form-control-label">Telefono</label>
                                                 <div class="col-lg-9">
-                                                    <input type="text" name="descripcion" placeholder="descripcion" class="form-control" required>
+                                                    <input type="text" maxlength="10" name="telefono" placeholder="telefono" class="form-control" required>
                                                 </div>
                                             </div>
                                            
