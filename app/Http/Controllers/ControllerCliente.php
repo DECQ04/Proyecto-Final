@@ -7,9 +7,9 @@ use App\Cliente;
 
 class ControllerCliente extends Controller
 {
-    public function index(){
+    public function inicio(){
         
-        $colaboradores = Cliente::all();
+        $colaboradores = Cliente::where('tipo', '=','3')->select('*')->get();
     
         return view('contenido/cliente',['colaboradores'=>$colaboradores]);
     } 
@@ -32,9 +32,18 @@ class ControllerCliente extends Controller
   
     
     }
-
-    public function show(){}
-    public function update(){}
-    public function edit(){}
-    public function destroy(){}
+    public function desactivar($id){
+        $colaboradores = Cliente::findOrFail($id);
+        $colaboradores->condicion = '0';
+        $colaboradores->save();
+            
+        return redirect('/clientes');
+        }
+        public function activar($id){
+            $colaboradores = Cliente::findOrFail($id);
+            $colaboradores->condicion = '1';
+            $colaboradores->save();
+                
+            return redirect('/clientes');
+        }
 }

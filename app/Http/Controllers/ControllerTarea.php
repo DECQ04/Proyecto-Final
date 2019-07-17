@@ -4,13 +4,19 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Tarea;
+use App\Proyecto;
+use App\Colaborador;
+use App\Pago;
 class ControllerTarea extends Controller
 {
-    public function index(){
+    public function inicio(){
         
         $tareas = Tarea::all();
+        $proyectos = Proyecto::all();
+        $colaboradores = Colaborador::where('tipo','=','2')->select('*')->get();
+        $pagos = Pago::all();
     
-        return view('contenido/tarea',['tareas'=>$tareas]);
+        return view('contenido/tarea',['pagos'=>$pagos,'tareas'=>$tareas,'proyectos'=>$proyectos,'colaboradores'=>$colaboradores]);
     } 
   
     public function store(Request $request)
@@ -28,9 +34,18 @@ class ControllerTarea extends Controller
   
     
     }
-
-    public function edit(){
-
-        
-    }
+    public function desactivar($id){
+        $tareas = Tarea::findOrFail($id);
+        $tareas->condicion = '0';
+        $tareas->save();
+            
+        return redirect('/tareas');
+        }
+        public function activar($id){
+            $tareas = Tarea::findOrFail($id);
+            $tareas->condicion = '1';
+            $tareas->save();
+                
+            return redirect('/tareas');
+        }
 }

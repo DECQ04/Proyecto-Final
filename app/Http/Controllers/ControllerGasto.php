@@ -7,7 +7,7 @@ use App\Gasto;
 
 class ControllerGasto extends Controller
 {
-    public function index(){
+    public function inicio(){
         
         $gastos = Gasto::all();
     
@@ -28,4 +28,18 @@ class ControllerGasto extends Controller
   
     
     }
+    public function desactivar($id){
+        $gastos = Gasto::findOrFail($id);
+        $gastos->condicion = '0';
+        $gastos->save();
+            
+        return redirect('/gastos');
+        }
+        public function activar($id){
+            $gastos = Gasto::findOrFail($id);
+            $gastos->condicion = '1';
+            $gastos->save();
+                
+            return redirect('/gastos');
+        }
 }

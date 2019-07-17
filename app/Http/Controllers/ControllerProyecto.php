@@ -2,13 +2,19 @@
 namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Proyecto;
+use App\Manager;
+use App\Cliente;
+use App\Pago;
 class ControllerProyecto extends Controller
 {
-    public function index(){
-        
+    public function inicio(){
+       
+        $managers = Manager::where('tipo', '=','1')->select('*')->get();
+        $colaboradores = Cliente::where('tipo', '=','3')->select('*')->get();
         $proyectos = Proyecto::all();
+        $pagos = Pago::all();
             //renombre la vista y por lo tanto renombre el return de contenido/proyecto a -> contenido/proyecto
-        return view('contenido/proyecto',['proyectos'=>$proyectos]);
+        return view('contenido/proyecto',['proyectos'=>$proyectos,'managers'=>$managers,'colaboradores'=>$colaboradores,'pagos'=>$pagos]);
     } 
   
     public function store(Request $request)
@@ -22,12 +28,28 @@ class ControllerProyecto extends Controller
         $proyectos->pago_total=request('pago_total');
         $proyectos->id_pago=request('id_pago');
         $proyectos->estado= '1';
+        $proyectos->condicion= '1';
         $proyectos->save();
         return redirect('/proyectos');
         //return request()->all();//trae todo del form categoria/create
         //return request('nombre'); este el nombre
         //return request('descripcion'); y asi 
     
+    }
+
+    public function desactivar($id){
+    $proyectos = Proyecto::findOrFail($id);
+    $proyectos->condicion = '0';
+    $proyectos->save();
+        
+    return redirect('/proyectos');
+    }
+    public function activar($id){
+        $proyectos = Proyecto::findOrFail($id);
+        $proyectos->condicion = '1';
+        $proyectos->save();
+            
+        return redirect('/proyectos');
     }
    
 }

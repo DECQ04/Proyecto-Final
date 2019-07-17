@@ -7,7 +7,7 @@ use App\Pago;
 
 class ControllerPago extends Controller
 {
-    public function index(){
+    public function inicio(){
         
         $pagos = Pago::all();
     
@@ -30,4 +30,18 @@ class ControllerPago extends Controller
   
     
     }
+    public function desactivar($id){
+        $pagos = Pago::findOrFail($id);
+        $pagos->condicion = '0';
+        $pagos->save();
+            
+        return redirect('/pagos');
+        }
+        public function activar($id){
+            $pagos = Pago::findOrFail($id);
+            $pagos->condicion = '1';
+            $pagos->save();
+                
+            return redirect('/pagos');
+        }
 }
