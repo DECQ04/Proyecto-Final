@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Hash;
 use App\Cliente;
 
 class ControllerCliente extends Controller
@@ -17,15 +18,18 @@ class ControllerCliente extends Controller
     public function store(Request $request)
     {
         $colaboradores = new Cliente(); 
-        $colaboradores->nombre=request('nombre');
-        $colaboradores->apellido=request('apellido');
+        $colaboradores->name=request('nombre');
+        //$colaboradores->apellido=request('apellido');
         $colaboradores->tipo='3';
-        $colaboradores->correo_electronico=request('correo_electronico');
-        $colaboradores->contraseña=request('contraseña');
+        $colaboradores->email=request('correo_electronico');
+       
         $colaboradores->telefono=request('telefono');
         
         
+        $colaboradores->password=Hash::make(request('contraseña'));
         
+
+
         
         $colaboradores->save();
         return redirect('/clientes');

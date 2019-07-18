@@ -6,5 +6,5 @@ use Illuminate\Database\Eloquent\Model;
 
 class Colaborador extends Model
 {
-    public $table = "personas";
+    public $table = "users";
 }

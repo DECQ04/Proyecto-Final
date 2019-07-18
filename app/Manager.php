@@ -6,5 +6,5 @@ use Illuminate\Database\Eloquent\Model;
 
 class Manager extends Model
 {
-    public $table = "personas";
+    public $table = "users";
 }

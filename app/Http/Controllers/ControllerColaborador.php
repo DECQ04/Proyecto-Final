@@ -3,14 +3,13 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Hash;
 use App\Colaborador;
 
 class ControllerColaborador extends Controller
 {
     public function inicio(){
         
-       
-
         $colaboradores = Colaborador::where('tipo','=','2')->select('*')->get();
 
         return view('contenido/colaborador',['colaboradores'=>$colaboradores]);
@@ -19,16 +18,12 @@ class ControllerColaborador extends Controller
     public function store(Request $request)
     {
         $colaboradores = new Colaborador(); 
-        $colaboradores->nombre=request('nombre');
-        $colaboradores->apellido=request('apellido');
+        $colaboradores->name=request('nombre');
+      //  $colaboradores->apellido=request('apellido');
         $colaboradores->tipo='2';
-        $colaboradores->correo_electronico=request('correo_electronico');
-        $colaboradores->contraseña=request('contraseña');
+        $colaboradores->email=request('correo_electronico');
+        $colaboradores->password=Hash::make(request('contraseña'));
         $colaboradores->telefono=request('telefono');
-        
-        
-        
-        
         $colaboradores->save();
         return redirect('/colaboradores');
   

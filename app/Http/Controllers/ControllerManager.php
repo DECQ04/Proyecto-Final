@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Hash;
 use App\Manager;
 class ControllerManager extends Controller
 {
@@ -16,11 +17,11 @@ class ControllerManager extends Controller
     public function store(Request $request)
     {
         $managers = new Manager(); 
-        $managers->nombre=request('nombre');
-        $managers->apellido=request('apellido');
+        $managers->name=request('nombre');
+       // $managers->apellido=request('apellido');
         $managers->tipo='1';
-        $managers->correo_electronico=request('correo_electronico');
-        $managers->contraseña=request('contraseña');
+        $managers->email=request('correo_electronico');
+        $managers->password=Hash::make(request('contraseña'));
         $managers->telefono=request('telefono');
         $managers->save();
         return redirect('/manager');
