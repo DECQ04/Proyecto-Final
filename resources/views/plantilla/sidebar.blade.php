@@ -24,7 +24,7 @@
                                 <ul id="dropdown-authentication" class="collapse list-unstyled pt-0">
                                     <li><a href="clientes">Clientes</a></li>
                                     <li><a href="colaboradores">Desarrolladores</a></li>
-                                    <li><a href="pages-register.html">Manager Project</a></li>
+                                    <li><a href="manager">Manager Project</a></li>
                                 </ul>
                             </li>
                         </ul>

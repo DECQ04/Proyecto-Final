@@ -70,53 +70,7 @@ Author: SAEROX
                         </div>
                         <!-- End Logo -->
                         <!-- Begin Navbar Menu -->
-                        <ul class="nav-menu list-unstyled d-flex flex-md-row align-items-md-center pull-right">
-                            <!-- Search -->
-                            <li class="nav-item d-flex align-items-center"><a id="search" href="#"><i class="la la-search"></i></a></li>
-                            <!-- End Search -->
-                            <!-- Begin Notifications -->
-                            <li class="nav-item dropdown"><a id="notifications" rel="nofollow" data-target="#" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="nav-link"><i class="la la-bell animated infinite swing"></i><span class="badge-pulse"></span></a>
-                                <ul aria-labelledby="notifications" class="dropdown-menu notification">
-                                    <li>
-                                        <div class="notifications-header">
-                                            <div class="title">Notificaciones</div>
-                                            <div class="notifications-overlay"></div>
-                                            <img src="assets/img/notifications/01.jpg" alt="..." class="img-fluid">
-                                        </div>
-                                    </li>
-                                   
-                                    <li>
-                                        <a rel="nofollow" href="#" class="dropdown-item all-notifications text-center">Ver todas las Notificaciones</a>
-                                    </li>
-                                </ul>
-                            </li>
-                            <!-- End Notifications -->
-                            <!-- User -->
-                            <li class="nav-item dropdown"><a id="user" rel="nofollow" data-target="#" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="nav-link"><img src="assets/img/avatar/avatar-01.jpg" alt="..." class="avatar rounded-circle"></a>
-                                <ul aria-labelledby="user" class="user-size dropdown-menu">
-                                    <li class="welcome">
-                                        <a href="#" class="edit-profil"><i class="la la-gear"></i></a>
-                                        <img src="assets/img/avatar/avatar-01.jpg" alt="..." class="rounded-circle">
-                                    </li>
-                                    <li>
-                                        <a href="pages-profile.html" class="dropdown-item"> 
-                                            Profile
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href="#" class="dropdown-item no-padding-bottom"> 
-                                            Settings
-                                        </a>
-                                    </li>
-                                    <li class="separator"></li>
-                                    <li><a rel="nofollow" href="pages-login.html" class="dropdown-item logout text-center"><i class="ti-power-off"></i></a></li>
-                                </ul>
-                            </li>
-                            <!-- End User -->
-                            <!-- Begin Quick Actions -->
-                            <li class="nav-item"><a href="#off-canvas" class="open-sidebar"><i class="la la-ellipsis-h"></i></a></li>
-                            <!-- End Quick Actions -->
-                        </ul>
+                        @include('plantilla.not')
                         <!-- End Navbar Menu -->
                     </div>
                     <!-- End Topbar -->
@@ -170,7 +124,7 @@ Author: SAEROX
                                                     <tr>
                                                         <th>Opciones</th>
                                                         <th>Nombres</th>
-                                                        <th>Apellidos</th><!-- Falta Tipo -->
+                                                        <th>Rol</th><!-- Falta Tipo -->
                                                         <th>Correo Electronico</th>
                                                         <th>Contraseña</th>
                                                         <th>Telefono</th>
@@ -191,10 +145,11 @@ Author: SAEROX
                                                 @endif
                                                   
                                                 </td>
-                                                 <td> {{$colaboradores->nombre}} </td>
-                                                 <td> {{$colaboradores->apellido}} </td> 
-                                                 <td> {{$colaboradores->correo_electronico}} </td>
-                                                 <td> {{$colaboradores->contraseña}} </td>
+                                                 <td> {{$colaboradores->name}} </td>
+                                                <!-- <td> {{$colaboradores->apellido}} </td> -->
+                                                <td>Desarrollador</td>
+                                                 <td> {{$colaboradores->email}} </td>
+                                                 <td> {{$colaboradores->password}} </td>
                                                  <td> {{$colaboradores->telefono}} </td>
                                                 
                                                  
@@ -259,14 +214,7 @@ Author: SAEROX
                                                     <input type="text" name="nombre" class="form-control" placeholder="nombre" required>
                                                 </div>
                                             </div>
-                                            <div class="form-group row d-flex align-items-center mb-5">
-                                                <label class="col-lg-3 form-control-label">Apellidos</label>
-                                                <div class="col-lg-9">
-                                                    <input type="text" name="apellido" placeholder="apellido" class="form-control" required>
-                                                </div>
-                                            </div>
-                                           
-                                            
+                                              
                                             <div class="form-group row d-flex align-items-center mb-5">
                                                 <label class="col-lg-3 form-control-label">Correo Electronico</label>
                                                 <div class="col-lg-9">
@@ -277,7 +225,7 @@ Author: SAEROX
                                             <div class="form-group row d-flex align-items-center mb-5">
                                                 <label class="col-lg-3 form-control-label">Contraseña</label>
                                                 <div class="col-lg-9">
-                                                    <input type="text" name="contraseña" placeholder="contraseña" class="form-control" required>
+                                                    <input type="password" name="contraseña" placeholder="contraseña" class="form-control" required>
                                                 </div>
                                             </div>
                                             <div class="form-group row d-flex align-items-center mb-5">

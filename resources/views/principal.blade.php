@@ -9,10 +9,15 @@ Author: SAEROX
     <head>
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <title>Elisyam - Calendar</title>
+        <title>Sistema</title>
+        
+        
+        <meta name="csrf-token" content="{{ csrf_token() }}">
+
         <meta name="description" content="Elisyam is a Web App and Admin Dashboard Template built with Bootstrap 4">
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
         <!-- Google Fonts -->
+        
         <script src="https://ajax.googleapis.com/ajax/libs/webfont/1.6.26/webfont.js"></script>
         <script>
           WebFont.load({
@@ -22,6 +27,9 @@ Author: SAEROX
             }
           });
         </script>
+
+        
+
         <!-- Favicon -->
         <link rel="apple-touch-icon" sizes="180x180" href="assets/img/apple-touch-icon.png">
         <link rel="icon" type="image/png" sizes="32x32" href="assets/img/favicon-32x32.png">
@@ -43,7 +51,7 @@ Author: SAEROX
             </div>
         </div>
         <!-- End Preloader -->
-        <div class="page">
+        <div class="page home-page">
             <!-- Begin Header -->
             <header class="header">
                 <nav class="navbar fixed-top">        
@@ -77,63 +85,7 @@ Author: SAEROX
                         </div>
                         <!-- End Logo -->
                         <!-- Begin Navbar Menu -->
-                        <ul class="nav-menu list-unstyled d-flex flex-md-row align-items-md-center pull-right">
-                            <!-- Search -->
-                            <li class="nav-item d-flex align-items-center"><a id="search" href="#"><i class="la la-search"></i></a></li>
-                            <!-- End Search -->
-                            <!-- Begin Notifications -->
-                            <li class="nav-item dropdown"><a id="notifications" rel="nofollow" data-target="#" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="nav-link"><i class="la la-bell animated infinite swing"></i><span class="badge-pulse"></span></a>
-                                <ul aria-labelledby="notifications" class="dropdown-menu notification">
-                                    <li>
-                                        <div class="notifications-header">
-                                            <div class="title">Notifications </div>
-                                            <div class="notifications-overlay"></div>
-                                            <img src="assets/img/notifications/01.jpg" alt="..." class="img-fluid">
-                                        </div>
-                                    </li>
-                                   
-                                    <li>
-                                        <a rel="nofollow" href="#" class="dropdown-item all-notifications text-center">View All Notifications</a>
-                                    </li>
-                                </ul>
-                            </li>
-                            <!-- End Notifications -->
-                            <!-- User -->
-                            <li class="nav-item dropdown"><a id="user" rel="nofollow" data-target="#" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="nav-link"><img src="assets/img/avatar/avatar-01.jpg" alt="..." class="avatar rounded-circle"></a>
-                                <ul aria-labelledby="user" class="user-size dropdown-menu">
-                                    <li class="welcome">
-                                        <a href="#" class="edit-profil"><i class="la la-gear"></i></a>
-                                        <img src="assets/img/avatar/avatar-01.jpg" alt="..." class="rounded-circle">
-                                    </li>
-                                    <li>
-                                        <a href="pages-profile.html" class="dropdown-item"> 
-                                            Profile
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href="app-mail.html" class="dropdown-item"> 
-                                            Messages
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href="#" class="dropdown-item no-padding-bottom"> 
-                                            Settings
-                                        </a>
-                                    </li>
-                                    <li class="separator"></li>
-                                    <li>
-                                        <a href="pages-faq.html" class="dropdown-item no-padding-top"> 
-                                            Faq
-                                        </a>
-                                    </li>
-                                    <li><a rel="nofollow" href="pages-login.html" class="dropdown-item logout text-center"><i class="ti-power-off"></i></a></li>
-                                </ul>
-                            </li>
-                            <!-- End User -->
-                            <!-- Begin Quick Actions -->
-                            <li class="nav-item"><a href="#off-canvas" class="open-sidebar"><i class="la la-ellipsis-h"></i></a></li>
-                            <!-- End Quick Actions -->
-                        </ul>
+                        @include('plantilla.not')
                         <!-- End Navbar Menu -->
                     </div>
                     <!-- End Topbar -->
@@ -151,6 +103,7 @@ Author: SAEROX
                     
                 <!-- End Left Sidebar -->
                 <div class="content-inner">
+                
                     <!-- Begin Container -->
                    
                     <!-- End Container -->

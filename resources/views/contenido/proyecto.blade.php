@@ -71,53 +71,7 @@ Author: SAEROX
                         </div>
                         <!-- End Logo -->
                         <!-- Begin Navbar Menu -->
-                        <ul class="nav-menu list-unstyled d-flex flex-md-row align-items-md-center pull-right">
-                            <!-- Search -->
-                            <li class="nav-item d-flex align-items-center"><a id="search" href="#"><i class="la la-search"></i></a></li>
-                            <!-- End Search -->
-                            <!-- Begin Notifications -->
-                            <li class="nav-item dropdown"><a id="notifications" rel="nofollow" data-target="#" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="nav-link"><i class="la la-bell animated infinite swing"></i><span class="badge-pulse"></span></a>
-                                <ul aria-labelledby="notifications" class="dropdown-menu notification">
-                                    <li>
-                                        <div class="notifications-header">
-                                            <div class="title">Notificaciones</div>
-                                            <div class="notifications-overlay"></div>
-                                            <img src="assets/img/notifications/01.jpg" alt="..." class="img-fluid">
-                                        </div>
-                                    </li>
-                                   
-                                    <li>
-                                        <a rel="nofollow" href="#" class="dropdown-item all-notifications text-center">Ver todas las Notificaciones</a>
-                                    </li>
-                                </ul>
-                            </li>
-                            <!-- End Notifications -->
-                            <!-- User -->
-                            <li class="nav-item dropdown"><a id="user" rel="nofollow" data-target="#" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="nav-link"><img src="assets/img/avatar/avatar-01.jpg" alt="..." class="avatar rounded-circle"></a>
-                                <ul aria-labelledby="user" class="user-size dropdown-menu">
-                                    <li class="welcome">
-                                        <a href="#" class="edit-profil"><i class="la la-gear"></i></a>
-                                        <img src="assets/img/avatar/avatar-01.jpg" alt="..." class="rounded-circle">
-                                    </li>
-                                    <li>
-                                        <a href="pages-profile.html" class="dropdown-item"> 
-                                            Profile
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href="#" class="dropdown-item no-padding-bottom"> 
-                                            Settings
-                                        </a>
-                                    </li>
-                                    <li class="separator"></li>
-                                    <li><a rel="nofollow" href="pages-login.html" class="dropdown-item logout text-center"><i class="ti-power-off"></i></a></li>
-                                </ul>
-                            </li>
-                            <!-- End User -->
-                            <!-- Begin Quick Actions -->
-                            <li class="nav-item"><a href="#off-canvas" class="open-sidebar"><i class="la la-ellipsis-h"></i></a></li>
-                            <!-- End Quick Actions -->
-                        </ul>
+                        @include('plantilla.not')
                         <!-- End Navbar Menu -->
                     </div>
                     <!-- End Topbar -->
@@ -269,7 +223,7 @@ Author: SAEROX
                                                     <select  name='id_manager' class="custom-select form-control">
                                                     <option ><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Seleccionar... </font></font></option>
                                                      @foreach ($managers as $managers)
-                                                        <option value="{{$managers->id}}"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;"> {{$managers->nombre}} {{$managers->apellido}}</font></font></option>
+                                                        <option value="{{$managers->id}}"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;"> {{$managers->name}}</font></font></option>
                                                     @endforeach 
                                                     </select>
                                                 </div>
@@ -282,7 +236,7 @@ Author: SAEROX
                                                     <select  name="id_cliente" class="custom-select form-control">
                                                     <option ><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Seleccionar... </font></font></option>
                                                     @foreach ($colaboradores as $colaboradores)
-                                                        <option value="{{$colaboradores->id}}"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;"> {{$colaboradores->nombre}} {{$colaboradores->apellido}}</font></font></option>
+                                                        <option value="{{$colaboradores->id}}"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;"> {{$colaboradores->name}}</font></font></option>
                                                     @endforeach 
                                                     </select>
                                                 </div>
