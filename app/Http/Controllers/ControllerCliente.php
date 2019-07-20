@@ -22,15 +22,8 @@ class ControllerCliente extends Controller
         //$colaboradores->apellido=request('apellido');
         $colaboradores->tipo='3';
         $colaboradores->email=request('correo_electronico');
-       
         $colaboradores->telefono=request('telefono');
-        
-        
         $colaboradores->password=Hash::make(request('contraseña'));
-        
-
-
-        
         $colaboradores->save();
         return redirect('/clientes');
   
@@ -50,4 +43,5 @@ class ControllerCliente extends Controller
                 
             return redirect('/clientes');
         }
+       
 }

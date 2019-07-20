@@ -20,7 +20,7 @@ class ControllerGasto extends Controller
         $gastos->id_manager=request('id_manager');
         $gastos->titulo=request('titulo');
         $gastos->descripcion=request('descripcion');
-        $gastos->fecha_hora=request('fecha_hora');
+       // $gastos->fecha_hora=request('fecha_hora');
         $gastos->cantidad=request('cantidad');
         
         $gastos->save();
