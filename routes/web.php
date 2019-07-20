@@ -10,9 +10,19 @@
 | contains the "web" middleware group. Now create something great!
 |
 */
+
 Route::get('/', function () {
     return view('layouts.app');
 });
+Route::get('/principal', function () {
+    return view('principal');
+});
+
+Route::get('/perfil', function () {
+    return view('contenido.personal');
+});
+
+Route::get('/perfilup','ControllerPerfil@up');
 
 Route::get('/proyectos','ControllerProyecto@inicio');
 Route::post('/proyectos','ControllerProyecto@store');
@@ -46,6 +56,7 @@ Route::get('/{proyed}/clientesact','ControllerCliente@activar');
 
 Route::get('/manager','ControllerManager@inicio');
 Route::post('/manager','ControllerManager@store');
+Route::post('/manager/actualizar','ControllerManager@update');
 Route::get('/{proyed}/manager','ControllerManager@desactivar');
 Route::get('/{proyed}/manageract','ControllerManager@activar');
 
