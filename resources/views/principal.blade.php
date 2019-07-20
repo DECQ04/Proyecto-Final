@@ -97,7 +97,19 @@ Author: SAEROX
                 
                     <!-- Begin Side Navbar -->
                     
-                   @include('plantilla.sidebar')
+                   
+            @if(Auth::check())
+            @if (Auth::user()->tipo == 1)
+            @include('plantilla.sidebar')
+            @elseif (Auth::user()->tipo == 2)
+            @include('plantilla.sidebar2')
+            @elseif (Auth::user()->tipo == 3)
+            @include('plantilla.sidebar3')
+            @else
+
+            @endif
+
+        @endif
                     <!-- End Side Navbar   -->
                     
                     
@@ -105,7 +117,24 @@ Author: SAEROX
                 <div class="content-inner">
                 
                     <!-- Begin Container -->
-                   
+                    <div class="widget has-shadow">
+                                    <div class="widget-header bordered no-actions d-flex align-items-center">
+                                        <h4>Proyectos</h4>
+                                    </div>
+                                    <div class="widget-body">
+                                        <div class="progress progress-lg mb-3">
+                                            <div class="progress-bar bg-primary" role="progressbar" style="width: 25%" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
+                                        </div>
+                                        <div class="widget-header bordered no-actions d-flex align-items-center">
+                                        <h4>Tareas</h4>
+                                    </div>
+                                        <div class="progress progress-lg mb-3">
+                                            <div class="progress-bar bg-danger"  role="progressbar" style="width: 50%" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100"></div>
+                                        </div>
+                                        
+                                       
+                                    </div>
+                                </div>
                     <!-- End Container -->
                     <!-- Begin Page Footer-->
                     <footer class="main-footer">
@@ -146,12 +175,13 @@ Author: SAEROX
         <!-- End Vendor Js -->
         <!-- Begin Page Vendor Js -->
         <script src="assets/vendors/js/nicescroll/nicescroll.min.js"></script>
-        <script src="assets/vendors/js/calendar/moment.min.js"></script>
-        <script src="assets/vendors/js/calendar/fullcalendar.min.js"></script>
+         
+        <script src="assets/vendors/js/chart/chart.min.js"></script>
         <script src="assets/vendors/js/app/app.min.js"></script>
+        <script src="assets/js/components/chartjs/chartjs.min.js"></script>
         <!-- End Page Vendor Js -->
         <!-- Begin Page Snippets -->
-        <script src="assets/js/app/calendar/basic-calendar.min.js"></script>
+         
         <!-- End Page Snippets -->
     </body>
 </html>

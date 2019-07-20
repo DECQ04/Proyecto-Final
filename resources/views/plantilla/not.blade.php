@@ -16,6 +16,7 @@
                                     <li>
                                         <a rel="nofollow" href="#" class="dropdown-item all-notifications text-center">View All Notifications</a>
                                     </li>
+                                    
                                 </ul>
                             </li>
                             <!-- End Notifications -->
@@ -27,15 +28,17 @@
                                         <img src="assets/img/avatar/avatar-01.jpg" alt="..." class="rounded-circle">
                                     </li>
                                     <li>
-                                        <a href="pages-profile.html" class="dropdown-item"> 
+                                        <a  class="dropdown-item"> 
                                         {{ Auth::user()->name }} 
                                         </a>
                                     </li>
                                     <li>
-                                        <a href="#" class="dropdown-item no-padding-bottom"> 
-                                            Settings
+                                        <a href="/perfil" class="dropdown-item"> 
+                                        Perfil
                                         </a>
                                     </li>
+                                    <li>
+                                    
                                     <li class="separator"></li>
                                    
                                     <a class="dropdown-item logout text-center" href="{{ route('logout') }}"

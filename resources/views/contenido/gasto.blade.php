@@ -90,7 +90,7 @@ Author: SAEROX
 	                                <h2 class="page-header-title">Gastos</h2>
 	                                <div>
 			                            <ul class="breadcrumb">
-			                                <li class="breadcrumb-item"><a href="/"><i class="ti ti-home"></i></a></li>
+			                                <li class="breadcrumb-item"><a href="/principal"><i class="ti ti-home"></i></a></li>
 			                                <li class="breadcrumb-item active">Gastos</li>
 			                            </ul>
 	                                </div>
@@ -115,7 +115,7 @@ Author: SAEROX
                                             <p>Nuevo Registro</p>
                                             </div>
                                             <div class="col-xl-4 d-flex align-items-center mb-3">
-                                            <button type="button" class="btn btn-primary mr-1 mb-2" data-toggle="modal" data-target="#modal-large"><i class="la la-pencil"></i>Crear</button></div>
+                                            <button type="button" class="btn btn-gradient-01 mr-1 mb-2" data-toggle="modal" data-target="#modal-large"><i class="la la-pencil"></i>Crear</button></div>
                                         </div>
                                         <!-- End Large Modal -->
                                         <div class="table-responsive">
@@ -133,6 +133,7 @@ Author: SAEROX
                                                 </thead>
                                                 <tbody>
                                                 @foreach ($gastos as $gastos)
+                                                @if (Auth::user()->id == $gastos->id_manager)
                                                 <tr>
                                                 <td class="td-actions"> 
                                                 <a href="#"   title="Editar informacion" data-toggle="modal" data-target="#modal-large" >
@@ -154,6 +155,7 @@ Author: SAEROX
                                                  <td> {{$gastos->cantidad}} </td>
                                                 
                                                 </tr>
+                                                @endif
                                                 @endforeach  
                                                 </tbody>
                                             </table>
@@ -210,7 +212,7 @@ Author: SAEROX
                                             <div class="form-group row d-flex align-items-center mb-5">
                                                 <label class="col-lg-3 form-control-label">Manager</label>
                                                 <div class="col-lg-9">
-                                                    <input type="text" name="id_manager" class="form-control" placeholder="Id. Proyecto" required>
+                                                    <input type="text" name="id_manager" class="form-control" value="{{Auth::user()->id}}" required>
                                                 </div>
                                             </div>
                                             
@@ -227,12 +229,7 @@ Author: SAEROX
                                                     <input type="text" name="descripcion" placeholder="descripcion" class="form-control" required>
                                                 </div>
                                             </div>
-                                            <div class="form-group row d-flex align-items-center mb-5">
-                                                <label class="col-lg-3 form-control-label">Fecha hora</label>
-                                                <div class="col-lg-9">
-                                                    <input type="datetime-local" name="fecha_hora" placeholder="fecha hora" class="form-control" required>
-                                                </div>
-                                            </div>
+                                             
                                             
                                             <div class="form-group row d-flex align-items-center mb-5">
                                                 <label class="col-lg-3 form-control-label">Cantidad</label>

@@ -90,7 +90,7 @@ Author: SAEROX
 	                                <h2 class="page-header-title">Tareas</h2>
 	                                <div>
 			                            <ul class="breadcrumb">
-			                                <li class="breadcrumb-item"><a href="/"><i class="ti ti-home"></i></a></li>
+			                                <li class="breadcrumb-item"><a href="/principal"><i class="ti ti-home"></i></a></li>
 			                                <li class="breadcrumb-item active">Tareas</li>
 			                            </ul>
 	                                </div>
@@ -115,7 +115,7 @@ Author: SAEROX
                                             <p>Nuevo Registro</p>
                                             </div>
                                             <div class="col-xl-4 d-flex align-items-center mb-3">
-                                            <button type="button" class="btn btn-primary mr-1 mb-2" data-toggle="modal" data-target="#modal-large"><i class="la la-pencil"></i>Crear</button></div>
+                                            <button type="button" class="btn btn-gradient-01 mr-1 mb-2" data-toggle="modal" data-target="#modal-large"><i class="la la-pencil"></i>Crear</button></div>
                                         </div>
                                         <!-- End Large Modal -->
                                         <div class="table-responsive">
