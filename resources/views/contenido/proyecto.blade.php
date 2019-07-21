@@ -139,16 +139,20 @@ Author: SAEROX
                                                 @foreach ($proyectos as $proyectos)
                                                 <tr>
                                                 <td class="td-actions"> 
-                                                <a href="#"   title="Editar informacion" data-toggle="modal" data-target="#modal-large" >
-                                                <i class="la la-edit edit" ></i></a>
-                                               
+                                                
+                                                <form method="POST" action="/proyectosEdit">
+                                                {{ csrf_field() }}
+                                                      <input type="hidden" name="id" value="{{$proyectos->id}}">
+                                                     <button type="submit" class="btn btn-gradient-04  btn-sm mr-1 mb-2"><i class="la la-pencil"></i></button>
+                                                
+                                                
                                                 @if ($proyectos->condicion=='0')
                                                 <a href="/{{$proyectos->id}}/act" ><i class="ion-checkmark-circled"></i></a>
                                                 @endif
                                                 @if ($proyectos->condicion=='1')
-                                                <a href="/{{$proyectos->id}}/proyectos"   ><i class="la la-close delete"></i></a>
+                                                <a href="/{{$proyectos->id}}/proyectos"><i class="la la-close delete"></i></a>
                                                 @endif
-                                                
+                                                </form>
                                                 </td>
                                                  <td> {{$proyectos->id_manager}} </td>
                                                  <td> {{$proyectos->id_cliente}} </td>
@@ -201,7 +205,25 @@ Author: SAEROX
                 </div>
             </div>
             <!-- End Page Content -->
-
+            <div id="modal-edit" class="modal fade">
+            <div class="modal-dialog modal-lg">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h4 class="modal-title">Nuevo Proyecto</h4>
+                        <button type="button" class="close" data-dismiss="modal">
+                            <span aria-hidden="true">×</span>
+                            <span class="sr-only">close</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <div class?="widget-body">
+                                          
+                        </div>
+                    </div>
+                    
+                </div>
+            </div>
+        </div>
          <!-- Begin Large Modal -->
          <div id="modal-large" class="modal fade">
             <div class="modal-dialog modal-lg">

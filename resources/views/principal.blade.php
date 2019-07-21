@@ -117,24 +117,15 @@ Author: SAEROX
                 <div class="content-inner">
                 
                     <!-- Begin Container -->
-                    <div class="widget has-shadow">
-                                    <div class="widget-header bordered no-actions d-flex align-items-center">
-                                        <h4>Proyectos</h4>
-                                    </div>
-                                    <div class="widget-body">
-                                        <div class="progress progress-lg mb-3">
-                                            <div class="progress-bar bg-primary" role="progressbar" style="width: 25%" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
-                                        </div>
-                                        <div class="widget-header bordered no-actions d-flex align-items-center">
-                                        <h4>Tareas</h4>
-                                    </div>
-                                        <div class="progress progress-lg mb-3">
-                                            <div class="progress-bar bg-danger"  role="progressbar" style="width: 50%" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100"></div>
-                                        </div>
-                                        
-                                       
-                                    </div>
-                                </div>
+                     @if (Auth::user()->tipo == 1)
+                     @include('plantilla.contenidoPrincipal')
+                     @endif
+                     @if (Auth::user()->tipo == 2)
+                     @include('plantilla.sidebar2')
+                     @endif
+                     @if (Auth::user()->tipo == 3)
+                     @include('plantilla.sidebar3')
+                     @endif
                     <!-- End Container -->
                     <!-- Begin Page Footer-->
                     <footer class="main-footer">
