@@ -14,20 +14,21 @@
 Route::get('/', function () {
     return view('layouts.app');
 });
-Route::get('/principal', function () {
-    return view('principal');
-});
+ 
 
 Route::get('/perfil', function () {
     return view('contenido.personal');
 });
-
 Route::get('/perfilup','ControllerPerfil@up');
 
+ 
 Route::get('/proyectos','ControllerProyecto@inicio');
 Route::post('/proyectos','ControllerProyecto@store');
+Route::post('/proyectosEdit','ControllerProyecto@edit');
+Route::post('/proyectosup','ControllerProyecto@update');
 Route::get('/{proyed}/proyectos','ControllerProyecto@desactivar');
 Route::get('/{proyed}/act','ControllerProyecto@activar');
+
 
 Route::get('/tareas','ControllerTarea@inicio');
 Route::post('/tareas','ControllerTarea@store');
@@ -63,3 +64,5 @@ Route::get('/{proyed}/manageract','ControllerManager@activar');
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+Route::get('/home','ControllerProyecto@cont');
+Route::get('/principal','ControllerProyecto@cont');
