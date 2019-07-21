@@ -5,8 +5,24 @@ use App\Proyecto;
 use App\Manager;
 use App\Cliente;
 use App\Pago;
+use App\Tarea;
 class ControllerProyecto extends Controller
 {
+    public function cont(){
+       
+        //$managers = Manager::where('tipo', '=','1')->select('*')->get();
+        $n = Proyecto::count();
+        $a = Proyecto::where('estado','=','0')->count();
+        $proyectos=(100*$a)/$n;
+
+        $nt = Tarea::count();
+        $at = Tarea::where('estado','=','0')->count();
+        $tareas=(100*$at)/$nt;
+        //$users = DB::table('users')->count();
+      //  ->count()
+            //renombre la vista y por lo tanto renombre el return de contenido/proyecto a -> contenido/proyecto
+        return view('principal',['proyectos'=>$proyectos,'tareas'=>$tareas]);
+    } 
     public function inicio(){
        
         $managers = Manager::where('tipo', '=','1')->select('*')->get();
@@ -51,5 +67,27 @@ class ControllerProyecto extends Controller
             
         return redirect('/proyectos');
     }
-   
+
+    public function edit(Request $request)
+    {
+       $proyectos = Proyecto::findOrFail(request('id'));
+       return view('contenido.proyectoEdit',['proyectos'=>$proyectos]);
+    
+    }
+    public function update(Request $request)
+    {
+        //if (!$request->ajax()) return redirect('/');
+        $proyectos = Proyecto::findOrFail($request->id); 
+        $proyectos->id_manager=request('id_manager');
+        $proyectos->id_cliente=request('id_cliente');
+        $proyectos->titulo=request('titulo');
+        $proyectos->fecha_incio=request('fecha_inicio');
+        $proyectos->fecha_vencimiento=request('fecha_vencimiento');
+        $proyectos->pago_total=request('pago_total');
+        $proyectos->id_pago=request('id_pago');
+        $proyectos->estado= request('estado');
+        $proyectos->condicion= request('condicion');
+        $proyectos->save();
+        return redirect('/proyectos');
+    }
 }
