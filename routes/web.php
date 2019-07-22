@@ -32,16 +32,22 @@ Route::get('/{proyed}/act','ControllerProyecto@activar');
 
 Route::get('/tareas','ControllerTarea@inicio');
 Route::post('/tareas','ControllerTarea@store');
+Route::post('/tareasEdit','ControllerTarea@edit');
+Route::post('/tareasup','ControllerTarea@update');
 Route::get('/{proyed}/tareas','ControllerTarea@desactivar');
 Route::get('/{proyed}/tareasact','ControllerTarea@activar');
 
 Route::get('/gastos','ControllerGasto@inicio');
 Route::post('/gastos','ControllerGasto@store');
+Route::post('/gastosEdit','ControllerGasto@edit');
+Route::post('/gastosup','ControllerGasto@update');
 Route::get('/{proyed}/gastos','ControllerGasto@desactivar');
 Route::get('/{proyed}/gastosact','ControllerGasto@activar');
 
 Route::get('/pagos','ControllerPago@inicio');
 Route::post('/pagos','ControllerPago@store');
+Route::post('/pagosEdit','ControllerPago@edit');
+Route::post('/pagosup','ControllerPago@update');
 Route::get('/{proyed}/pagos','ControllerPago@desactivar');
 Route::get('/{proyed}/pagosact','ControllerPago@activar');
          
