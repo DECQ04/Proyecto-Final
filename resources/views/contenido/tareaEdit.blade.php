@@ -1,3 +1,4 @@
+    
 <!DOCTYPE html>
 <!--
 Item Name: Elisyam - Web App & Admin Dashboard Template
@@ -79,7 +80,7 @@ Author: SAEROX
             <!-- End Header -->
             <!-- Begin Page Content -->
             <div class="page-content d-flex align-items-stretch">
-            @include('plantilla.sidebar')
+               @include('plantilla.sidebar')
                 <!-- End Left Sidebar -->
                 <div class="content-inner">
                     <div class="container-fluid">
@@ -91,7 +92,7 @@ Author: SAEROX
 	                                <div>
 			                            <ul class="breadcrumb">
 			                                <li class="breadcrumb-item"><a href="/principal"><i class="ti ti-home"></i></a></li>
-			                                <li class="breadcrumb-item active">Tareas</li>
+			                                <li class="breadcrumb-item active">Tareas-Editar</li>
 			                            </ul>
 	                                </div>
 	                            </div>
@@ -106,68 +107,108 @@ Author: SAEROX
                                 <!-- Export -->
                                 <div class="widget has-shadow">
                                     <div class="widget-header bordered no-actions d-flex align-items-center">
-                                        <h4>Tareas</h4>
+                                        <h4>Editar Tarea</h4>
                                     </div>
-                                    <div class="widget-body">
-                                        <!-- Begin Large Modal -->
-                                        <div class="row">
-                                            <div class="bordered no-actions d-flex align-items-center">
-                                            <p>Nuevo Registro</p>
+                                    <div class="conteiner">
+                                    
+                                    <div class="col-xl-11">
+                                    <form method="POST" action="/tareasup" class="form-horizontal">
+                                        {{ csrf_field() }}
+                                        <br>
+                                        <input type="hidden" name="id" value="{{$tareas->id}}" class="form-control" required>
+                                           
+                                        <div class="form-group row mb-5">
+                                                <label class="col-lg-3 form-control-label"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Proyecto</font></font></label>
+                                                <div class="col-lg-9 select mb-3">
+                                                    <select  name="id_proyecto" class="custom-select form-control">
+                                                    <option value="{{$tareas->id_proyecto}}"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;"> {{$tareas->id_proyecto}} </font></font></option>
+                                                    @foreach ($proyectos as $proyectos)
+                                                        <option value="{{$proyectos->id}}"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;"> {{$proyectos->titulo}} </font></font></option>
+                                                    @endforeach 
+                                                    </select>
+                                                </div>
                                             </div>
-                                            <div class="col-xl-4 d-flex align-items-center mb-3">
-                                            <button type="button" class="btn btn-gradient-01 mr-1 mb-2" data-toggle="modal" data-target="#modal-large"><i class="la la-pencil"></i>Crear</button></div>
+                                            
+                                            <div class="form-group row mb-5">
+                                                <label class="col-lg-3 form-control-label"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Desarrollador</font></font></label>
+                                                <div class="col-lg-9 select mb-3">
+                                                    <select  name="id_desarrollador" class="custom-select form-control">
+                                                    <option value="{{$tareas->id_desarrollador}}"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">{{$tareas->id_desarrollador}}</font></font></option>
+                                                    
+                                                    @foreach ($colaboradores as $colaboradores)
+                                                        <option value="{{$colaboradores->id}}"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;"> {{$colaboradores->name}}</font></font></option>
+                                                    @endforeach 
+                                                    </select>
+                                                </div>
+                                            </div>
+                                            <div class="form-group row d-flex align-items-center mb-5">
+                                                <label class="col-lg-3 form-control-label">Titulo</label>
+                                                <div class="col-lg-9">
+                                                    <input type="text" name="titulo" value="{{$tareas->titulo}}" class="form-control" required>
+                                                </div>
+                                            </div>
+                                            <div class="form-group row d-flex align-items-center mb-5">
+                                                <label class="col-lg-3 form-control-label">Descripción</label>
+                                                <div class="col-lg-9">
+                                                    <input type="text" name="descripcion" value="{{$tareas->descripcion}}" class="form-control" required>
+                                                </div>
+                                            </div>
+                                           
+                                            <div class="form-group row mb-5">
+                                                <label class="col-lg-3 form-control-label"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Pago</font></font></label>
+                                                <div class="col-lg-9 select mb-3">
+                                                    <select  name="id_pago" class="custom-select form-control">
+                                                    <option value="{{$tareas->id_pago}}"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">{{$tareas->id_pago}} </font></font></option>
+                                                    @foreach ($pagos as $pagos)
+                                                        <option value="{{$pagos->id}}"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;"> {{$pagos->descripcion}} </font></font></option>
+                                                    @endforeach 
+                                                    </select>
+                                                </div>
+                                            </div>
+                                         
+                                        <div class="form-group row mb-5">
+                                                <label class="col-lg-3 form-control-label"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Estado del proyecto</font></font></label>
+                                                <div class="col-lg-9 select mb-3">
+                                                    <select  name="estado" class="custom-select form-control">
+                                                    <option value="{{$tareas->estado}}"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">
+                                                    @if($tareas->estado==1)
+                                                    Activo
+                                                    @endif
+                                                    @if($tareas->estado==0)
+                                                    Finalizado
+                                                    @endif
+                                                    </font></font></option>
+                                                    <option value="
+                                                    @if($tareas->estado==1)
+                                                    0
+                                                    @endif
+                                                    @if($tareas->estado==0)
+                                                    1
+                                                    @endif
+                                                    "><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">
+                                                    @if($tareas->estado==0)
+                                                    Activo
+                                                    @endif
+                                                    @if($tareas->estado==1)
+                                                    Finalizado
+                                                    @endif
+                                                    </font></font></option>
+                                                    </select>
+                                                </div>
+                                            </div>
+                                        
+                                        <input type="hidden" name="condicion" value="{{$tareas->condicion}}" class="form-control" required>
                                         </div>
-                                        <!-- End Large Modal -->
-                                        <div class="table-responsive">
-                                            <table id="export-table" class="table mb-0">
-                                                <thead>
-                                                    <tr>
-                                                        <th>Opciones</th>
-                                                        <th>Proyecto</th>
-                                                        <th>Desarrollador</th>
-                                                        <th>Titulo</th>
-                                                        <th>Descripción</th>
-                                                        <th>id_pago</th>
-                                                        <th>Estado de la Tarea</th>
-                                                       
-                                                    </tr>
-                                                </thead>
-                                                <tbody>
-                                                @foreach ($tareas as $tareas)
-                                                <tr>
-                                                <td class="td-actions"> 
-                                                <form method="POST" action="/tareasEdit">
-                                                {{ csrf_field() }}
-                                                      <input type="hidden" name="id" value="{{$tareas->id}}">
-                                                     <button type="submit" class="btn btn-gradient-04  btn-sm mr-1 mb-2"><i class="la la-edit edit"></i></button>
-                                                 @if ($tareas->condicion=='0')
-                                                <a href="/{{$tareas->id}}/tareasact" ><i class="ion-checkmark-circled"></i></a>
-                                                @endif
-                                                @if ($tareas->condicion=='1')
-                                                <a href="/{{$tareas->id}}/tareas"   ><i class="la la-close delete"></i></a>
-                                                @endif
-                                                </form>
-                                               
-                                                </td>
-                                                 <td> {{$tareas->id_proyecto}} </td>
-                                                 <td> {{$tareas->id_desarrollador}} </td>
-                                                 <td> {{$tareas->titulo}} </td>
-                                                 
-                                                 <td> {{$tareas->descripcion}} </td>
-                                                 <td> {{$tareas->id_pago}} </td>
-                                                 @if($tareas->estado=='1')
-                                                 <td> <span style="width:100px;"><span class="badge-text badge-text-small info"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Activo</font></font></span></span> </td>
-                                                 @endif
-                                                 @if($tareas->estado=='0')
-                                                <td> <span style="width:100px;"><span class="badge-text badge-text-small success"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Finalizado</font></font></span></span></td>
-                                                @endif
-                                                </tr>
-                                                @endforeach  
-                                                </tbody>
-                                            </table>
-                                        </div>
-                                    </div>
+                                        <div class="em-separator separator-dashed"></div>
+                                            <center>
+                                         <button type="submit" class="btn btn-primary">Save</button>     
+                                        <button type="button" class="btn btn-shadow" >Close</button>
+                                        </center>
+                                    </form>
+                                    
+                                    
                                 </div>
+                            
                                 <!-- End Export -->
                             </div>
                         </div>
@@ -198,89 +239,7 @@ Author: SAEROX
                     <!-- End Offcanvas Sidebar -->
                 </div>
             </div>
-            <!-- End Page Content -->
-
-         <!-- Begin Large Modal -->
-         <div id="modal-large" class="modal fade">
-            <div class="modal-dialog modal-lg">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <h4 class="modal-title">Nueva Tarea</h4>
-                        <button type="button" class="close" data-dismiss="modal">
-                            <span aria-hidden="true">×</span>
-                            <span class="sr-only">close</span>
-                        </button>
-                    </div>
-                    <div class="modal-body">
-                        <div class?="widget-body">
-                                         <form method="POST" action="/tareas" class="form-horizontal">
-                                         {{ csrf_field() }}
-                                            
-                                            <div class="form-group row mb-5">
-                                                <label class="col-lg-3 form-control-label"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Proyecto</font></font></label>
-                                                <div class="col-lg-9 select mb-3">
-                                                    <select  name="id_proyecto" class="custom-select form-control">
-                                                    <option ><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Seleccionar... </font></font></option>
-                                                    @foreach ($proyectos as $proyectos)
-                                                        <option value="{{$proyectos->id}}"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;"> {{$proyectos->titulo}} </font></font></option>
-                                                    @endforeach 
-                                                    </select>
-                                                </div>
-                                            </div>
-                                            
-                                            <div class="form-group row mb-5">
-                                                <label class="col-lg-3 form-control-label"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Desarrollador</font></font></label>
-                                                <div class="col-lg-9 select mb-3">
-                                                    <select  name="id_desarrollador" class="custom-select form-control">
-                                                    <option ><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Seleccionar... </font></font></option>
-                                                   
-                                                    @foreach ($colaboradores as $colaboradores)
-                                                        <option value="{{$colaboradores->id}}"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;"> {{$colaboradores->name}}</font></font></option>
-                                                    @endforeach 
-                                                    </select>
-                                                </div>
-                                            </div>
-                                            <div class="form-group row d-flex align-items-center mb-5">
-                                                <label class="col-lg-3 form-control-label">Titulo</label>
-                                                <div class="col-lg-9">
-                                                    <input type="text" name="titulo" placeholder="titulo" class="form-control" required>
-                                                </div>
-                                            </div>
-                                            <div class="form-group row d-flex align-items-center mb-5">
-                                                <label class="col-lg-3 form-control-label">Descripción</label>
-                                                <div class="col-lg-9">
-                                                    <input type="text" name="descripcion" placeholder="descripcion" class="form-control" required>
-                                                </div>
-                                            </div>
-                                           
-                                            <div class="form-group row mb-5">
-                                                <label class="col-lg-3 form-control-label"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Pago</font></font></label>
-                                                <div class="col-lg-9 select mb-3">
-                                                    <select  name="id_pago" class="custom-select form-control">
-                                                    <option ><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Seleccionar... </font></font></option>
-                                                    @foreach ($pagos as $pagos)
-                                                        <option value="{{$pagos->id}}"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;"> {{$pagos->descripcion}} </font></font></option>
-                                                    @endforeach 
-                                                    </select>
-                                                </div>
-                                            </div>
-
-
-                                             
-                                            
-                                           
-                                            <div class="modal-footer">
-                        <button type="button" class="btn btn-shadow" data-dismiss="modal">Close</button>
-                        <button type="submit" class="btn btn-primary">Save</button>
-                    </div>
-                                        </form>
-                        </div>
-                    </div>
-                    
-                </div>
-            </div>
-        </div>
-        <!-- End Large Modal -->
+          
         </div>
         <!-- Begin Vendor Js -->
          

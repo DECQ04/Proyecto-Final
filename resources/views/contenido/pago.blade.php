@@ -134,16 +134,19 @@ Author: SAEROX
                                                 @foreach ($pagos as $pagos)
                                                 <tr>
                                                 <td class="td-actions"> 
-                                                <a href="#"   title="Editar informacion" data-toggle="modal" data-target="#modal-large" >
-                                                <i class="la la-edit edit" ></i></a>
-                                               
+                                                 
+                                                <form method="POST" action="/pagosEdit">
+                                                {{ csrf_field() }}
+                                                      <input type="hidden" name="id" value="{{$pagos->id}}">
+                                                     <button type="submit" class="btn btn-gradient-04  btn-sm mr-1 mb-2"><i class="la la-edit edit"></i></button>
+                                                
                                                 @if ($pagos->condicion=='0')
                                                 <a href="/{{$pagos->id}}/pagosact" ><i class="ion-checkmark-circled"></i></a>
                                                 @endif
                                                 @if ($pagos->condicion=='1')
                                                 <a href="/{{$pagos->id}}/pagos"   ><i class="la la-close delete"></i></a>
                                                 @endif
-                                                  
+                                                </form>
                                                 </td>
                                                  <td> {{$pagos->id_persona}} </td>
                                                  <td> {{$pagos->cantidad}} </td> 

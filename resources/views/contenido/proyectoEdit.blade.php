@@ -92,7 +92,7 @@ Author: SAEROX
 	                                <div>
 			                            <ul class="breadcrumb">
 			                                <li class="breadcrumb-item"><a href="/principal"><i class="ti ti-home"></i></a></li>
-			                                <li class="breadcrumb-item active">Proyectos</li>
+			                                <li class="breadcrumb-item active">Proyectos-Editar</li>
 			                            </ul>
 	                                </div>
 	                            </div>
@@ -117,19 +117,37 @@ Author: SAEROX
                                         <br>
                                         <input type="hidden" name="id" value="{{$proyectos->id}}" class="form-control" required>
                                            
-                                        
-                                        <div class="form-group row d-flex align-items-center mb-5">
-                                            <label class="col-lg-3 form-control-label">Id. Manager</label>
-                                            <div class="col-lg-9">
-                                                <input type="text" name="id_manager" value="{{$proyectos->id_manager}}" class="form-control" required>
+                                        <div class="form-group row mb-5">
+                                                <label class="col-lg-3 form-control-label"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Id. Manager</font></font></label>
+                                                <div class="col-lg-9 select mb-3"> 
+                                                    <select  name='id_manager' class="custom-select form-control">
+                                                    <option value="{{$proyectos->id_manager}}"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;"> {{$proyectos->id_manager}}</font></font></option>
+                                                    @foreach ($managers as $managers)
+                                                    
+                                                      
+                                                   <option value="{{$managers->id}}"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;"> {{$managers->name}}</font></font></option>
+                                                    @endforeach 
+                                                    </select>
+                                                </div>
                                             </div>
-                                        </div>
-                                        <div class="form-group row d-flex align-items-center mb-5">
-                                            <label class="col-lg-3 form-control-label">Id. cliente</label>
-                                            <div class="col-lg-9">
-                                                <input type="text" name="id_cliente" value="{{$proyectos->id_cliente}}" class="form-control" required>
+
+                                              <div class="form-group row mb-5">
+                                                <label class="col-lg-3 form-control-label"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Cliente</font></font></label>
+                                                <div class="col-lg-9 select mb-3">
+                                                    <select  name="id_cliente" class="custom-select form-control">
+                                                    <option value="{{$proyectos->id_cliente}}"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">{{$proyectos->id_cliente}}</font></font></option>
+                                                     @foreach ($colaboradores as $colaboradores)
+                                                     
+                                                      
+                                                        <option value="{{$colaboradores->id}}"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;"> {{$colaboradores->name}}</font></font></option>
+                                                    @endforeach 
+                                                    </select>
+                                                </div>
                                             </div>
-                                        </div>
+
+                                            
+        
+                                           
                                         <div class="form-group row d-flex align-items-center mb-5">
                                             <label class="col-lg-3 form-control-label">Titulo</label>
                                             <div class="col-lg-9">
@@ -154,18 +172,48 @@ Author: SAEROX
                                                 <input type="text" name="pago_total" value="{{$proyectos->pago_total}} " class="form-control" required>
                                             </div>
                                         </div>
-                                        <div class="form-group row d-flex align-items-center mb-5">
-                                            <label class="col-lg-3 form-control-label">Pago Total</label>
-                                            <div class="col-lg-9">
-                                                <input type="text" name="id_pago" value="{{$proyectos->id_pago}} " class="form-control" required>
+                                        <div class="form-group row mb-5">
+                                                <label class="col-lg-3 form-control-label"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Id. Pago</font></font></label>
+                                                <div class="col-lg-9 select mb-3">
+                                                    <select  name="id_pago" class="custom-select form-control">
+                                                    <option value="{{$proyectos->id_pago}}"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">{{$proyectos->id_pago}} </font></font></option>
+                                                    @foreach ($pagos as $pagos)
+                                                        <option value="{{$pagos->id}}"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;"> {{$pagos->descripcion}}</font></font></option>
+                                                    @endforeach 
+                                                    </select>
+                                                </div>
                                             </div>
-                                        </div>
-                                        <div class="form-group row d-flex align-items-center mb-5">
-                                            <label class="col-lg-3 form-control-label">Estado del proyecto</label>
-                                            <div class="col-lg-9">
-                                                <input type="text" name="estado" value="{{$proyectos->estado}} " class="form-control" required>
+                                         
+                                        <div class="form-group row mb-5">
+                                                <label class="col-lg-3 form-control-label"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Estado del proyecto</font></font></label>
+                                                <div class="col-lg-9 select mb-3">
+                                                    <select  name="estado" class="custom-select form-control">
+                                                    <option value="{{$proyectos->estado}}"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">
+                                                    @if($proyectos->estado==1)
+                                                    Activo
+                                                    @endif
+                                                    @if($proyectos->estado==0)
+                                                    Finalizado
+                                                    @endif
+                                                    </font></font></option>
+                                                    <option value="
+                                                    @if($proyectos->estado==1)
+                                                    0
+                                                    @endif
+                                                    @if($proyectos->estado==0)
+                                                    1
+                                                    @endif
+                                                    "><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">
+                                                    @if($proyectos->estado==0)
+                                                    Activo
+                                                    @endif
+                                                    @if($proyectos->estado==1)
+                                                    Finalizado
+                                                    @endif
+                                                    </font></font></option>
+                                                    </select>
+                                                </div>
                                             </div>
-                                        </div>
                                         
                                         <input type="hidden" name="condicion" value="{{$proyectos->condicion}}" class="form-control" required>
                                         </div>

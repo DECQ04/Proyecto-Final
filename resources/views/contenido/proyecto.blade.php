@@ -143,7 +143,7 @@ Author: SAEROX
                                                 <form method="POST" action="/proyectosEdit">
                                                 {{ csrf_field() }}
                                                       <input type="hidden" name="id" value="{{$proyectos->id}}">
-                                                     <button type="submit" class="btn btn-gradient-04  btn-sm mr-1 mb-2"><i class="la la-pencil"></i></button>
+                                                     <button type="submit" class="btn btn-gradient-04  btn-sm mr-1 mb-2"><i class="la la-edit edit"></i></button>
                                                 
                                                 
                                                 @if ($proyectos->condicion=='0')
