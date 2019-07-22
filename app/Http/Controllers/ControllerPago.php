@@ -22,9 +22,6 @@ class ControllerPago extends Controller
         $pagos->fecha_hora=request('fecha_hora');
         $pagos->estado=request('estado');
         $pagos->descripcion=request('descripcion');
-        
-        
-        
         $pagos->save();
         return redirect('/pagos');
   
@@ -36,12 +33,34 @@ class ControllerPago extends Controller
         $pagos->save();
             
         return redirect('/pagos');
-        }
-        public function activar($id){
-            $pagos = Pago::findOrFail($id);
-            $pagos->condicion = '1';
-            $pagos->save();
-                
-            return redirect('/pagos');
-        }
+    }
+    public function activar($id){
+        $pagos = Pago::findOrFail($id);
+        $pagos->condicion = '1';
+        $pagos->save();         
+        return redirect('/pagos');
+    }
+
+    public function edit(Request $request)
+    {
+        $pagos = Pago::findOrFail(request('id'));
+        
+       return view('contenido.pagosEdit',['pagos'=>$pagos]);
+    
+    }
+    public function update(Request $request)
+    {
+        //if (!$request->ajax()) return redirect('/');
+        
+        $pagos =  Pago::findOrFail($request->id);
+        $pagos->id_persona=request('id_persona');
+        $pagos->cantidad=request('cantidad');
+        $pagos->fecha_hora=request('fecha_hora');
+        $pagos->estado=request('estado');
+        $pagos->descripcion=request('descripcion');
+        $pagos->condicion=request('condicion');
+        $pagos->save();
+        return redirect('/pagos');
+       
+    }
 }

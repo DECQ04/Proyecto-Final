@@ -42,4 +42,27 @@ class ControllerGasto extends Controller
                 
             return redirect('/gastos');
         }
+
+
+     public function edit(Request $request)
+    {
+        $gastos = Gasto::findOrFail(request('id'));
+        return view('contenido.gastosEdit',['gastos'=>$gastos]);
+    }
+
+    public function update(Request $request)
+    {
+        //if (!$request->ajax()) return redirect('/');
+        
+       
+        $gastos = Gasto::findOrFail($request->id);
+        $gastos->id_manager=request('id_manager');
+        $gastos->titulo=request('titulo');
+        $gastos->descripcion=request('descripcion');
+        $gastos->cantidad=request('cantidad');
+        $gastos->condicion=request('condicion');
+        $gastos->save();
+        return redirect('/gastos');
+       
+    }
 }

@@ -48,4 +48,26 @@ class ControllerTarea extends Controller
                 
             return redirect('/tareas');
         }
+        public function edit(Request $request)
+        {
+            $tareas = Tarea::findOrFail(request('id'));
+            $proyectos = Proyecto::all();
+            $colaboradores = Colaborador::where('tipo','=','2')->select('*')->get();
+            $pagos = Pago::all();
+           return view('contenido.tareaEdit',['pagos'=>$pagos,'tareas'=>$tareas,'proyectos'=>$proyectos,'colaboradores'=>$colaboradores]);
+        
+        }
+        public function update(Request $request)
+        {
+            $tareas = Tarea::findOrFail($request->id); 
+            $tareas->id_proyecto=request('id_proyecto');
+            $tareas->id_desarrollador=request('id_desarrollador');
+            $tareas->titulo=request('titulo');
+            $tareas->descripcion=request('descripcion');
+            $tareas->id_pago=request('id_pago');
+            $tareas->estado=request('estado');
+            $tareas->condicion=request('condicion');
+            $tareas->save();
+            return redirect('/tareas');
+        }
 }

@@ -71,7 +71,10 @@ class ControllerProyecto extends Controller
     public function edit(Request $request)
     {
        $proyectos = Proyecto::findOrFail(request('id'));
-       return view('contenido.proyectoEdit',['proyectos'=>$proyectos]);
+       $pagos = Pago::all();
+       $managers = Manager::where('tipo', '=','1')->select('*')->get();
+       $colaboradores = Cliente::where('tipo', '=','3')->select('*')->get();
+       return view('contenido.proyectoEdit',['proyectos'=>$proyectos,'pagos'=>$pagos,'managers'=>$managers,'colaboradores'=>$colaboradores]);
     
     }
     public function update(Request $request)
@@ -87,6 +90,7 @@ class ControllerProyecto extends Controller
         $proyectos->id_pago=request('id_pago');
         $proyectos->estado= request('estado');
         $proyectos->condicion= request('condicion');
+        
         $proyectos->save();
         return redirect('/proyectos');
     }
