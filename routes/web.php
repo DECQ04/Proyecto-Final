@@ -19,18 +19,24 @@ Route::get('/', function () {
 Route::get('/perfil', function () {
     return view('contenido.personal');
 });
+Route::get('/reportes', function () {
+    return view('contenido.reportes');
+});
 Route::get('/perfilup','ControllerPerfil@up');
 
  
 Route::get('/proyectos','ControllerProyecto@inicio');
+Route::get('/proyectosDC','ControllerProyecto@inicioDC');
 Route::post('/proyectos','ControllerProyecto@store');
 Route::post('/proyectosEdit','ControllerProyecto@edit');
 Route::post('/proyectosup','ControllerProyecto@update');
 Route::get('/{proyed}/proyectos','ControllerProyecto@desactivar');
 Route::get('/{proyed}/act','ControllerProyecto@activar');
-
+Route::get('/reportes','ControllerProyecto@reportes');
+Route::post('/reportesver','ControllerProyecto@VisualizarReporte');
 
 Route::get('/tareas','ControllerTarea@inicio');
+Route::get('/tareasDC','ControllerTarea@inicioDC');
 Route::post('/tareas','ControllerTarea@store');
 Route::post('/tareasEdit','ControllerTarea@edit');
 Route::post('/tareasup','ControllerTarea@update');
