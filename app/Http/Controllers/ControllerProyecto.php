@@ -2,10 +2,12 @@
 namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Proyecto;
+use App\ProyectoDC;
 use App\Manager;
 use App\Cliente;
 use App\Pago;
 use App\Tarea;
+use App\Colaborador;
 class ControllerProyecto extends Controller
 {
     public function cont(){
@@ -32,7 +34,52 @@ class ControllerProyecto extends Controller
             //renombre la vista y por lo tanto renombre el return de contenido/proyecto a -> contenido/proyecto
         return view('contenido/proyecto',['proyectos'=>$proyectos,'managers'=>$managers,'colaboradores'=>$colaboradores,'pagos'=>$pagos]);
     } 
-  
+   
+   
+   
+   
+   
+    public function inicioDC(){
+       
+         
+        $proyectos= Proyecto::join('proyectos_colaboradores','proyectos.id','=','proyectos_colaboradores.id_proyecto')->select('*')->get();
+        return view('contenido/proyectoDC',['proyectos'=>$proyectos ]);
+    } 
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+    public function reportes(){
+       
+       
+        $proyectos = Proyecto::where('estado', '=','0')->select('*')->get();
+        return view('contenido/reportes',['proyectos'=>$proyectos]);
+    } 
+    public function VisualizarReporte(Request $request){
+       
+        $proyectos = Proyecto::findOrFail($request->id); 
+        $manager=  Manager::findOrFail($proyectos->id_manager); 
+        $cliente=  Manager::findOrFail($proyectos->id_cliente); 
+        $tareas = Tarea::where('id_proyecto', '=', $proyectos->id)->select('*')->get();
+        $pagos=Pago::all();
+        $colaboradores = Colaborador::where('tipo','=','2')->select('*')->get();
+        return view('contenido/reportesVer',
+        ['proyectos'=>$proyectos,'pagos'=>$pagos,'manager'=>$manager,
+        'cliente'=>$cliente,'tareas'=>$tareas,'colaboradores'=>$colaboradores]);
+    } 
     public function store(Request $request)
     {
         $proyectos = new Proyecto(); 

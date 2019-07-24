@@ -19,7 +19,7 @@ class ControllerPago extends Controller
         $pagos = new Pago(); 
         $pagos->id_persona=request('id_persona');
         $pagos->cantidad=request('cantidad');
-        $pagos->fecha_hora=request('fecha_hora');
+        //$pagos->fecha_hora=request('fecha_hora');
         $pagos->estado=request('estado');
         $pagos->descripcion=request('descripcion');
         $pagos->save();
@@ -55,7 +55,7 @@ class ControllerPago extends Controller
         $pagos =  Pago::findOrFail($request->id);
         $pagos->id_persona=request('id_persona');
         $pagos->cantidad=request('cantidad');
-        $pagos->fecha_hora=request('fecha_hora');
+        //$pagos->fecha_hora=request('fecha_hora');
         $pagos->estado=request('estado');
         $pagos->descripcion=request('descripcion');
         $pagos->condicion=request('condicion');

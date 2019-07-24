@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Tarea;
 use App\Proyecto;
+use App\ProyectoDC;
 use App\Colaborador;
 use App\Pago;
 class ControllerTarea extends Controller
@@ -18,7 +19,13 @@ class ControllerTarea extends Controller
     
         return view('contenido/tarea',['pagos'=>$pagos,'tareas'=>$tareas,'proyectos'=>$proyectos,'colaboradores'=>$colaboradores]);
     } 
-  
+    public function inicioDC(){
+        
+        $tareas = Tarea::join('proyectos','proyectos.id','=','tareas.id_proyecto')->select('proyectos.id_cliente as cliente','tareas.id', 'tareas.id_proyecto', 'tareas.id_desarrollador', 'tareas.titulo', 'tareas.descripcion', 'tareas.id_pago', 'tareas.estado', 'tareas.condicion', 'tareas.fecha_inicio', 'tareas.fecha_vencimiento')->get();
+        
+        
+        return view('contenido/tareaDC',['tareas'=>$tareas]);
+    } 
     public function store(Request $request)
     {
         $tareas = new Tarea(); 
@@ -26,10 +33,15 @@ class ControllerTarea extends Controller
         $tareas->id_desarrollador=request('id_desarrollador');
         $tareas->titulo=request('titulo');
         $tareas->descripcion=request('descripcion');
+        $tareas->fecha_inicio=request('fecha_inicio');
+        $tareas->fecha_vencimiento=request('fecha_vencimiento');
         $tareas->id_pago=request('id_pago');
         $tareas->estado= '1';
-        
+        $proyecto = new ProyectoDC(); 
+        $proyecto->id_proyecto=request('id_proyecto');
+        $proyecto->id_desarrollador=request('id_desarrollador');
         $tareas->save();
+        $proyecto->save();
         return redirect('/tareas');
   
     
@@ -64,6 +76,8 @@ class ControllerTarea extends Controller
             $tareas->id_desarrollador=request('id_desarrollador');
             $tareas->titulo=request('titulo');
             $tareas->descripcion=request('descripcion');
+            $tareas->fecha_inicio=request('fecha_inicio');
+            $tareas->fecha_vencimiento=request('fecha_vencimiento');
             $tareas->id_pago=request('id_pago');
             $tareas->estado=request('estado');
             $tareas->condicion=request('condicion');
