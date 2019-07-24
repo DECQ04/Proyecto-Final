@@ -99,11 +99,11 @@ Author: SAEROX
                         <div class="row">
                             <div class="page-header">
 	                            <div class="d-flex align-items-center">
-	                                <h2 class="page-header-title">Pagos</h2>
+	                                <h2 class="page-header-title">Proyectos</h2>
 	                                <div>
 			                            <ul class="breadcrumb">
 			                                <li class="breadcrumb-item"><a href="/principal"><i class="ti ti-home"></i></a></li>
-			                                <li class="breadcrumb-item active">Pagos-Editar</li>
+			                                <li class="breadcrumb-item active">Proyectos</li>
 			                            </ul>
 	                                </div>
 	                            </div>
@@ -118,85 +118,50 @@ Author: SAEROX
                                 <!-- Export -->
                                 <div class="widget has-shadow">
                                     <div class="widget-header bordered no-actions d-flex align-items-center">
-                                        <h4>Editar Pago</h4>
+                                        <h4>Proyectos</h4>
                                     </div>
-                                    <div class="conteiner">
-                                    
-                                    <div class="col-xl-11">
-                                    <form method="POST" action="/pagosup" class="form-horizontal">
-                                        {{ csrf_field() }}
-                                        <br>
-                                        <input type="hidden" name="id" value="{{$pagos->id}}" class="form-control" required>
-                                           
-                                        <div class="form-group row d-flex align-items-center mb-5">
-                                                <label class="col-lg-3 form-control-label">Id. Personal</label>
-                                                <div class="col-lg-9">
-                                                    <input type="text" name="id_persona" class="form-control" value="{{$pagos->id_persona}}" required>
-                                                </div>
-                                            </div>
-                                            <div class="form-group row d-flex align-items-center mb-5">
-                                                <label class="col-lg-3 form-control-label">Cantidad</label>
-                                                <div class="col-lg-9">
-                                                    <input type="text" name="cantidad" value="{{$pagos->cantidad}}" class="form-control" required>
-                                                </div>
-                                            </div>
-                                           
-                                            
-                                            
-                                                    <input type="hidden" name="fecha_hora" value="{{$pagos->fecha_hora}}" class="form-control"  >
-                                              
-                                            
-                                            
-                                            <div class="form-group row d-flex align-items-center mb-5">
-                                                <label class="col-lg-3 form-control-label">Descripción</label>
-                                                <div class="col-lg-9">
-                                                    <input type="text" name="descripcion" value="{{$pagos->descripcion}}" class="form-control" required>
-                                                </div>
-                                            </div>
-                                         
-                                        <div class="form-group row mb-5">
-                                                <label class="col-lg-3 form-control-label"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Estado del proyecto</font></font></label>
-                                                <div class="col-lg-9 select mb-3">
-                                                    <select  name="estado" class="custom-select form-control">
-                                                    <option value="{{$pagos->estado}}"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">
-                                                    @if($pagos->estado==1)
-                                                    En curso
-                                                    @endif
-                                                    @if($pagos->estado==0)
-                                                    Pagado
-                                                    @endif
-                                                    </font></font></option>
-                                                    <option value="
-                                                    @if($pagos->estado==1)
-                                                    0
-                                                    @endif
-                                                    @if($pagos->estado==0)
-                                                    1
-                                                    @endif
-                                                    "><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">
-                                                    @if($pagos->estado==0)
-                                                    En curso
-                                                    @endif
-                                                    @if($pagos->estado==1)
-                                                    Pagado
-                                                    @endif
-                                                    </font></font></option>
-                                                    </select>
-                                                </div>
-                                            </div>
-                                        
-                                        <input type="hidden" name="condicion" value="{{$pagos->condicion}}" class="form-control" required>
+                                    <div class="widget-body">
+                                          
+                                        <div class="table-responsive">
+                                            <table id="export-table" class="table mb-0">
+                                                <thead>
+                                                    <tr>
+                                                        <th>Manager</th>
+                                                        <th>Cliente</th>
+                                                        <th>Titulo</th>
+                                                        <th>Fecha de Inicio</th>
+                                                        <th>Fecha de Vencimiento</th>
+                                                        <th>pago_total</th>
+                                                        <th>id_pago</th>
+                                                        <th>Estado del Proyecto</th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+                                                @foreach ($proyectos as $proyectos)
+                                                
+                                                 @if($proyectos->id_desarrollador==Auth::user()->id||$proyectos->id_cliente==Auth::user()->id||Auth::user()->tipo==1)
+                                                <tr>
+                                                 <td> {{$proyectos->id_manager}} </td>
+                                                 <td> {{$proyectos->id_cliente}} </td>
+                                                 <td> {{$proyectos->titulo}} </td>
+                                                 <td> {{$proyectos->fecha_incio}} </td>
+                                                 <td> {{$proyectos->fecha_vencimiento}} </td>
+                                                 <td> {{$proyectos->pago_total}} </td>
+                                                 <td> {{$proyectos->id_pago}} </td>
+                                                 @if($proyectos->estado=='1')
+                                                 <td> <span style="width:100px;"><span class="badge-text badge-text-small info"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Activo</font></font></span></span> </td>
+                                                 @endif
+                                                 @if($proyectos->estado=='0')
+                                                <td> <span style="width:100px;"><span class="badge-text badge-text-small success"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Finalizado</font></font></span></span></td>
+                                                @endif
+                                                </tr>
+                                                @endif
+                                                @endforeach  
+                                                </tbody>
+                                            </table>
                                         </div>
-                                        <div class="em-separator separator-dashed"></div>
-                                            <center>
-                                         <button type="submit" class="btn btn-primary">Save</button>     
-                                        <button type="button" class="btn btn-shadow" >Close</button>
-                                        </center>
-                                    </form>
-                                    
-                                    
+                                    </div>
                                 </div>
-                            
                                 <!-- End Export -->
                             </div>
                         </div>
@@ -227,7 +192,11 @@ Author: SAEROX
                     <!-- End Offcanvas Sidebar -->
                 </div>
             </div>
-          
+            <!-- End Page Content -->
+             
+         <!-- Begin Large Modal -->
+         
+        <!-- End Large Modal -->
         </div>
         <!-- Begin Vendor Js -->
          

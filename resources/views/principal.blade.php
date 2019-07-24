@@ -67,7 +67,7 @@ Author: SAEROX
                     <div class="navbar-holder d-flex align-items-center align-middle justify-content-between">
                         <!-- Begin Logo -->
                         <div class="navbar-header">
-                            <a href="/" class="navbar-brand">
+                            <a   class="navbar-brand">
                                 <div class="brand-image brand-big">
                                     <img src="assets/img/logo-big.png" alt="logo" class="logo-big">
                                 </div>
@@ -121,10 +121,10 @@ Author: SAEROX
                      @include('plantilla.contenidoPrincipal')
                      @endif
                      @if (Auth::user()->tipo == 2)
-                     @include('plantilla.sidebar2')
+                      
                      @endif
                      @if (Auth::user()->tipo == 3)
-                     @include('plantilla.sidebar3')
+                     
                      @endif
                     <!-- End Container -->
                     <!-- Begin Page Footer-->

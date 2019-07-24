@@ -79,7 +79,18 @@ Author: SAEROX
             <!-- End Header -->
             <!-- Begin Page Content -->
             <div class="page-content d-flex align-items-stretch">
+            @if(Auth::check())
+            @if (Auth::user()->tipo == 1)
             @include('plantilla.sidebar')
+            @elseif (Auth::user()->tipo == 2)
+            @include('plantilla.sidebar2')
+            @elseif (Auth::user()->tipo == 3)
+            @include('plantilla.sidebar3')
+            @else
+
+            @endif
+
+        @endif
                 <!-- End Left Sidebar -->
                 <div class="content-inner">
                     <div class="container-fluid">

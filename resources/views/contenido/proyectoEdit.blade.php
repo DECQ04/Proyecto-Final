@@ -80,7 +80,18 @@ Author: SAEROX
             <!-- End Header -->
             <!-- Begin Page Content -->
             <div class="page-content d-flex align-items-stretch">
-               @include('plantilla.sidebar')
+            @if(Auth::check())
+            @if (Auth::user()->tipo == 1)
+            @include('plantilla.sidebar')
+            @elseif (Auth::user()->tipo == 2)
+            @include('plantilla.sidebar2')
+            @elseif (Auth::user()->tipo == 3)
+            @include('plantilla.sidebar3')
+            @else
+
+            @endif
+
+        @endif
                 <!-- End Left Sidebar -->
                 <div class="content-inner">
                     <div class="container-fluid">
@@ -116,21 +127,8 @@ Author: SAEROX
                                         {{ csrf_field() }}
                                         <br>
                                         <input type="hidden" name="id" value="{{$proyectos->id}}" class="form-control" required>
-                                           
-                                        <div class="form-group row mb-5">
-                                                <label class="col-lg-3 form-control-label"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Id. Manager</font></font></label>
-                                                <div class="col-lg-9 select mb-3"> 
-                                                    <select  name='id_manager' class="custom-select form-control">
-                                                    <option value="{{$proyectos->id_manager}}"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;"> {{$proyectos->id_manager}}</font></font></option>
-                                                    @foreach ($managers as $managers)
-                                                    
-                                                      
-                                                   <option value="{{$managers->id}}"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;"> {{$managers->name}}</font></font></option>
-                                                    @endforeach 
-                                                    </select>
-                                                </div>
-                                            </div>
-
+                                        <input type="hidden" name="id_manager" value="{{$proyectos->id_manager}}" class="form-control" required>
+              
                                               <div class="form-group row mb-5">
                                                 <label class="col-lg-3 form-control-label"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Cliente</font></font></label>
                                                 <div class="col-lg-9 select mb-3">

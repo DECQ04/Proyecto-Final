@@ -80,7 +80,18 @@ Author: SAEROX
             <!-- End Header -->
             <!-- Begin Page Content -->
             <div class="page-content d-flex align-items-stretch">
+            @if(Auth::check())
+            @if (Auth::user()->tipo == 1)
             @include('plantilla.sidebar')
+            @elseif (Auth::user()->tipo == 2)
+            @include('plantilla.sidebar2')
+            @elseif (Auth::user()->tipo == 3)
+            @include('plantilla.sidebar3')
+            @else
+
+            @endif
+
+        @endif
                 <!-- End Left Sidebar -->
                 <div class="content-inner">
                     <div class="container-fluid">
@@ -137,6 +148,7 @@ Author: SAEROX
                                                 </thead>
                                                 <tbody>
                                                 @foreach ($proyectos as $proyectos)
+                                                 
                                                 <tr>
                                                 <td class="td-actions"> 
                                                 
@@ -168,6 +180,7 @@ Author: SAEROX
                                                 <td> <span style="width:100px;"><span class="badge-text badge-text-small success"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Finalizado</font></font></span></span></td>
                                                 @endif
                                                 </tr>
+                                                 
                                                 @endforeach  
                                                 </tbody>
                                             </table>
@@ -239,19 +252,8 @@ Author: SAEROX
                         <div class?="widget-body">
                                          <form method="POST" action="/proyectos" class="form-horizontal">
                                          {{ csrf_field() }}
-                                         <div class="form-group row mb-5">
-                                                <label class="col-lg-3 form-control-label"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Id. Manager</font></font></label>
-                                                <div class="col-lg-9 select mb-3">
-                                                    <select  name='id_manager' class="custom-select form-control">
-                                                    <option ><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Seleccionar... </font></font></option>
-                                                     @foreach ($managers as $managers)
-                                                        <option value="{{$managers->id}}"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;"> {{$managers->name}}</font></font></option>
-                                                    @endforeach 
-                                                    </select>
-                                                </div>
-                                            </div>
-                                            
-        
+                                          
+                                            <input type="hidden" name="id_manager" value="{{Auth::user()->id}}" class="form-control" required>
                                             <div class="form-group row mb-5">
                                                 <label class="col-lg-3 form-control-label"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Cliente</font></font></label>
                                                 <div class="col-lg-9 select mb-3">
@@ -264,7 +266,7 @@ Author: SAEROX
                                                 </div>
                                             </div>
 
-
+                                            
                                             <div class="form-group row d-flex align-items-center mb-5">
                                                 <label class="col-lg-3 form-control-label">Titulo</label>
                                                 <div class="col-lg-9">

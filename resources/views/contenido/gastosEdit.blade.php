@@ -80,7 +80,18 @@ Author: SAEROX
             <!-- End Header -->
             <!-- Begin Page Content -->
             <div class="page-content d-flex align-items-stretch">
-               @include('plantilla.sidebar')
+            @if(Auth::check())
+            @if (Auth::user()->tipo == 1)
+            @include('plantilla.sidebar')
+            @elseif (Auth::user()->tipo == 2)
+            @include('plantilla.sidebar2')
+            @elseif (Auth::user()->tipo == 3)
+            @include('plantilla.sidebar3')
+            @else
+
+            @endif
+
+        @endif
                 <!-- End Left Sidebar -->
                 <div class="content-inner">
                     <div class="container-fluid">
@@ -88,11 +99,11 @@ Author: SAEROX
                         <div class="row">
                             <div class="page-header">
 	                            <div class="d-flex align-items-center">
-	                                <h2 class="page-header-title">Proyectos</h2>
+	                                <h2 class="page-header-title">Gastos</h2>
 	                                <div>
 			                            <ul class="breadcrumb">
 			                                <li class="breadcrumb-item"><a href="/principal"><i class="ti ti-home"></i></a></li>
-			                                <li class="breadcrumb-item active">Proyectos-Editar</li>
+			                                <li class="breadcrumb-item active">Gastos-Editar</li>
 			                            </ul>
 	                                </div>
 	                            </div>
@@ -107,7 +118,7 @@ Author: SAEROX
                                 <!-- Export -->
                                 <div class="widget has-shadow">
                                     <div class="widget-header bordered no-actions d-flex align-items-center">
-                                        <h4>Editar Proyecto</h4>
+                                        <h4>Editar Gasto</h4>
                                     </div>
                                     <div class="conteiner">
                                     

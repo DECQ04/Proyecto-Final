@@ -79,7 +79,18 @@ Author: SAEROX
             <!-- End Header -->
             <!-- Begin Page Content -->
             <div class="page-content d-flex align-items-stretch">
+            @if(Auth::check())
+            @if (Auth::user()->tipo == 1)
             @include('plantilla.sidebar')
+            @elseif (Auth::user()->tipo == 2)
+            @include('plantilla.sidebar2')
+            @elseif (Auth::user()->tipo == 3)
+            @include('plantilla.sidebar3')
+            @else
+
+            @endif
+
+        @endif
                 <!-- End Left Sidebar -->
                 <div class="content-inner">
                     <div class="container-fluid">
@@ -127,7 +138,7 @@ Author: SAEROX
                                                        <!-- <th>Apellidos</th> Falta Tipo -->
                                                         <th>Rol</th>
                                                         <th>Correo Electronico</th>
-                                                        <th>Contraseña</th>
+                                                        
                                                         <th>Telefono</th>
                                                     </tr>
                                                 </thead>
@@ -149,7 +160,7 @@ Author: SAEROX
                                                  <td> {{$colaboradores->name}} </td>
                                                  <td>Cliente</td>
                                                  <td> {{$colaboradores->email}} </td>
-                                                 <td> {{$colaboradores->password}} </td>
+                                               
                                                  <td> {{$colaboradores->telefono}} </td>
                                                 
                                                  
@@ -207,7 +218,7 @@ Author: SAEROX
                     </div>
                     <div class="modal-body">
                         <div class?="widget-body">
-                                         <form method="POST" action="/perfilup" class="form-horizontal">
+                                         <form method="POST" action="/clientes" class="form-horizontal">
                                          {{ csrf_field() }}
                                             <div class="form-group row d-flex align-items-center mb-5">
                                                 <label class="col-lg-3 form-control-label">Nombres</label>

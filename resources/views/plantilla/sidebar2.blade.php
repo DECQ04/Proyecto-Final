@@ -5,8 +5,8 @@
                             <li><a href="#dropdown-db" aria-expanded="false" data-toggle="collapse"><i class="la la-puzzle-piece"></i><span>Proyectos</span></a>
                                 <ul id="dropdown-db" class="collapse list-unstyled pt-0">
                                     
-                                    <li  ><a href="proyectos">Proyectos</a></li>
-                                    <li ><a href="tareas">Tareas</a></li>
+                                    <li  ><a href="/proyectosDC">Proyectos</a></li>
+                                    <li ><a href="/tareasDC">Tareas</a></li>
                                      
                                 </ul>
                             </li>
@@ -26,9 +26,7 @@
                                 </ul>
                             </li>
                         </ul>
-                        <ul class="list-unstyled">
-                        <li><a href="#"><i class="la la-spinner"></i><span>Reportes</span></a></li>
-                        </ul>
+                         
                         <!-- End Main Navigation -->
                     </nav>
 </div>

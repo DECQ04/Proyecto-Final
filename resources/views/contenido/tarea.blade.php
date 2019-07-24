@@ -79,7 +79,19 @@ Author: SAEROX
             <!-- End Header -->
             <!-- Begin Page Content -->
             <div class="page-content d-flex align-items-stretch">
+             
+            @if(Auth::check())
+            @if (Auth::user()->tipo == 1)
             @include('plantilla.sidebar')
+            @elseif (Auth::user()->tipo == 2)
+            @include('plantilla.sidebar2')
+            @elseif (Auth::user()->tipo == 3)
+            @include('plantilla.sidebar3')
+            @else
+
+            @endif
+
+        @endif
                 <!-- End Left Sidebar -->
                 <div class="content-inner">
                     <div class="container-fluid">
@@ -127,6 +139,8 @@ Author: SAEROX
                                                         <th>Desarrollador</th>
                                                         <th>Titulo</th>
                                                         <th>Descripción</th>
+                                                        <th>Fecha de Inicio</th>
+                                                        <th>Fecha de Vencimiento</th>
                                                         <th>id_pago</th>
                                                         <th>Estado de la Tarea</th>
                                                        
@@ -152,8 +166,9 @@ Author: SAEROX
                                                  <td> {{$tareas->id_proyecto}} </td>
                                                  <td> {{$tareas->id_desarrollador}} </td>
                                                  <td> {{$tareas->titulo}} </td>
-                                                 
                                                  <td> {{$tareas->descripcion}} </td>
+                                                 <td> {{$tareas->fecha_inicio}} </td>
+                                                 <td> {{$tareas->fecha_vencimiento}} </td>
                                                  <td> {{$tareas->id_pago}} </td>
                                                  @if($tareas->estado=='1')
                                                  <td> <span style="width:100px;"><span class="badge-text badge-text-small info"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Activo</font></font></span></span> </td>
@@ -252,7 +267,18 @@ Author: SAEROX
                                                     <input type="text" name="descripcion" placeholder="descripcion" class="form-control" required>
                                                 </div>
                                             </div>
-                                           
+                                            <div class="form-group row d-flex align-items-center mb-5">
+                                                <label class="col-lg-3 form-control-label">Fecha Inicio</label>
+                                                <div class="col-lg-9">
+                                                    <input type="date" name="fecha_inicio" placeholder="fecha_inicio" class="form-control" required>
+                                                </div>
+                                            </div>
+                                            <div class="form-group row d-flex align-items-center mb-5">
+                                                <label class="col-lg-3 form-control-label">Fecha Vencimiento</label>
+                                                <div class="col-lg-9">
+                                                    <input type="date" name="fecha_vencimiento" placeholder="fecha_vencimiento" class="form-control" required>
+                                                </div>
+                                            </div>
                                             <div class="form-group row mb-5">
                                                 <label class="col-lg-3 form-control-label"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Pago</font></font></label>
                                                 <div class="col-lg-9 select mb-3">

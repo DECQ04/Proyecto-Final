@@ -79,7 +79,18 @@ Author: SAEROX
             <!-- End Header -->
             <!-- Begin Page Content -->
             <div class="page-content d-flex align-items-stretch">
+            @if(Auth::check())
+            @if (Auth::user()->tipo == 1)
             @include('plantilla.sidebar')
+            @elseif (Auth::user()->tipo == 2)
+            @include('plantilla.sidebar2')
+            @elseif (Auth::user()->tipo == 3)
+            @include('plantilla.sidebar3')
+            @else
+
+            @endif
+
+        @endif
                 <!-- End Left Sidebar -->
                 <div class="content-inner">
                     <div class="container-fluid">
@@ -151,9 +162,14 @@ Author: SAEROX
                                                  <td> {{$pagos->id_persona}} </td>
                                                  <td> {{$pagos->cantidad}} </td> 
                                                  <td> {{$pagos->fecha_hora}} </td>
-                                                 <td> {{$pagos->estado}} </td>
+                                                  
                                                  <td> {{$pagos->descripcion}} </td>
-                                                
+                                                 @if($pagos->estado=='1')
+                                                 <td> <span style="width:100px;"><span class="badge-text badge-text-small info"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">En curso</font></font></span></span> </td>
+                                                 @endif
+                                                 @if($pagos->estado=='0')
+                                                <td> <span style="width:100px;"><span class="badge-text badge-text-small success"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Pagado</font></font></span></span></td>
+                                                @endif
                                                  
                                                 
                                                 </tr>
@@ -223,20 +239,20 @@ Author: SAEROX
                                                 </div>
                                             </div>
                                            
-                                            
-                                            <div class="form-group row d-flex align-items-center mb-5">
-                                                <label class="col-lg-3 form-control-label">Fecha hora</label>
-                                                <div class="col-lg-9">
-                                                    <input type="datetime-local" name="fecha_hora" placeholder="fecha hora" class="form-control" required>
+                                              <div class="form-group row mb-5">
+                                                <label class="col-lg-3 form-control-label"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Estado</font></font></label>
+                                                <div class="col-lg-9 select mb-3">
+                                                    <select  name="estado" class="custom-select form-control">
+                                                    <option><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Seleccionar...</font></font></option>
+                                                        <option value="1"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">En curso</font></font></option>
+                                                        <option value="0"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Pagado</font></font></option>
+                                                     
+                                                    </select>
                                                 </div>
                                             </div>
-                                            
-                                            <div class="form-group row d-flex align-items-center mb-5">
-                                                <label class="col-lg-3 form-control-label">Estado</label>
-                                                <div class="col-lg-9">
-                                                    <input type="text" name="estado" placeholder="estado" class="form-control" required>
-                                                </div>
-                                            </div>
+
+
+
                                             <div class="form-group row d-flex align-items-center mb-5">
                                                 <label class="col-lg-3 form-control-label">Descripción</label>
                                                 <div class="col-lg-9">
