@@ -35,30 +35,12 @@ class ControllerProyecto extends Controller
         return view('contenido/proyecto',['proyectos'=>$proyectos,'managers'=>$managers,'colaboradores'=>$colaboradores,'pagos'=>$pagos]);
     } 
    
-   
-   
-   
-   
     public function inicioDC(){
        
          
         $proyectos= Proyecto::join('proyectos_colaboradores','proyectos.id','=','proyectos_colaboradores.id_proyecto')->select('*')->get();
         return view('contenido/proyectoDC',['proyectos'=>$proyectos ]);
     } 
-   
-   
-   
-   
-   
-   
-   
-   
-   
-   
-   
-   
-   
-   
    
    
    

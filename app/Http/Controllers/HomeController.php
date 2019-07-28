@@ -25,4 +25,10 @@ class HomeController extends Controller
     {
         return view('principal');
     }
+    public function regresar()
+    {
+        return back()->withInput();
+    }
+
+    
 }

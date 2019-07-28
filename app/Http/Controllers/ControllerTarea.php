@@ -21,7 +21,8 @@ class ControllerTarea extends Controller
     } 
     public function inicioDC(){
         
-        $tareas = Tarea::join('proyectos','proyectos.id','=','tareas.id_proyecto')->select('proyectos.id_cliente as cliente','tareas.id', 'tareas.id_proyecto', 'tareas.id_desarrollador', 'tareas.titulo', 'tareas.descripcion', 'tareas.id_pago', 'tareas.estado', 'tareas.condicion', 'tareas.fecha_inicio', 'tareas.fecha_vencimiento')->get();
+        $tareas = Tarea::join('proyectos','proyectos.id','=','tareas.id_proyecto')->
+        select('proyectos.id_cliente as cliente','tareas.id', 'tareas.id_proyecto', 'tareas.id_desarrollador', 'tareas.titulo', 'tareas.descripcion', 'tareas.id_pago', 'tareas.estado', 'tareas.condicion', 'tareas.fecha_inicio', 'tareas.fecha_vencimiento')->get();
         
         
         return view('contenido/tareaDC',['tareas'=>$tareas]);
@@ -60,6 +61,21 @@ class ControllerTarea extends Controller
                 
             return redirect('/tareas');
         }
+
+        public function fin($id){
+            $tareas = Tarea::findOrFail($id);
+            $tareas->estado = '0';
+            $tareas->save();
+                
+            return redirect('/tareasDC');
+            }
+            public function act($id){
+                $tareas = Tarea::findOrFail($id);
+                $tareas->estado = '1';
+                $tareas->save();
+                    
+                return redirect('/tareasDC');
+            }
         public function edit(Request $request)
         {
             $tareas = Tarea::findOrFail(request('id'));
