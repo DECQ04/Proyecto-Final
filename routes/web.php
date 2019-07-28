@@ -24,7 +24,8 @@ Route::get('/reportes', function () {
 });
 Route::get('/perfilup','ControllerPerfil@up');
 
- 
+Route::get('/tickets','ControllerTickets@inicio');
+
 Route::get('/proyectos','ControllerProyecto@inicio');
 Route::get('/proyectosDC','ControllerProyecto@inicioDC');
 Route::post('/proyectos','ControllerProyecto@store');
@@ -42,6 +43,8 @@ Route::post('/tareasEdit','ControllerTarea@edit');
 Route::post('/tareasup','ControllerTarea@update');
 Route::get('/{proyed}/tareas','ControllerTarea@desactivar');
 Route::get('/{proyed}/tareasact','ControllerTarea@activar');
+Route::get('/{proyed}/tareasfin','ControllerTarea@fin');
+Route::get('/{proyed}/tareasAct','ControllerTarea@act');
 
 Route::get('/gastos','ControllerGasto@inicio');
 Route::post('/gastos','ControllerGasto@store');
@@ -78,3 +81,4 @@ Auth::routes();
 Route::get('/home', 'HomeController@index')->name('home');
 Route::get('/home','ControllerProyecto@cont');
 Route::get('/principal','ControllerProyecto@cont');
+Route::get('/regresar', 'HomeController@regresar');
