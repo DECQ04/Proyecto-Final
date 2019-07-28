@@ -7,16 +7,16 @@
                                     
                                 <li  ><a href="/proyectosDC">Proyectos</a></li>
                                 <li  ><a href="/tareasDC">Tareas</a></li>
-                                    <li  ><a href="#">Tickets</a></li>
+                                    <li  ><a href="/tickets">Tickets</a></li>
                                 </ul>
                             </li>
                          </ul> 
                          
                         <ul class="list-unstyled">
-                        <li><a href="#"><i class="la la-share-alt"></i><span>Pagos</span></a></li>
+                        <li><a href="/pagos"><i class="la la-share-alt"></i><span>Pagos</span></a></li>
                         </ul>
                         <ul class="list-unstyled">
-                        <li><a href="#"><i class="la la-spinner"></i><span>Reportes</span></a></li>
+                        <li><a href="/reportes"><i class="la la-spinner"></i><span>Reportes</span></a></li>
                         </ul>
                         <!-- End Main Navigation -->
                     </nav>

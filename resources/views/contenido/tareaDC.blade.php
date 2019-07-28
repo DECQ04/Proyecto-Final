@@ -122,19 +122,23 @@ Author: SAEROX
                                     </div>
                                     <div class="widget-body">
                                         <!-- Begin Large Modal -->
+                                        @if(Auth::user()->tipo==3)
                                         <div class="row">
                                             <div class="bordered no-actions d-flex align-items-center">
-                                            <p>Nuevo Registro</p>
+                                            <p>Reportar tarea </p>
                                             </div>
                                             <div class="col-xl-4 d-flex align-items-center mb-3">
-                                            <button type="button" class="btn btn-gradient-01 mr-1 mb-2" data-toggle="modal" data-target="#modal-large"><i class="la la-pencil"></i>Crear</button></div>
+                                            <button type="button" class="btn btn-gradient-01 mr-1 mb-2" data-toggle="modal" data-target="#modal-large"><i class="la la-pencil"></i>Crear Ticket</button></div>
                                         </div>
+                                        @endif
                                         <!-- End Large Modal -->
                                         <div class="table-responsive">
                                             <table id="export-table" class="table mb-0">
                                                 <thead>
                                                     <tr>
-                                                        
+                                                    @if(Auth::user()->tipo==2)
+                                                        <th>Cambiar estado</th>
+                                                    @endif
                                                         <th>Proyecto</th>
                                                         <th>Desarrollador</th>
                                                         <th>Titulo</th>
@@ -150,6 +154,14 @@ Author: SAEROX
                                                 @foreach ($tareas as $tareas)
                                                   @if($tareas->cliente==Auth::user()->id||$tareas->id_desarrollador==Auth::user()->id)
                                                 <tr>
+                                                @if(Auth::user()->tipo==2)
+                                                 <td>@if ($tareas->estado=='0')
+                                                <a href="/{{$tareas->id}}/tareasAct" ><i class="la la-close delete"></i></a>
+                                                @endif
+                                                @if ($tareas->estado=='1')
+                                                <a href="/{{$tareas->id}}/tareasfin"   ><i class="ion-checkmark-circled"></i></a>
+                                                @endif</td>
+                                                    @endif
                                                  <td> {{$tareas->id_proyecto}} </td>
                                                  <td> {{$tareas->id_desarrollador}} </td>
                                                  <td> {{$tareas->titulo}} </td>

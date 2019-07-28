@@ -7,7 +7,7 @@
                                     
                                     <li  ><a href="/proyectosDC">Proyectos</a></li>
                                     <li ><a href="/tareasDC">Tareas</a></li>
-                                     
+                                    <li  ><a href="/tickets">Tickets</a></li>
                                 </ul>
                             </li>
                          </ul> 

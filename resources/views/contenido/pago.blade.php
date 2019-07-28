@@ -143,6 +143,7 @@ Author: SAEROX
                                                 </thead>
                                                 <tbody>
                                                 @foreach ($pagos as $pagos)
+                                                @if(Auth::user()->id==$pagos->id_persona)
                                                 <tr>
                                                 <td class="td-actions"> 
                                                  
@@ -173,6 +174,7 @@ Author: SAEROX
                                                  
                                                 
                                                 </tr>
+                                                @endif
                                                 @endforeach  
                                                 </tbody>
                                             </table>
@@ -226,12 +228,9 @@ Author: SAEROX
                         <div class?="widget-body">
                                          <form method="POST" action="/pagos" class="form-horizontal">
                                          {{ csrf_field() }}
-                                            <div class="form-group row d-flex align-items-center mb-5">
-                                                <label class="col-lg-3 form-control-label">Id. Personal</label>
-                                                <div class="col-lg-9">
-                                                    <input type="text" name="id_persona" class="form-control" placeholder="Id. Persona" required>
-                                                </div>
-                                            </div>
+                                            
+                                            <input type="hidden" name="id_persona" value="{{Auth::user()->id}}"class="form-control"   required>
+                                              
                                             <div class="form-group row d-flex align-items-center mb-5">
                                                 <label class="col-lg-3 form-control-label">Cantidad</label>
                                                 <div class="col-lg-9">

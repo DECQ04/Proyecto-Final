@@ -88,10 +88,8 @@ Author: SAEROX
             @elseif (Auth::user()->tipo == 3)
             @include('plantilla.sidebar3')
             @else
-
             @endif
-
-        @endif
+            @endif
                 <!-- End Left Sidebar -->
                 <div class="content-inner">
                     <div class="container-fluid">
@@ -99,11 +97,11 @@ Author: SAEROX
                         <div class="row">
                             <div class="page-header">
 	                            <div class="d-flex align-items-center">
-	                                <h2 class="page-header-title">Proyectos</h2>
+	                                <h2 class="page-header-title">Tickets</h2>
 	                                <div>
 			                            <ul class="breadcrumb">
 			                                <li class="breadcrumb-item"><a href="/principal"><i class="ti ti-home"></i></a></li>
-			                                <li class="breadcrumb-item active">Proyectos</li>
+			                                <li class="breadcrumb-item active">Tickets</li>
 			                            </ul>
 	                                </div>
 	                            </div>
@@ -118,40 +116,79 @@ Author: SAEROX
                                 <!-- Export -->
                                 <div class="widget has-shadow">
                                     <div class="widget-header bordered no-actions d-flex align-items-center">
-                                        <h4>Proyectos</h4>
+                                        <h4>Tickets</h4>
                                     </div>
                                     <div class="widget-body">
-                                          
+                                        <!-- Begin Large Modal -->
+                                        <div class="row">
+                                            <div class="bordered no-actions d-flex align-items-center">
+                                            <p>Nuevo Ticket</p>
+                                            </div>
+                                            <div class="col-xl-4 d-flex align-items-center mb-3">
+                                            <button type="button"  class="btn btn-gradient-01 mr-1 mb-2" data-toggle="modal" data-target="#modal-large"><i class="la la-pencil"></i>Crear</button></div>
+                                        </div>
+                                        <!-- End Large Modal -->
                                         <div class="table-responsive">
                                             <table id="export-table" class="table mb-0">
                                                 <thead>
                                                     <tr>
-                                                        <th>Manager</th>
+                                                        <th>Opciones</th>
                                                         <th>Cliente</th>
+                                                        <th>Tarea</th>
                                                         <th>Titulo</th>
-                                                        <th>Fecha de Inicio</th>
-                                                        <th>Fecha de Vencimiento</th>
-                                                        
-                                                        <th>Estado del Proyecto</th>
+                                                        <th>Descripcion</th>
+                                                        <th>Fecha_hora</th>
+                                                        @if(Auth::user()->tipo==1||Auth::user()->tipo==3)
+                                                        <th>Estado</th>
+                                                        @endif
+                                                        @if(Auth::user()->tipo==2)
+                                                        <th>Estado</th>
+                                                        <th>Responder</th>
+                                                        @endif
+  
                                                     </tr>
                                                 </thead>
                                                 <tbody>
-                                                @foreach ($proyectos as $proyectos)
+                                                @foreach ($tickets as $tickets)
+                                                @if($tickets->desarrollador==Auth::user()->id||$tickets->id_cliente==Auth::user()->id||Auth::user()->tipo==1)
                                                 
-                                                 @if($proyectos->id_desarrollador==Auth::user()->id||$proyectos->id_cliente==Auth::user()->id||Auth::user()->tipo==1)
-                                                <tr>
-                                                 <td> {{$proyectos->id_manager}} </td>
-                                                 <td> {{$proyectos->id_cliente}} </td>
-                                                 <td> {{$proyectos->titulo}} </td>
-                                                 <td> {{$proyectos->fecha_incio}} </td>
-                                                 <td> {{$proyectos->fecha_vencimiento}} </td>
                                                  
-                                                 @if($proyectos->estado=='1')
-                                                 <td> <span style="width:100px;"><span class="badge-text badge-text-small info"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Activo</font></font></span></span> </td>
+                                                <tr>
+                                                <td class="td-actions"> 
+                                                
+                                                <form method="POST" action="/verTicket">
+                                                {{ csrf_field() }}
+                                                      <input type="hidden" name="id" value="{{$tickets->id}}">
+                                                     <button type="submit" class="btn btn-gradient-04  btn-sm mr-1 mb-2"><i class="la la-eye"></i></button>
+                                                
+                                                
+                                                 
+                                                </form>
+                                                </td>
+                                                 <td> {{$tickets->id_cliente}} </td>
+                                                 <td> {{$tickets->id_tarea}} </td>
+                                                 <td> {{$tickets->titulo}} </td>
+                                                 <td> {{$tickets->descripcion}} </td>
+                                                 <td> {{$tickets->fecha_hora}} </td>
+                                                
+                                                 
+
+                                               
+                                                 @if($tickets->estado=='1')
+                                                 <td> <span style="width:100px;"><span class="badge-text badge-text-small info"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Sin contestar</font></font></span></span> </td>
                                                  @endif
-                                                 @if($proyectos->estado=='0')
-                                                <td> <span style="width:100px;"><span class="badge-text badge-text-small success"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Finalizado</font></font></span></span></td>
+                                                 @if($tickets->estado=='0')
+                                                <td> <span style="width:100px;"><span class="badge-text badge-text-small success"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Contestado</font></font></span></span></td>
                                                 @endif
+                                                
+                                                
+                                                @if(Auth::user()->tipo==2)
+                                                <td> <form method="POST" action="/verTicket">
+                                                {{ csrf_field() }}
+                                                      <input type="hidden" name="id" value="{{$tickets->id}}">
+                                                     <button type="submit" class="btn btn-gradient-04  btn-sm mr-1 mb-2"><i class="la la-pencil"></i></button>
+                                                </form></td>
+                                                 @endif
                                                 </tr>
                                                 @endif
                                                 @endforeach  
@@ -190,10 +227,36 @@ Author: SAEROX
                     <!-- End Offcanvas Sidebar -->
                 </div>
             </div>
-            <!-- End Page Content -->
-             
+            
          <!-- Begin Large Modal -->
-         
+         <div id="modal-large" class="modal fade">
+            <div class="modal-dialog modal-lg">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h4 class="modal-title">Nuevo Proyecto</h4>
+                        <button type="button" class="close" data-dismiss="modal">
+                            <span aria-hidden="true">×</span>
+                            <span class="sr-only">close</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <div class?="widget-body">
+                                         <form method="POST" action="/proyectos" class="form-horizontal">
+                                         {{ csrf_field() }}
+                                          
+                                            
+ 
+                                            <div class="modal-footer">
+                                            <button type="button" class="btn btn-shadow" data-dismiss="modal">Close</button>
+                                            <button type="submit" class="btn btn-primary">Save</button>
+                    </div>
+                                        </form>
+                        </div>
+                    </div>
+                    
+                </div>
+            </div>
+        </div>
         <!-- End Large Modal -->
         </div>
         <!-- Begin Vendor Js -->

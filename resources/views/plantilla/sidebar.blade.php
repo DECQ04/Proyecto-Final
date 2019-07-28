@@ -7,7 +7,7 @@
                                     
                                     <li  ><a href="proyectos">Proyectos</a></li>
                                     <li ><a href="tareas">Tareas</a></li>
-                                    <li @click="menu=1"><a href="#">Tickets</a></li>
+                                    <li  ><a href="/tickets">Tickets</a></li>
                                 </ul>
                             </li>
                          </ul> 

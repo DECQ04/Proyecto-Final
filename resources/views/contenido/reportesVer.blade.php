@@ -182,7 +182,7 @@ Author: SAEROX
                                                 <td></td>
                                                 <td> </td>
                                                 <td>  </td>
-                                                <td>Pago Total:{{$proyectos->pago_total}}  </td>
+                                                <td>Pago Total Estimado/Real:{{$proyectos->pago_total}}  </td>
                                                 </tr>
 
 

@@ -144,7 +144,7 @@ Author: SAEROX
                                         <p class="text-center">{{ Auth::user()->email }}</p>
                                         <div class="em-separator separator-dashed"></div>
                                         <ul class="nav flex-column">
-                                             
+                                        @if (Auth::user()->tipo == 1)
                                             <li class="nav-item">
                                                 <a class="nav-link" href="/gastos"><i class="la la-bolt la-2x align-middle pr-2"></i>Gastos y Pagos</a>
                                             </li>
@@ -155,7 +155,20 @@ Author: SAEROX
                                             <li class="nav-item">
                                                 <a class="nav-link" href="/tareas"><i class="la la-clipboard la-2x align-middle pr-2"></i>Tareas</a>
                                             </li>
-                                            
+                                        @endif
+                                        @if (Auth::user()->tipo == 2||Auth::user()->tipo == 3)
+                                            <li class="nav-item">
+                                                <a class="nav-link" href="/pagos"><i class="la la-bolt la-2x align-middle pr-2"></i>Gastos y Pagos</a>
+                                            </li>
+                                             
+                                            <li class="nav-item">
+                                                <a class="nav-link" href="/proyectosDC"><i class="la la-bar-chart la-2x align-middle pr-2"></i>Proyectos</a>
+                                            </li>
+                                            <li class="nav-item">
+                                                <a class="nav-link" href="/tareasDC"><i class="la la-clipboard la-2x align-middle pr-2"></i>Tareas</a>
+                                            </li>
+                                        @endif
+                                      
                                         </ul>
                                     </div>
                                 </div>

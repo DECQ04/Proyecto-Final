@@ -218,7 +218,7 @@ Author: SAEROX
                                         <div class="em-separator separator-dashed"></div>
                                             <center>
                                          <button type="submit" class="btn btn-primary">Save</button>     
-                                        <button type="button" class="btn btn-shadow" >Close</button>
+                                        <button type="/regresar" class="btn btn-shadow" >Close</button>
                                         </center>
                                     </form>
                                     

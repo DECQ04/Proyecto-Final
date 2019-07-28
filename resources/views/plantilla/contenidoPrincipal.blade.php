@@ -1,3 +1,6 @@
+
+  <div class="row flex-row">
+  <div class="col-xl-10 col-md-6">
 <div class="widget has-shadow">
     <div class="widget-header bordered no-actions d-flex align-items-center">
         <h4>Progresos </h4>
@@ -16,4 +19,10 @@
             <div class="progress-bar bg-danger"  role="progressbar" style="width: {{$tareas}}%" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100"></div>
         </div>
     </div>
+ </div>
+ </div> 
+
+
+
+
 </div>

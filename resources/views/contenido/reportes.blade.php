@@ -142,6 +142,7 @@ Author: SAEROX
                                                 </thead>
                                                 <tbody>
                                                 @foreach ($proyectos as $proyectos)
+                                                @if(Auth::user()->id==$proyectos->id_cliente||Auth::user()->tipo==1)
                                                 <tr>
                                                 <td class="td-actions"> 
                                                 
@@ -149,7 +150,6 @@ Author: SAEROX
                                                 {{ csrf_field() }}
                                                       <input type="hidden" name="id" value="{{$proyectos->id}}">
                                                      <button type="submit" class="btn btn-gradient-04  btn-sm mr-1 mb-2"><i class="la la-edit edit"></i></button>
-                                                
                                                 
                                                 
                                                 </form>
@@ -163,6 +163,7 @@ Author: SAEROX
                                                  <td> {{$proyectos->id_pago}} </td>
                                                  
                                                 </tr>
+                                                @endif
                                                 @endforeach  
                                                 </tbody>
                                                 
