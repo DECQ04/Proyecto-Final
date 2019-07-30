@@ -135,10 +135,11 @@ Author: SAEROX
                                                     <tr>
                                                         <th>Opciones</th>
                                                         <th>Id. Persona</th>
+                                                        <th>Id. Proyecto</th>
                                                         <th>cantidad</th>
                                                         <th>Fecha hora</th>
-                                                        <th>Estado</th>
                                                         <th>Descripción</th>
+                                                        <th>Estado</th>
                                                     </tr>
                                                 </thead>
                                                 <tbody>
@@ -161,6 +162,7 @@ Author: SAEROX
                                                 </form>
                                                 </td>
                                                  <td> {{$pagos->id_persona}} </td>
+                                                 <td> {{$pagos->id_proyecto}} </td>
                                                  <td> {{$pagos->cantidad}} </td> 
                                                  <td> {{$pagos->fecha_hora}} </td>
                                                   
@@ -230,7 +232,17 @@ Author: SAEROX
                                          {{ csrf_field() }}
                                             
                                             <input type="hidden" name="id_persona" value="{{Auth::user()->id}}"class="form-control"   required>
-                                              
+                                            <div class="form-group row mb-5">
+                                                <label class="col-lg-3 form-control-label"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Proyecto</font></font></label>
+                                                <div class="col-lg-9 select mb-3">
+                                                    <select  name="id_proyecto" class="custom-select form-control">
+                                                    <option ><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Seleccionar... </font></font></option>
+                                                    @foreach ($proyectos as $proyectos)
+                                                        <option value="{{$proyectos->id}}"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;"> {{$proyectos->titulo}} </font></font></option>
+                                                    @endforeach 
+                                                    </select>
+                                                </div>
+                                            </div>
                                             <div class="form-group row d-flex align-items-center mb-5">
                                                 <label class="col-lg-3 form-control-label">Cantidad</label>
                                                 <div class="col-lg-9">

@@ -135,7 +135,7 @@ Author: SAEROX
                                                     <tr>
                                                         <th>Opciones</th>
                                                         <th>Id Manager</th>
-                                                        <th>Titulo</th>
+                                                        <th>Id Tarea</th>
                                                         <th>Descripción</th>
                                                         <th>Fecha hora</th>
                                                         <th>cantidad</th>
@@ -162,12 +162,10 @@ Author: SAEROX
                                                 </form >
                                                 </td>
                                                  <td> {{$gastos->id_manager}} </td>
-                                                 
-                                                 <td> {{$gastos->titulo}} </td>
+                                                 <td> {{$gastos->id_tarea}} </td>
                                                  <td> {{$gastos->descripcion}} </td>
                                                  <td> {{$gastos->fecha_hora}} </td>
                                                  <td> {{$gastos->cantidad}} </td>
-                                                
                                                 </tr>
                                                 @endif
                                                 @endforeach  
@@ -223,18 +221,19 @@ Author: SAEROX
                         <div class?="widget-body">
                                          <form method="POST" action="/gastos" class="form-horizontal">
                                          {{ csrf_field() }}
-                                            <div class="form-group row d-flex align-items-center mb-5">
-                                                <label class="col-lg-3 form-control-label">Manager</label>
-                                                <div class="col-lg-9">
-                                                    <input type="text" name="id_manager" class="form-control" value="{{Auth::user()->id}}" required>
-                                                </div>
-                                            </div>
                                             
-                                           
-                                            <div class="form-group row d-flex align-items-center mb-5">
-                                                <label class="col-lg-3 form-control-label">Titulo</label>
-                                                <div class="col-lg-9">
-                                                    <input type="text" name="titulo" placeholder="titulo" class="form-control" required>
+                                             <input type="hidden" name="id_manager" class="form-control" value="{{Auth::user()->id}}" required>
+                                                
+                                            
+                                             <div class="form-group row mb-5">
+                                                <label class="col-lg-3 form-control-label"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Proyecto</font></font></label>
+                                                <div class="col-lg-9 select mb-3">
+                                                    <select  name="id_tarea" class="custom-select form-control">
+                                                    <option ><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Seleccionar... </font></font></option>
+                                                    @foreach ($tareas as $tareas)
+                                                        <option value="{{$tareas->id}}"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;"> {{$tareas->titulo}} </font></font></option>
+                                                    @endforeach 
+                                                    </select>
                                                 </div>
                                             </div>
                                             <div class="form-group row d-flex align-items-center mb-5">

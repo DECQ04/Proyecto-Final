@@ -134,6 +134,18 @@ Author: SAEROX
                                                     <input type="text" name="id_persona" class="form-control" value="{{$pagos->id_persona}}" required>
                                                 </div>
                                             </div>
+                                            <div class="form-group row mb-5">
+                                                <label class="col-lg-3 form-control-label"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Proyecto</font></font></label>
+                                                <div class="col-lg-9 select mb-3">
+                                                    <select  name="id_proyecto" class="custom-select form-control">
+                                                    <option value="{{$pagos->id_proyecto}}"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;"> {{$pagos->id_proyecto}} </font></font></option>
+                                                    @foreach ($proyectos as $proyectos)
+                                                        <option value="{{$proyectos->id}}"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;"> {{$proyectos->titulo}} </font></font></option>
+                                                    @endforeach 
+                                                    </select>
+                                                </div>
+                                            </div>
+
                                             <div class="form-group row d-flex align-items-center mb-5">
                                                 <label class="col-lg-3 form-control-label">Cantidad</label>
                                                 <div class="col-lg-9">

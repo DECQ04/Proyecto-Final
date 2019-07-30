@@ -135,11 +135,15 @@ Author: SAEROX
                                                 </div>
                                             </div>
                                             
-                                           
-                                            <div class="form-group row d-flex align-items-center mb-5">
-                                                <label class="col-lg-3 form-control-label">Titulo</label>
-                                                <div class="col-lg-9">
-                                                    <input type="text" name="titulo" value="{{$gastos->titulo}}" class="form-control" required>
+                                            <div class="form-group row mb-5">
+                                                <label class="col-lg-3 form-control-label"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Tarea</font></font></label>
+                                                <div class="col-lg-9 select mb-3">
+                                                    <select  name="id_tarea" class="custom-select form-control">
+                                                    <option value="{{$gastos->id_tarea}}"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;"> {{$gastos->id_tarea}} </font></font></option>
+                                                    @foreach ($tareas as $tareas)
+                                                        <option value="{{$tareas->id}}"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;"> {{$tareas->titulo}} </font></font></option>
+                                                    @endforeach 
+                                                    </select>
                                                 </div>
                                             </div>
                                             <div class="form-group row d-flex align-items-center mb-5">

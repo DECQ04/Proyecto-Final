@@ -141,7 +141,7 @@ Author: SAEROX
                                                         <th>Descripción</th>
                                                         <th>Fecha de Inicio</th>
                                                         <th>Fecha de Vencimiento</th>
-                                                        <th>id_pago</th>
+                                                        <th>Pago Total</th>
                                                         <th>Estado de la Tarea</th>
                                                        
                                                     </tr>
@@ -169,7 +169,7 @@ Author: SAEROX
                                                  <td> {{$tareas->descripcion}} </td>
                                                  <td> {{$tareas->fecha_inicio}} </td>
                                                  <td> {{$tareas->fecha_vencimiento}} </td>
-                                                 <td> {{$tareas->id_pago}} </td>
+                                                 <td> {{$tareas->pago_total}} </td>
                                                  @if($tareas->estado=='1')
                                                  <td> <span style="width:100px;"><span class="badge-text badge-text-small info"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Activo</font></font></span></span> </td>
                                                  @endif
@@ -268,6 +268,13 @@ Author: SAEROX
                                                 </div>
                                             </div>
                                             <div class="form-group row d-flex align-items-center mb-5">
+                                                <label class="col-lg-3 form-control-label">Pago total</label>
+                                                <div class="col-lg-9">
+                                                    <input type="text" name="pago_total" placeholder="cantidad" class="form-control" required>
+                                                </div>
+                                            </div>
+                                             
+                                            <div class="form-group row d-flex align-items-center mb-5">
                                                 <label class="col-lg-3 form-control-label">Fecha Inicio</label>
                                                 <div class="col-lg-9">
                                                     <input type="date" name="fecha_inicio" placeholder="fecha_inicio" class="form-control" required>
@@ -279,20 +286,9 @@ Author: SAEROX
                                                     <input type="date" name="fecha_vencimiento" placeholder="fecha_vencimiento" class="form-control" required>
                                                 </div>
                                             </div>
-                                            <div class="form-group row mb-5">
-                                                <label class="col-lg-3 form-control-label"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Pago</font></font></label>
-                                                <div class="col-lg-9 select mb-3">
-                                                    <select  name="id_pago" class="custom-select form-control">
-                                                    <option ><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Seleccionar... </font></font></option>
-                                                    @foreach ($pagos as $pagos)
-                                                        <option value="{{$pagos->id}}"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;"> {{$pagos->descripcion}} </font></font></option>
-                                                    @endforeach 
-                                                    </select>
-                                                </div>
-                                            </div>
+                                            
 
-
-                                             
+                                           
                                             
                                            
                                             <div class="modal-footer">

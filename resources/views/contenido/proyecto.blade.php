@@ -141,7 +141,7 @@ Author: SAEROX
                                                         <th>Fecha de Inicio</th>
                                                         <th>Fecha de Vencimiento</th>
                                                         <th>pago_total</th>
-                                                        <th>id_pago</th>
+                                                        
                                                         <th>Estado del Proyecto</th>
                                                        
                                                     </tr>
@@ -172,7 +172,7 @@ Author: SAEROX
                                                  <td> {{$proyectos->fecha_incio}} </td>
                                                  <td> {{$proyectos->fecha_vencimiento}} </td>
                                                  <td> {{$proyectos->pago_total}} </td>
-                                                 <td> {{$proyectos->id_pago}} </td>
+                                                 
                                                  @if($proyectos->estado=='1')
                                                  <td> <span style="width:100px;"><span class="badge-text badge-text-small info"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Activo</font></font></span></span> </td>
                                                  @endif
@@ -292,17 +292,7 @@ Author: SAEROX
                                                 </div>
                                             </div>
                                             
-                                            <div class="form-group row mb-5">
-                                                <label class="col-lg-3 form-control-label"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Id. Pago</font></font></label>
-                                                <div class="col-lg-9 select mb-3">
-                                                    <select  name="id_pago" class="custom-select form-control">
-                                                    <option ><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Seleccionar... </font></font></option>
-                                                    @foreach ($pagos as $pagos)
-                                                        <option value="{{$pagos->id}}"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;"> {{$pagos->descripcion}}</font></font></option>
-                                                    @endforeach 
-                                                    </select>
-                                                </div>
-                                            </div>
+                                             
  
                                             <div class="modal-footer">
                                             <button type="button" class="btn btn-shadow" data-dismiss="modal">Close</button>
