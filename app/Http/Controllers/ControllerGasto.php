@@ -4,21 +4,21 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Gasto;
-
+use App\Tarea;
 class ControllerGasto extends Controller
 {
     public function inicio(){
         
         $gastos = Gasto::all();
-    
-        return view('contenido/gasto',['gastos'=>$gastos]);
+        $tareas = Tarea::all();
+        return view('contenido/gasto',['gastos'=>$gastos,'tareas'=>$tareas]);
     } 
   
     public function store(Request $request)
     {
         $gastos = new Gasto(); 
         $gastos->id_manager=request('id_manager');
-        $gastos->titulo=request('titulo');
+        $gastos->id_tarea=request('id_tarea');
         $gastos->descripcion=request('descripcion');
        // $gastos->fecha_hora=request('fecha_hora');
         $gastos->cantidad=request('cantidad');
@@ -47,7 +47,8 @@ class ControllerGasto extends Controller
      public function edit(Request $request)
     {
         $gastos = Gasto::findOrFail(request('id'));
-        return view('contenido.gastosEdit',['gastos'=>$gastos]);
+        $tareas = Tarea::all();
+        return view('contenido.gastosEdit',['gastos'=>$gastos,'tareas'=>$tareas]);
     }
 
     public function update(Request $request)
@@ -57,7 +58,7 @@ class ControllerGasto extends Controller
        
         $gastos = Gasto::findOrFail($request->id);
         $gastos->id_manager=request('id_manager');
-        $gastos->titulo=request('titulo');
+        $gastos->id_tarea=request('id_tarea');
         $gastos->descripcion=request('descripcion');
         $gastos->cantidad=request('cantidad');
         $gastos->condicion=request('condicion');

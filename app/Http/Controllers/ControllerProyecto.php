@@ -71,7 +71,7 @@ class ControllerProyecto extends Controller
         $proyectos->fecha_incio=request('fecha_inicio');
         $proyectos->fecha_vencimiento=request('fecha_vencimiento');
         $proyectos->pago_total=request('pago_total');
-        $proyectos->id_pago=request('id_pago');
+       // $proyectos->id_pago=request('id_pago');
         $proyectos->estado= '1';
         $proyectos->condicion= '1';
         $proyectos->save();
@@ -116,7 +116,7 @@ class ControllerProyecto extends Controller
         $proyectos->fecha_incio=request('fecha_inicio');
         $proyectos->fecha_vencimiento=request('fecha_vencimiento');
         $proyectos->pago_total=request('pago_total');
-        $proyectos->id_pago=request('id_pago');
+        //$proyectos->id_pago=request('id_pago');
         $proyectos->estado= request('estado');
         $proyectos->condicion= request('condicion');
         

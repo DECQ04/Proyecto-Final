@@ -36,7 +36,7 @@ class ControllerTarea extends Controller
         $tareas->descripcion=request('descripcion');
         $tareas->fecha_inicio=request('fecha_inicio');
         $tareas->fecha_vencimiento=request('fecha_vencimiento');
-        $tareas->id_pago=request('id_pago');
+        $tareas->pago_total=request('pago_total');
         $tareas->estado= '1';
         $proyecto = new ProyectoDC(); 
         $proyecto->id_proyecto=request('id_proyecto');
@@ -94,7 +94,7 @@ class ControllerTarea extends Controller
             $tareas->descripcion=request('descripcion');
             $tareas->fecha_inicio=request('fecha_inicio');
             $tareas->fecha_vencimiento=request('fecha_vencimiento');
-            $tareas->id_pago=request('id_pago');
+            $tareas->pago_total=request('pago_total');
             $tareas->estado=request('estado');
             $tareas->condicion=request('condicion');
             $tareas->save();

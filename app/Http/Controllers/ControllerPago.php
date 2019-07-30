@@ -4,14 +4,14 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Pago;
-
+use App\Proyecto;
 class ControllerPago extends Controller
 {
     public function inicio(){
         
         $pagos = Pago::all();
-    
-        return view('contenido/pago',['pagos'=>$pagos]);
+        $proyectos = Proyecto::all();
+        return view('contenido/pago',['pagos'=>$pagos,'proyectos'=>$proyectos]);
     } 
   
     public function store(Request $request)
@@ -20,6 +20,7 @@ class ControllerPago extends Controller
         $pagos->id_persona=request('id_persona');
         $pagos->cantidad=request('cantidad');
         //$pagos->fecha_hora=request('fecha_hora');
+        $pagos->id_proyecto=request('id_proyecto');
         $pagos->estado=request('estado');
         $pagos->descripcion=request('descripcion');
         $pagos->save();
@@ -44,8 +45,8 @@ class ControllerPago extends Controller
     public function edit(Request $request)
     {
         $pagos = Pago::findOrFail(request('id'));
-        
-       return view('contenido.pagosEdit',['pagos'=>$pagos]);
+        $proyectos = Proyecto::all();
+       return view('contenido.pagosEdit',['pagos'=>$pagos,'proyectos'=>$proyectos]);
     
     }
     public function update(Request $request)
@@ -56,6 +57,7 @@ class ControllerPago extends Controller
         $pagos->id_persona=request('id_persona');
         $pagos->cantidad=request('cantidad');
         //$pagos->fecha_hora=request('fecha_hora');
+        $pagos->id_proyecto=request('id_proyecto');
         $pagos->estado=request('estado');
         $pagos->descripcion=request('descripcion');
         $pagos->condicion=request('condicion');
