@@ -15,7 +15,6 @@ Route::get('/', function () {
     return view('layouts.app');
 });
  
-
 Route::get('/perfil', function () {
     return view('contenido.personal');
 });
@@ -25,6 +24,8 @@ Route::get('/reportes', function () {
 Route::get('/perfilup','ControllerPerfil@up');
 
 Route::get('/tickets','ControllerTickets@inicio');
+Route::post('/tickets','ControllerTickets@store');
+Route::post('/verTicket','ControllerTickets@verticket');
 
 Route::get('/proyectos','ControllerProyecto@inicio');
 Route::get('/proyectosDC','ControllerProyecto@inicioDC');
