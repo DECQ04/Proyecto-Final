@@ -22,10 +22,10 @@ class ControllerTarea extends Controller
     public function inicioDC(){
         
         $tareas = Tarea::join('proyectos','proyectos.id','=','tareas.id_proyecto')->
-        select('proyectos.id_cliente as cliente','tareas.id', 'tareas.id_proyecto', 'tareas.id_desarrollador', 'tareas.titulo', 'tareas.descripcion', 'tareas.id_pago', 'tareas.estado', 'tareas.condicion', 'tareas.fecha_inicio', 'tareas.fecha_vencimiento')->get();
+        select('proyectos.id_cliente as cliente','tareas.id', 'tareas.id_proyecto', 'tareas.id_desarrollador', 'tareas.titulo', 'tareas.descripcion', 'tareas.pago_total', 'tareas.estado', 'tareas.condicion', 'tareas.fecha_inicio', 'tareas.fecha_vencimiento')->get();
         
-        
-        return view('contenido/tareaDC',['tareas'=>$tareas]);
+        $tareasall = Tarea::all();
+        return view('contenido/tareaDC',['tareas'=>$tareas,'tareasall'=>$tareasall]);
     } 
     public function store(Request $request)
     {
