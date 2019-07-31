@@ -165,15 +165,13 @@ Author: SAEROX
                                                  <td> {{$pagos->id_proyecto}} </td>
                                                  <td> {{$pagos->cantidad}} </td> 
                                                  <td> {{$pagos->fecha_hora}} </td>
-                                                  
                                                  <td> {{$pagos->descripcion}} </td>
                                                  @if($pagos->estado=='1')
                                                  <td> <span style="width:100px;"><span class="badge-text badge-text-small info"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">En curso</font></font></span></span> </td>
                                                  @endif
                                                  @if($pagos->estado=='0')
                                                 <td> <span style="width:100px;"><span class="badge-text badge-text-small success"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Pagado</font></font></span></span></td>
-                                                @endif
-                                                 
+                                                @endif                                               
                                                 
                                                 </tr>
                                                 @endif

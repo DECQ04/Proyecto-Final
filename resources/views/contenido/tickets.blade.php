@@ -132,7 +132,9 @@ Author: SAEROX
                                             <table id="export-table" class="table mb-0">
                                                 <thead>
                                                     <tr>
+                                                    @if(Auth::user()->tipo==1||Auth::user()->tipo==3)
                                                         <th>Opciones</th>
+                                                        @endif
                                                         <th>Cliente</th>
                                                         <th>Tarea</th>
                                                         <th>Titulo</th>
@@ -154,6 +156,7 @@ Author: SAEROX
                                                 
                                                  
                                                 <tr>
+                                                @if(Auth::user()->tipo==1||Auth::user()->tipo==3)
                                                 <td class="td-actions"> 
                                                 
                                                 <form method="POST" action="/verTicket">
@@ -161,10 +164,9 @@ Author: SAEROX
                                                       <input type="hidden" name="id" value="{{$tickets->id}}">
                                                      <button type="submit" class="btn btn-gradient-04  btn-sm mr-1 mb-2"><i class="la la-eye"></i></button>
                                                 
-                                                
-                                                 
                                                 </form>
                                                 </td>
+                                                @endif
                                                  <td> {{$tickets->id_cliente}} </td>
                                                  <td> {{$tickets->id_tarea}} </td>
                                                  <td> {{$tickets->titulo}} </td>
@@ -233,7 +235,7 @@ Author: SAEROX
             <div class="modal-dialog modal-lg">
                 <div class="modal-content">
                     <div class="modal-header">
-                        <h4 class="modal-title">Nuevo Proyecto</h4>
+                        <h4 class="modal-title">Nuevo Ticket</h4>
                         <button type="button" class="close" data-dismiss="modal">
                             <span aria-hidden="true">×</span>
                             <span class="sr-only">close</span>
@@ -241,14 +243,44 @@ Author: SAEROX
                     </div>
                     <div class="modal-body">
                         <div class?="widget-body">
-                                         <form method="POST" action="/proyectos" class="form-horizontal">
+                        <form method="POST" action="/tickets" class="form-horizontal">
                                          {{ csrf_field() }}
-                                          
+                                         <input type="hidden" name="id_cliente" value="{{Auth::user()->id}} " class="form-control" >
+                                           
+                                            <div class="form-group row mb-5">
+                                                <label class="col-lg-3 form-control-label"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Tarea</font></font></label>
+                                                <div class="col-lg-9 select mb-3">
+                                                    <select  name="id_tarea" class="custom-select form-control">
+                                                    <option ><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Seleccionar... </font></font></option>
+                                                    @foreach ($tareas as $tareas)
+                                                        <option value="{{$tareas->id}}"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;"> {{$tareas->titulo}} </font></font></option>
+                                                    @endforeach 
+                                                    </select>
+                                                </div>
+                                            </div>
                                             
- 
+                                            
+                                            <div class="form-group row d-flex align-items-center mb-5">
+                                                <label class="col-lg-3 form-control-label">Titulo</label>
+                                                <div class="col-lg-9">
+                                                    <input type="text" name="titulo" placeholder="titulo" class="form-control" required>
+                                                </div>
+                                            </div>
+                                            <div class="form-group row d-flex align-items-center mb-5">
+                                                <label class="col-lg-3 form-control-label">Descripcion</label>
+                                                <div class="col-lg-9">
+                                                    <input type="text" name="descripcion" placeholder="descripcion del ticket" class="form-control" required>
+                                                </div>
+                                            </div>
+                                             
+                                            
+
+                                           
+                                            
+                                           
                                             <div class="modal-footer">
-                                            <button type="button" class="btn btn-shadow" data-dismiss="modal">Close</button>
-                                            <button type="submit" class="btn btn-primary">Save</button>
+                        <button type="button" class="btn btn-shadow" data-dismiss="modal">Close</button>
+                        <button type="submit" class="btn btn-primary">Save</button>
                     </div>
                                         </form>
                         </div>

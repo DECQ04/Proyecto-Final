@@ -145,7 +145,7 @@ Author: SAEROX
                                                         <th>Descripción</th>
                                                         <th>Fecha de Inicio</th>
                                                         <th>Fecha de Vencimiento</th>
-                                                        <th>id_pago</th>
+                                                        <th>Pago</th>
                                                         <th>Estado de la Tarea</th>
                                                        
                                                     </tr>
@@ -168,7 +168,7 @@ Author: SAEROX
                                                  <td> {{$tareas->descripcion}} </td>
                                                  <td> {{$tareas->fecha_inicio}} </td>
                                                  <td> {{$tareas->fecha_vencimiento}} </td>
-                                                 <td> {{$tareas->id_pago}} </td>
+                                                 <td> {{$tareas->pago_total}} </td>
                                                  @if($tareas->estado=='1')
                                                  <td> <span style="width:100px;"><span class="badge-text badge-text-small info"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Activo</font></font></span></span> </td>
                                                  @endif
@@ -216,7 +216,64 @@ Author: SAEROX
             <!-- End Page Content -->
 
          <!-- Begin Large Modal -->
-          
+         <div id="modal-large" class="modal fade">
+            <div class="modal-dialog modal-lg">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h4 class="modal-title">Nuevo Ticket</h4>
+                        <button type="button" class="close" data-dismiss="modal">
+                            <span aria-hidden="true">×</span>
+                            <span class="sr-only">close</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <div class?="widget-body">
+                        <form method="POST" action="/tickets" class="form-horizontal">
+                                         {{ csrf_field() }}
+                                         <input type="hidden" name="id_cliente" value="{{Auth::user()->id}} " class="form-control" >
+                                           
+                                            <div class="form-group row mb-5">
+                                                <label class="col-lg-3 form-control-label"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Tarea</font></font></label>
+                                                <div class="col-lg-9 select mb-3">
+                                                    <select  name="id_tarea" class="custom-select form-control">
+                                                    <option ><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Seleccionar... </font></font></option>
+                                                    @foreach ($tareasall as $tareasall)
+                                                        <option value="{{$tareasall->id}}"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;"> {{$tareasall->titulo}} </font></font></option>
+                                                    @endforeach 
+                                                    </select>
+                                                </div>
+                                            </div>
+                                            
+                                            
+                                            <div class="form-group row d-flex align-items-center mb-5">
+                                                <label class="col-lg-3 form-control-label">Titulo</label>
+                                                <div class="col-lg-9">
+                                                    <input type="text" name="titulo" placeholder="titulo" class="form-control" required>
+                                                </div>
+                                            </div>
+                                            <div class="form-group row d-flex align-items-center mb-5">
+                                                <label class="col-lg-3 form-control-label">Descripcion</label>
+                                                <div class="col-lg-9">
+                                                    <input type="text" name="descripcion" placeholder="descripcion del ticket" class="form-control" required>
+                                                </div>
+                                            </div>
+                                             
+                                            
+
+                                           
+                                            
+                                           
+                                            <div class="modal-footer">
+                        <button type="button" class="btn btn-shadow" data-dismiss="modal">Close</button>
+                        <button type="submit" class="btn btn-primary">Save</button>
+                    </div>
+                                        </form>
+                        </div>
+                    </div>
+                    
+                </div>
+            </div>
+        </div>
         <!-- End Large Modal -->
         </div>
         <!-- Begin Vendor Js -->
