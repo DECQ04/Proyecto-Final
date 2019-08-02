@@ -26,6 +26,7 @@ Route::get('/perfilup','ControllerPerfil@up');
 Route::get('/tickets','ControllerTickets@inicio');
 Route::post('/tickets','ControllerTickets@store');
 Route::post('/verTicket','ControllerTickets@verticket');
+Route::post('/ticketsRespuesta','ControllerTickets@responderTickets');
 
 Route::get('/proyectos','ControllerProyecto@inicio');
 Route::get('/proyectosDC','ControllerProyecto@inicioDC');
