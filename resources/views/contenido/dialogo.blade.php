@@ -75,7 +75,7 @@ Author: SAEROX
                     </div>
                     <!-- End Topbar -->
                 </nav>
-            </header>
+        </header>
         <!-- End Preloader -->
         <div class="page db-social">
             <!-- Begin Header -->
@@ -116,8 +116,9 @@ Author: SAEROX
                                                 </div>
                                                 <div class="d-flex flex-column mr-auto">
                                                     <div class="title">
-                                                        <span class="username">{{$cliente->name}}</span>
+                                                        <span class="username">{{$cliente->name}}   </span>
                                                     </div>
+                                                    <span  >Tarea: {{$tareas->titulo}}</span>
                                                     <div class="time">{{$tickets->fecha_hora}}</div>
                                                 </div>
                                                 
@@ -140,15 +141,49 @@ Author: SAEROX
                                             </div>
                                                  
                                             </div>
+                                            @foreach ($respuestas as $respuestas)
+                                            @if($tickets->id==$respuestas->id_ticket)
+
+                                            <div class="comments">
+                                                <div class="comments-header d-flex align-items-center">
+                                                    <div class="user-image">
+                                                        <img class="rounded-circle" src="assets/img/avatar/avatar-05.jpg" alt="...">
+                                                    </div>
+                                                    <div class="d-flex flex-column mr-auto">
+                                                        <div class="title">
+                                                            <span class="username">{{$respuestas->name}}</span>
+                                                        </div>
+                                                        <div class="time">{{$respuestas->fecha_hora}}</div>
+                                                    </div>
+                                                </div>
+                                                <div class="comments-body">
+                                                   
+                                                </div>
+                                                <div class="comments-body">
+                                                <p>
+                                                    {{$respuestas->titulo}} </p>
+                                                    <p>
+                                                    {{$respuestas->descripcion}} </p>
+                                                </div>
+                                            </div>
+                                            @endif
+                                            @endforeach
+
                                             <!-- End Widget Footer -->
                                             <!-- Begin Publisher -->
                                             <div class="publisher publisher-multi">
-                                          
-                                                <textarea class="publisher-input" rows="1"></textarea>
-                                                <div class="publisher-bottom d-flex justify-content-end">
-                                                     
-                                                    <button class="btn btn-gradient-01">Enviar</button>
-                                                </div>
+                                            <form method="POST" action="/ticketsRespuesta" class="form-horizontal">
+                                              {{ csrf_field() }}
+                                            <input type="hidden" name="id_ticket" value="{{$tickets->id}} " class="form-control" >
+                                            <input type="hidden" name="id_desarrollador" value="{{Auth::user()->id}} " class="form-control" >
+                                           
+                                            <input type="text" name="titulo" placeholder="titulo" class="form-control" required>
+                                      
+                                            <textarea class="form-control" name="descripcion" placeholder="Descripcion del mensaje..." required=""></textarea>
+                                            <button  type="submit" class="btn btn-gradient-01">Enviar</button>
+                                            
+                                            </form>
+                                                
                                             </div>
                                             <!-- End Publisher -->
                                         </div>

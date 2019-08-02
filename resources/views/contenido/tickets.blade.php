@@ -172,10 +172,7 @@ Author: SAEROX
                                                  <td> {{$tickets->titulo}} </td>
                                                  <td> {{$tickets->descripcion}} </td>
                                                  <td> {{$tickets->fecha_hora}} </td>
-                                                
-                                                 
-
-                                               
+              
                                                  @if($tickets->estado=='1')
                                                  <td> <span style="width:100px;"><span class="badge-text badge-text-small info"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Sin contestar</font></font></span></span> </td>
                                                  @endif

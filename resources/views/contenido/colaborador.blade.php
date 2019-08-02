@@ -145,8 +145,7 @@ Author: SAEROX
                                                 @foreach ($colaboradores as $colaboradores)
                                                 <tr>
                                                 <td class="td-actions"> 
-                                                <a href="#"   title="Editar informacion" data-toggle="modal" data-target="#modal-large" >
-                                                <i class="la la-edit edit" ></i></a>
+                                                
                                                
                                                 @if ($colaboradores->condicion=='0')
                                                 <a href="/{{$colaboradores->id}}/colaboradoresact" ><i class="ion-checkmark-circled"></i></a>
