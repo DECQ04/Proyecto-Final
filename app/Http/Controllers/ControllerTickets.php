@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Tickets;
 use App\Tarea;
 use App\Cliente;
+use App\Ticket_respuestas;
 class ControllerTickets extends Controller
 {
     public function inicio(){
@@ -43,7 +44,26 @@ class ControllerTickets extends Controller
         {
             $tickets = Tickets::findOrFail(request('id')); 
             $cliente = Cliente::findOrFail($tickets->id_cliente); 
-           return view('contenido.dialogo',[ 'tickets'=>$tickets,'cliente'=>$cliente ]);
+            $tareas = Tarea::findOrFail($tickets->id_tarea); 
+            $respuestas= Ticket_respuestas::join('users','ticket_respuestas.id_desarrollador','=','users.id')->
+            select('*')->get();
+           return view('contenido.dialogo',[ 'respuestas'=>$respuestas,'tickets'=>$tickets,'tareas'=>$tareas,'cliente'=>$cliente ]);
         
         }
+        
+        public function responderTickets(Request $request){ 
+            $ticket = Tickets::findOrFail(request('id_ticket'));
+            $ticket ->estado='0';
+            $ticket->save();
+
+            $tickets = new Ticket_respuestas();  
+            $tickets->id_ticket=request('id_ticket');
+            $tickets->id_desarrollador=request('id_desarrollador');
+            $tickets->titulo=request('titulo');
+            $tickets->descripcion=request('descripcion');
+            $tickets->save();
+            return redirect('/tickets');
+  
+    
+    }
 }
