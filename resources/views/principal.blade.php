@@ -35,6 +35,30 @@ Author: SAEROX
     enable_page_level_ads: true
   });
 </script> 
+<script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+<script type="text/javascript">
+      google.charts.load("current", {packages:["corechart"]});
+      google.charts.setOnLoadCallback(drawChart);
+      function drawChart() {
+        var data = google.visualization.arrayToDataTable([
+          ['Task', 'Hours per Day'],
+          ['Finalizados',     {{$a}}],
+          ['Fallidos', 0.1],
+          ['Fallidos',  0],
+          ['Fallidos',  0],
+          ['Activos',      {{$aA}}],
+          
+        ]);
+
+        var options = {
+          title: 'Proyectos',
+          pieHole: 0.4,
+        };
+
+        var chart = new google.visualization.PieChart(document.getElementById('donutchart'));
+        chart.draw(data, options);
+      }
+    </script>
 
         <!-- Favicon -->
         <link rel="apple-touch-icon" sizes="180x180" href="assets/img/apple-touch-icon.png">
@@ -43,6 +67,8 @@ Author: SAEROX
         <!-- Stylesheet -->
         <link rel="stylesheet" href="assets/vendors/css/base/bootstrap.min.css">
         <link rel="stylesheet" href="assets/vendors/css/base/elisyam-1.5.min.css">
+        
+   
         <!-- Tweaks for older IEs--><!--[if lt IE 9]>
         <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
         <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script><![endif]-->
@@ -121,7 +147,7 @@ Author: SAEROX
                     
                 <!-- End Left Sidebar -->
                 <div class="content-inner">
-                
+                 
                     <!-- Begin Container -->
                      @if (Auth::user()->tipo == 1)
                      @include('plantilla.contenidoPrincipal')

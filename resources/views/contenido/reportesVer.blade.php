@@ -149,7 +149,7 @@ Author: SAEROX
                                                 <td> </td>
                                                 <td>  </td>
                                                 <td> </td>
-                                                <td> </td>
+                                                <td> <h4>Pago Acordado: {{$proyectos->pago_total}}</h4></td>
                                                 </tr>
                                                
                                                 <tr>
@@ -169,9 +169,9 @@ Author: SAEROX
                                                 <td></td>
                                                 <td></td>
                                                 <td></td>
-                                                <td>Desarrollador: {{$tareas->id_desarrollador}}</td>
+                                                <td>Desarrollador: {{$tareas->name}}</td>
                                                 <td>Tarea: {{$tareas->titulo}} </td>
-                                                <td>Pago: {{$tareas->id_pago}}</td>
+                                                <td>Pago: {{$tareas->cantidad}}</td>
                                                 </tr>
                                                 @endforeach
 
@@ -182,7 +182,29 @@ Author: SAEROX
                                                 <td></td>
                                                 <td> </td>
                                                 <td>  </td>
-                                                <td>Pago Total Estimado/Real:{{$proyectos->pago_total}}  </td>
+                                                <td> <h4>Gasto Total:{{$pago}} </h4> </td>
+                                                </tr>
+
+                                                @foreach ($pagos as $pagos)
+                                                <tr>
+                                                <td></td>
+                                                <td></td>
+                                                <td></td>
+                                                <td> </td>
+                                                <td></td>
+                                                <td>  </td>
+                                                <td>Pago del cliente: {{$pagos->cantidad}}</td>
+                                                </tr>
+                                                @endforeach
+
+                                                 <tr>
+                                                <td></td>
+                                                <td></td>
+                                                <td></td>
+                                                <td></td>
+                                                <td> </td>
+                                                <td>  </td>
+                                                <td> <h4>Pago Total:{{$pagosT}} </h4> </td>
                                                 </tr>
 
 

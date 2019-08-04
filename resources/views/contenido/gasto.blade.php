@@ -121,6 +121,7 @@ Author: SAEROX
                                     </div>
                                     <div class="widget-body">
                                         <!-- Begin Large Modal -->
+                                        @if (Auth::user()->tipo == 1)
                                         <div class="row">
                                             <div class="bordered no-actions d-flex align-items-center">
                                             <p>Nuevo Registro</p>
@@ -128,14 +129,17 @@ Author: SAEROX
                                             <div class="col-xl-4 d-flex align-items-center mb-3">
                                             <button type="button" class="btn btn-gradient-01 mr-1 mb-2" data-toggle="modal" data-target="#modal-large"><i class="la la-pencil"></i>Crear</button></div>
                                         </div>
+                                        @endif
                                         <!-- End Large Modal -->
                                         <div class="table-responsive">
                                             <table id="export-table" class="table mb-0">
                                                 <thead>
                                                     <tr>
+                                                    @if (Auth::user()->tipo == 1)
                                                         <th>Opciones</th>
+                                                        @endif
                                                         <th>Id Manager</th>
-                                                        <th>Id Tarea</th>
+                                                        <th>Tarea</th>
                                                         <th>Descripción</th>
                                                         <th>Fecha hora</th>
                                                         <th>cantidad</th>
@@ -144,9 +148,11 @@ Author: SAEROX
                                                 </thead>
                                                 <tbody>
                                                 @foreach ($gastos as $gastos)
-                                                @if (Auth::user()->id == $gastos->id_manager)
+                                                @if (Auth::user()->id == $gastos->id_manager||Auth::user()->id == $gastos->id_desarrollador)
                                                 <tr>
+                                                @if (Auth::user()->tipo == 1)
                                                 <td class="td-actions"> 
+                                            
                                                 <form method="POST" action="/gastosEdit">
                                                 {{ csrf_field() }}
                                                       <input type="hidden" name="id" value="{{$gastos->id}}">
@@ -161,8 +167,9 @@ Author: SAEROX
                                                 @endif
                                                 </form >
                                                 </td>
+                                                @endif
                                                  <td> {{$gastos->id_manager}} </td>
-                                                 <td> {{$gastos->id_tarea}} </td>
+                                                 <td> {{$gastos->tit}} </td>
                                                  <td> {{$gastos->descripcion}} </td>
                                                  <td> {{$gastos->fecha_hora}} </td>
                                                  <td> {{$gastos->cantidad}} </td>

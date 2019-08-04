@@ -12,7 +12,7 @@
                         <li><a href="/tickets"><i class="la la-comments"></i><span>Tickets</span></a></li>
                         </ul>
                         <ul class="list-unstyled">
-                        <li><a href="/pagos"><i class="la la-share-alt"></i><span>Pagos</span></a></li>
+                        <li><a href="/gastos"><i class="la la-share-alt"></i><span>Pagos</span></a></li>
                         </ul>
                          
                         <!-- End Main Navigation -->

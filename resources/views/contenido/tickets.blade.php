@@ -120,6 +120,7 @@ Author: SAEROX
                                     </div>
                                     <div class="widget-body">
                                         <!-- Begin Large Modal -->
+                                        @if(Auth::user()->tipo==1||Auth::user()->tipo==3)
                                         <div class="row">
                                             <div class="bordered no-actions d-flex align-items-center">
                                             <p>Nuevo Ticket</p>
@@ -127,6 +128,7 @@ Author: SAEROX
                                             <div class="col-xl-4 d-flex align-items-center mb-3">
                                             <button type="button"  class="btn btn-gradient-01 mr-1 mb-2" data-toggle="modal" data-target="#modal-large"><i class="la la-pencil"></i>Crear</button></div>
                                         </div>
+                                        @endif
                                         <!-- End Large Modal -->
                                         <div class="table-responsive">
                                             <table id="export-table" class="table mb-0">

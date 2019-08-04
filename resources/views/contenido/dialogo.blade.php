@@ -95,8 +95,23 @@ Author: SAEROX
             @endif
                 <!-- End Left Sidebar -->
                 <!-- Begin Content -->
-                <div class="content-inner compact">
+                
+                <div class="content-inner ">
+                
                     <div class="container-fluid newsfeed">
+                    <div class="row">
+                            <div class="page-header">
+	                            <div class="d-flex align-items-center">
+	                                <h2 class="page-header-title">Tickets</h2>
+	                                <div>
+			                            <ul class="breadcrumb">
+			                                <li class="breadcrumb-item"><a href="/principal"><i class="ti ti-home"></i></a></li>
+			                                <li class="breadcrumb-item active">Tickets</li>
+			                            </ul>
+	                                </div>
+	                            </div>
+                            </div>
+                        </div>
                         <div class="row justify-content-center">
                             <div class="col-xl-11">
                                 <div class="row">
@@ -180,6 +195,7 @@ Author: SAEROX
                                             <input type="text" name="titulo" placeholder="titulo" class="form-control" required>
                                       
                                             <textarea class="form-control" name="descripcion" placeholder="Descripcion del mensaje..." required=""></textarea>
+                                            <button type="/regresar" class="btn btn-shadow" >Close</button>
                                             <button  type="submit" class="btn btn-gradient-01">Enviar</button>
                                             
                                             </form>
