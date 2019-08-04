@@ -12,8 +12,8 @@ use App\Colaborador;
 class ControllerProyecto extends Controller
 {
     public function cont(){
-        $g = Gasto::avg('cantidad');
-        $p = Pago::avg('cantidad');
+        $g = Gasto::sum('cantidad');
+        $p = Pago::sum('cantidad');
         //$managers = Manager::where('tipo', '=','1')->select('*')->get();
         $n = Proyecto::count();
         $a = Proyecto::where('estado','=','0')->count();
@@ -69,9 +69,9 @@ class ControllerProyecto extends Controller
         $pago = Tarea::where('id_proyecto', '=', $proyectos->id)->
         join('users','users.id','=','tareas.id_desarrollador')->
         join('gastos','gastos.id_tarea','=','tareas.id')
-        ->select('tareas.id','users.name','tareas.titulo','gastos.cantidad')->avg('gastos.cantidad');
+        ->select('tareas.id','users.name','tareas.titulo','gastos.cantidad')->sum('gastos.cantidad');
         $pagos=Pago::where('id_proyecto', '=', $proyectos->id)->select('*')->get();
-        $pagosT=Pago::where('id_proyecto', '=', $proyectos->id)->select('*')->avg('cantidad');
+        $pagosT=Pago::where('id_proyecto', '=', $proyectos->id)->select('*')->sum('cantidad');
         
         $colaboradores = Colaborador::where('tipo','=','2')->select('*')->get();
         return view('contenido/reportesVer',
