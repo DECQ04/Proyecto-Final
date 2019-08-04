@@ -9,7 +9,9 @@ class ControllerGasto extends Controller
 {
     public function inicio(){
         
-        $gastos = Gasto::all();
+        $gastos = Gasto::join('tareas','gastos.id_tarea','=','tareas.id')->
+        select('gastos.id', 'gastos.id_manager','gastos.id_tarea','gastos.titulo',
+        'gastos.descripcion','gastos.fecha_hora','gastos.cantidad','gastos.condicion','tareas.id_desarrollador','tareas.titulo as tit')->get();
         $tareas = Tarea::all();
         return view('contenido/gasto',['gastos'=>$gastos,'tareas'=>$tareas]);
     } 

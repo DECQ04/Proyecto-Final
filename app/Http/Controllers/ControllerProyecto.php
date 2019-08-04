@@ -6,24 +6,31 @@ use App\ProyectoDC;
 use App\Manager;
 use App\Cliente;
 use App\Pago;
+use App\Gasto;
 use App\Tarea;
 use App\Colaborador;
 class ControllerProyecto extends Controller
 {
     public function cont(){
-       
+        $g = Gasto::avg('cantidad');
+        $p = Pago::avg('cantidad');
         //$managers = Manager::where('tipo', '=','1')->select('*')->get();
         $n = Proyecto::count();
         $a = Proyecto::where('estado','=','0')->count();
+        $aA = Proyecto::where('estado','=','1')->count();
         $proyectos=(100*$a)/$n;
 
         $nt = Tarea::count();
         $at = Tarea::where('estado','=','0')->count();
+        $ad = Tarea::where('estado','=','1')->count();
+        $aD =Tarea::where('estado','=','1')->select('titulo','id')->get();
         $tareas=(100*$at)/$nt;
+
+        
         //$users = DB::table('users')->count();
       //  ->count()
             //renombre la vista y por lo tanto renombre el return de contenido/proyecto a -> contenido/proyecto
-        return view('principal',['proyectos'=>$proyectos,'tareas'=>$tareas]);
+        return view('principal',['proyectos'=>$proyectos,'g'=>$g,'p'=>$p,'tareas'=>$tareas,'ad'=>$ad,'aD'=>$aD,'aA'=>$aA,'a'=>$a]);
     } 
     public function inicio(){
        
@@ -55,11 +62,20 @@ class ControllerProyecto extends Controller
         $proyectos = Proyecto::findOrFail($request->id); 
         $manager=  Manager::findOrFail($proyectos->id_manager); 
         $cliente=  Manager::findOrFail($proyectos->id_cliente); 
-        $tareas = Tarea::where('id_proyecto', '=', $proyectos->id)->select('*')->get();
-        $pagos=Pago::all();
+        $tareas = Tarea::where('id_proyecto', '=', $proyectos->id)->
+        join('users','users.id','=','tareas.id_desarrollador')->
+        join('gastos','gastos.id_tarea','=','tareas.id')
+        ->select('tareas.id','users.name','tareas.titulo','gastos.cantidad')->get();
+        $pago = Tarea::where('id_proyecto', '=', $proyectos->id)->
+        join('users','users.id','=','tareas.id_desarrollador')->
+        join('gastos','gastos.id_tarea','=','tareas.id')
+        ->select('tareas.id','users.name','tareas.titulo','gastos.cantidad')->avg('gastos.cantidad');
+        $pagos=Pago::where('id_proyecto', '=', $proyectos->id)->select('*')->get();
+        $pagosT=Pago::where('id_proyecto', '=', $proyectos->id)->select('*')->avg('cantidad');
+        
         $colaboradores = Colaborador::where('tipo','=','2')->select('*')->get();
         return view('contenido/reportesVer',
-        ['proyectos'=>$proyectos,'pagos'=>$pagos,'manager'=>$manager,
+        ['proyectos'=>$proyectos,'pago'=>$pago,'pagosT'=>$pagosT,'pagos'=>$pagos,'manager'=>$manager,
         'cliente'=>$cliente,'tareas'=>$tareas,'colaboradores'=>$colaboradores]);
     } 
     public function store(Request $request)
