@@ -9,24 +9,53 @@ use App\Pago;
 use App\Gasto;
 use App\Tarea;
 use App\Colaborador;
+use App\Tickets;
 class ControllerProyecto extends Controller
 {
-    public function cont(){
+    public function cont(Request $request){
         $g = Gasto::sum('cantidad');
         $p = Pago::sum('cantidad');
         //$managers = Manager::where('tipo', '=','1')->select('*')->get();
-        $n = Proyecto::count();
-        $a = Proyecto::where('estado','=','0')->count();
-        $aA = Proyecto::where('estado','=','1')->count();
-        $proyectos=(100*$a)/$n;
+        $id = $request->user()->id;
+        $tipo = $request->user()->tipo;
+        //$prueba= Colaborador::where('id',"=",$id)->where('idddd',"=",$id)->select('*')->get();
 
-        $nt = Tarea::count();
-        $at = Tarea::where('estado','=','0')->count();
-        $ad = Tarea::where('estado','=','1')->count();
-        $aD =Tarea::where('estado','=','1')->select('titulo','id')->get();
-        $tareas=(100*$at)/$nt;
+        if($tipo==1){
+         $aD =Tarea::where('estado','=','1')->select('titulo','id')->get();   
+         $ad = Tarea::where('estado','=','1')->count();
+         $nt = Tarea::count();
+         $at = Tarea::where('estado','=','0')->count();
+         $n = Proyecto::count();
+         $a = Proyecto::where('estado','=','0')->count();
+         $aA = Proyecto::where('estado','=','1')->count();
+        }
+        if($tipo==2){
+        $aD =Tarea::where('estado','=','1')->where('id_desarrollador','=',$id)->select('titulo','id')->get();   
+        $ad = Tarea::where('estado','=','1')->where('id_desarrollador','=',$id)->count();   
+        $nt = Tarea::where('id_desarrollador','=',$id)->count();
+        $at = Tarea::where('estado','=','0')->where('id_desarrollador','=',$id)->count();
+        $n = Proyecto::join('proyectos_colaboradores','proyectos.id','=','proyectos_colaboradores.id_proyecto')->where('id_desarrollador','=',$id)->count();
+        $a = Proyecto::join('proyectos_colaboradores','proyectos.id','=','proyectos_colaboradores.id_proyecto')->where('id_desarrollador','=',$id)->where('estado','=','0')->count();
+        $aA = Proyecto::join('proyectos_colaboradores','proyectos.id','=','proyectos_colaboradores.id_proyecto')->where('id_desarrollador','=',$id)->where('estado','=','1')->count();
+        }
+        if($tipo==3){
+            $aD =Tickets::where('estado','=','0')->where('id_cliente','=',$id)->select('titulo','id')->get();   
+            $ad = Tickets::where('estado','=','1')->where('id_cliente','=',$id)->count();
+            $nt = Tickets::where('id_cliente','=',$id)->count();
+            $at = Tickets::where('estado','=','0')->where('id_cliente','=',$id)->count();
 
-        
+            $n = Proyecto::where('id_cliente','=',$id)->count();
+            $a = Proyecto::where('estado','=','0')->where('id_cliente','=',$id)->count();
+            $aA = Proyecto::where('estado','=','1')->where('id_cliente','=',$id)->count(); 
+        }
+             if($at>0&&$nt>0||$a>0&&$n>0){
+            $tareas=(100*$at)/$nt;
+            $proyectos=(100*$a)/$n;
+             }else{
+                $tareas=0;
+                $proyectos=0;
+             }
+           
         //$users = DB::table('users')->count();
       //  ->count()
             //renombre la vista y por lo tanto renombre el return de contenido/proyecto a -> contenido/proyecto
@@ -54,7 +83,7 @@ class ControllerProyecto extends Controller
     public function reportes(){
        
        
-        $proyectos = Proyecto::where('estado', '=','0')->select('*')->get();
+        $proyectos = Proyecto::all();
         return view('contenido/reportes',['proyectos'=>$proyectos]);
     } 
     public function VisualizarReporte(Request $request){
@@ -87,7 +116,7 @@ class ControllerProyecto extends Controller
         $proyectos->fecha_incio=request('fecha_inicio');
         $proyectos->fecha_vencimiento=request('fecha_vencimiento');
         $proyectos->pago_total=request('pago_total');
-       // $proyectos->id_pago=request('id_pago');
+       
         $proyectos->estado= '1';
         $proyectos->condicion= '1';
         $proyectos->save();
