@@ -9,7 +9,7 @@ Author: SAEROX
     <head>
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <title>Sistema</title>
+        <title>ESC.ga</title>
         
         
         <meta name="csrf-token" content="{{ csrf_token() }}">
@@ -61,9 +61,9 @@ Author: SAEROX
     </script>
 
         <!-- Favicon -->
-        <link rel="apple-touch-icon" sizes="180x180" href="assets/img/apple-touch-icon.png">
-        <link rel="icon" type="image/png" sizes="32x32" href="assets/img/favicon-32x32.png">
-        <link rel="icon" type="image/png" sizes="16x16" href="assets/img/favicon-16x16.png">
+        <link rel="apple-touch-icon" sizes="180x180" href="assets/img/logo.png">
+        <link rel="icon" type="image/png" sizes="32x32" href="assets/img/logo.png">
+        <link rel="icon" type="image/png" sizes="16x16" href="assets/img/logo.png">
         <!-- Stylesheet -->
         <link rel="stylesheet" href="assets/vendors/css/base/bootstrap.min.css">
         <link rel="stylesheet" href="assets/vendors/css/base/elisyam-1.5.min.css">
@@ -153,10 +153,10 @@ Author: SAEROX
                      @include('plantilla.contenidoPrincipal')
                      @endif
                      @if (Auth::user()->tipo == 2)
-                      
+                     @include('plantilla.contenidoPrincipal2')
                      @endif
                      @if (Auth::user()->tipo == 3)
-                     
+                     @include('plantilla.contenidoPrincipal3')
                      @endif
                     <!-- End Container -->
                     <!-- Begin Page Footer-->

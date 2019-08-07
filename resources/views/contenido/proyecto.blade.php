@@ -10,7 +10,7 @@ Author: SAEROX
     <head>
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <title>Elisyam - Datatables</title>
+        <title>ESC.ga</title>
         <meta name="description" content="Elisyam is a Web App and Admin Dashboard Template built with Bootstrap 4">
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
         <!-- Google Fonts -->
@@ -24,9 +24,9 @@ Author: SAEROX
           });
         </script>
         <!-- Favicon -->
-        <link rel="apple-touch-icon" sizes="180x180" href="assets/img/apple-touch-icon.png">
-        <link rel="icon" type="image/png" sizes="32x32" href="assets/img/favicon-32x32.png">
-        <link rel="icon" type="image/png" sizes="16x16" href="assets/img/favicon-16x16.png">
+        <link rel="apple-touch-icon" sizes="180x180" href="assets/img/logo.png">
+        <link rel="icon" type="image/png" sizes="32x32" href="assets/img/logo.png">
+        <link rel="icon" type="image/png" sizes="16x16" href="assets/img/logo.png">
         <!-- Stylesheet -->
         <link rel="stylesheet" href="assets/vendors/css/base/bootstrap.min.css">
         <link rel="stylesheet" href="assets/vendors/css/base/elisyam-1.5.min.css">
@@ -255,8 +255,8 @@ Author: SAEROX
                                             <div class="form-group row mb-5">
                                                 <label class="col-lg-3 form-control-label"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Cliente</font></font></label>
                                                 <div class="col-lg-9 select mb-3">
-                                                    <select  name="id_cliente" class="custom-select form-control">
-                                                    <option ><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Seleccionar... </font></font></option>
+                                                    <select  name="id_cliente" class="custom-select form-control" required="">
+                                                    <option value=""><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Seleccionar... </font></font></option>
                                                     @foreach ($colaboradores as $colaboradores)
                                                         <option value="{{$colaboradores->id}}"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;"> {{$colaboradores->name}}</font></font></option>
                                                     @endforeach 
@@ -286,12 +286,9 @@ Author: SAEROX
                                             <div class="form-group row d-flex align-items-center mb-5">
                                                 <label class="col-lg-3 form-control-label">Pago Total</label>
                                                 <div class="col-lg-9">
-                                                    <input type="text" name="pago_total" placeholder="pago_total" class="form-control" required>
+                                                    <input type="number" max="999999.003" step="any" name="pago_total"  placeholder="pago_total" class="form-control" required>
                                                 </div>
                                             </div>
-                                            
-                                             
- 
                                             <div class="modal-footer">
                                             <button type="button" class="btn btn-shadow" data-dismiss="modal">Close</button>
                                             <button type="submit" class="btn btn-primary">Save</button>
